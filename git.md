@@ -22,9 +22,13 @@
     git config --local user.email "깃헙 이메일"
     ```
 
+![git status](./images/status_add_commit.png)
+
 3. 변경사항이 있다면 먼저 작업 내용을 `add`(스테이징), `commit`(변경내역 확정) 한다.
 
     ``` bash
+    # 현재 수정사항 등의 상태 출력
+    git status
     # .(dot)은 모든 변경사항을 스테이징 하겠다는 의미
     git add .
     # vscode가 열리면 내용 작성하고 저장, 닫기
