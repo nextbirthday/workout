@@ -35,6 +35,8 @@
     git commit
     ```
 
+![push reject](./images/push_reject.png)
+
 4. 변경사항이 로컬 리포지토리에 반영되었으면, 원격의 최신화 여부를 확인하고, 원격 변경사항이 있을 경우 `merge`(병합)한다.
 
     ``` bash
