@@ -29,7 +29,7 @@ public class InstanceTest {
      */
     public void test2( ParameterClass p ) {
         p.value = 30;
-        logger.debug( "test1() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.debug( "test2() p의 주솟값 → " + p + ", value = " + p.value );
     }
     
     public static void main( String[] args ) {
