@@ -4,7 +4,7 @@ package com.uneducated;
  * @author geundu
  * 
  *         1차원 배열을 선언하고 for 루프로 출력해본다
- *        
+ *         
  */
 public class ArrayTest {
     
@@ -13,7 +13,9 @@ public class ArrayTest {
     public void printIntArray( int[] array ) {
         System.out.println( "length = " + array.length );
         
-        for ( int i = 0; i < array.length; i++ ) { System.out.println( "array[" + i + "] = " + array[i] ); }
+        for ( int i = 0; i < array.length; i++ ) {
+            System.out.println( "array[" + i + "] = " + array[i] );
+        }
         System.out.println( "end of array\n" );
     }
     

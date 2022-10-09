@@ -14,7 +14,9 @@ public class ArgsTest {
         
         if ( args != null && args.length > 0 ) {
             
-            for ( int i = 0; i < args.length; i++ ) { System.out.println( args[i] ); }
+            for ( int i = 0; i < args.length; i++ ) {
+                System.out.println( args[i] );
+            }
         }
         else
             System.out.println( "args is empty" );
