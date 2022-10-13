@@ -1,4 +1,4 @@
-package com.uneducated;
+package array;
 
 /**
  * @author geundu
