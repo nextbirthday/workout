@@ -7,7 +7,7 @@ public class NumberCalculation {
     public int[] pick( int[] pickNumber ) {
         
         for ( int i = 0; i < pickNumber.length; i++ ) {
-            pickNumber[i] = ( int ) ( Math.random() * 44 ) + 1;
+            pickNumber[i] = ( int ) ( Math.random() * 45 ) + 1;
             
             for ( int j = 0; j < i; j++ ) {
                 
