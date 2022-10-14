@@ -15,7 +15,15 @@ public class View extends JFrame implements ActionListener {
     private JButton colorChangeButton, closeButton;
     private JPanel  centerPanel;
     
-    public View() {
+    // LazyHolder Singleton Pattern
+    public static View getInstance() { return LazyHolder.INSTANCE; }
+    
+    // Inner Class
+    private static class LazyHolder {
+        private static final View INSTANCE = new View();
+    }
+    
+    private View() {
         init();
     }
     
