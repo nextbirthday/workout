@@ -1,10 +1,9 @@
 package array;
 
 /**
- * @author geundu
+ * 1차원 배열을 선언하고 for 루프로 출력해본다
  * 
- *         1차원 배열을 선언하고 for 루프로 출력해본다
- *         
+ * @author geundu
  */
 public class ArrayTest {
     
