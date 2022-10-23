@@ -3,27 +3,28 @@ package thread;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class TimeEchoClient implements Runnable {
-    
-    private String echoMessage = "";
+    private Socket client;
     
     @Override
     public void run() {
         
         try {
-            Socket         client  = new Socket( "127.0.0.1", 7777 );
+            client = new Socket( "127.0.0.1", 7777 );
+            PrintWriter    writer  = new PrintWriter( client.getOutputStream(), true );
             BufferedReader reader  = new BufferedReader( new InputStreamReader( client.getInputStream() ) );
-            boolean        isAlive = true;
+            String         message = reader.readLine();
             
-            while ( isAlive ) {
-                echoMessage = reader.readLine();
-                System.out.println( echoMessage );
+            while ( message != null ) {
+                System.out.println( message );
+                writer.println( client.getInetAddress() + " " + client.getLocalPort() );
                 Thread.sleep( 1000 );
+                message = reader.readLine();
             }
-            client.close();
         }
         catch ( UnknownHostException e ) {
             e.printStackTrace();
@@ -36,6 +37,15 @@ public class TimeEchoClient implements Runnable {
         }
         catch ( InterruptedException ie ) {
             ie.printStackTrace();
+        }
+        finally {
+            
+            try {
+                client.close();
+            }
+            catch ( IOException e ) {
+                e.printStackTrace();
+            }
         }
     }
     
