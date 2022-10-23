@@ -44,15 +44,13 @@ public class JsonParsing {
         jsonList.add( gson.toJson( kim ) );
         jsonList.add( gson.toJson( park ) );
         
-        // JSON 형태로 변환된 String 출력
-        for ( String person : jsonList ) {
-            System.out.println( person );
-        }
-        
+        // JSON 형태의 String에서 변환된 Person 객체를 담을 List
         List<Person> objectList = new ArrayList<>();
         
-        // JSON String을 Person 타입 객체로 변환하여 objectList에 저장
         for ( String person : jsonList ) {
+            // JSON 형태로 변환된 String 출력
+            System.out.println( person );
+            // JSON String을 Person 타입 객체로 변환하여 objectList에 저장
             objectList.add( gson.fromJson( person, Person.class ) );
         }
         
