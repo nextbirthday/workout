@@ -8,13 +8,23 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class TimeEchoClient implements Runnable {
+    private String ip;
+    private int    port;
+    
+    TimeEchoClient() {}
+    
+    TimeEchoClient( String ip, int port ) {
+        this.ip = ip;
+        this.port = port;
+    }
+    
     private Socket client;
     
     @Override
     public void run() {
         
         try {
-            client = new Socket( "127.0.0.1", 7777 );
+            client = new Socket( ip, port );
             PrintWriter    writer  = new PrintWriter( client.getOutputStream(), true );
             BufferedReader reader  = new BufferedReader( new InputStreamReader( client.getInputStream() ) );
             String         message = reader.readLine();
@@ -50,7 +60,22 @@ public class TimeEchoClient implements Runnable {
     }
     
     public static void main( String[] args ) {
-        TimeEchoClient client = new TimeEchoClient();
-        client.run();
+        
+        if ( args != null && args.length == 2 ) {
+            String ip = args[0];
+            
+            try {
+                int port = Integer.parseInt( args[1] );
+                
+                TimeEchoClient client = new TimeEchoClient( ip, port );
+                client.run();
+            }
+            catch ( NumberFormatException e ) {
+                System.out.println( e + "\nUsage: java TimeEchoClient <host name> <port number>" );
+            }
+        }
+        else {
+            System.out.println( "Usage: java TimeEchoClient <host name> <port number>" );
+        }
     }
 }

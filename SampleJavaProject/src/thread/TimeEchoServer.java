@@ -6,15 +6,26 @@ import java.net.ServerSocket;
 public class TimeEchoServer {
     
     public static void main( String[] args ) {
-        System.out.println( "Time Echo Server Started" );
         
-        try {
-            ServerSocket       serverSocket       = new ServerSocket( 7777 );
-            ConnectionRunnable connectionRunnable = new ConnectionRunnable( serverSocket );
-            connectionRunnable.run();
+        if ( args != null && args.length == 1 ) {
+            
+            try {
+                int port = Integer.parseInt( args[0] );
+                
+                System.out.println( "Time Echo Server Started" );
+                ServerSocket       serverSocket       = new ServerSocket( port );
+                ConnectionRunnable connectionRunnable = new ConnectionRunnable( serverSocket );
+                connectionRunnable.run();
+            }
+            catch ( NumberFormatException e ) {
+                System.out.println( e + "\nUsage: java TimeEchoServer <port number>" );
+            }
+            catch ( IOException e ) {
+                e.printStackTrace();
+            }
         }
-        catch ( IOException e ) {
-            e.printStackTrace();
+        else {
+            System.out.println( "Usage: java TimeEchoServer <port number>" );
         }
     }
 }

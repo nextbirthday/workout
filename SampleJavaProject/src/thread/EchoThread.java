@@ -32,7 +32,7 @@ public class EchoThread extends Thread {
             PrintWriter    writer = new PrintWriter( clientSocket.getOutputStream(), true );
             BufferedReader reader = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
             
-            writer.println( getTime() );
+            writer.println( "now : " + getTime() );
             String message = reader.readLine();
             
             while ( message != null ) {
