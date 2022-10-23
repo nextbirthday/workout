@@ -7,7 +7,7 @@ public class Company {
     private Company() {}
     
     public static Company getInstance() {
-        if(instance == null)
+        if ( instance == null )
             instance = new Company();
         return instance;
     }
