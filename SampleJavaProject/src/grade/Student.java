@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Student {
     
-    Student() {}
+    public Student() {}
     
-    Student( String studentName ) {
+    public Student( String studentName ) {
         this.studentName = studentName;
     }
     
