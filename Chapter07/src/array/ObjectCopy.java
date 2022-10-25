@@ -25,11 +25,15 @@ public class ObjectCopy {
         bookArray1[0].setBookName( "이방인" );
         bookArray1[0].setAuthor( "알베르 카뮈" );
         
-        for ( int i = 0; i < bookArray1.length; i++ ) { bookArray1[i].showBookInfo(); }
+        for ( int i = 0; i < bookArray1.length; i++ ) {
+            bookArray1[i].showBookInfo();
+        }
         
         System.out.println( "==bookArray2==" );
         
-        for ( int i = 0; i < bookArray2.length; i++ ) { bookArray2[i].showBookInfo(); }
+        for ( int i = 0; i < bookArray2.length; i++ ) {
+            bookArray2[i].showBookInfo();
+        }
     }
     
 }
