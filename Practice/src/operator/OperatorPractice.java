@@ -32,6 +32,6 @@ public class OperatorPractice {
         int num2 = sc.nextInt();
         
         String result = (num1 % 2 ==0) && (num2 % 2 ==0) ? " 모두 짝수이다." : 
-            (num1 % == 0) || (num2 % 2 == 0) ? "하나는 홀수이고 하나는 짝수이다.":"두 수 모두 홀수이다";
+            (num1 % 2 == 0) || (num2 % 2 == 0) ? "하나는 홀수이고 하나는 짝수이다.":"두 수 모두 홀수이다";
     }
 }
