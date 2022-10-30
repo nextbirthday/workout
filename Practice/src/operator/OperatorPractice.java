@@ -18,6 +18,9 @@ public class OperatorPractice {
         System.out.println( "num1 :" + num1 );
         System.out.println( "num2:" + num2 );
         System.out.println( "str" + str );
+        
+        System.out.println("num 1 :" + num2);
+       
     }
     
     public void method2() {
