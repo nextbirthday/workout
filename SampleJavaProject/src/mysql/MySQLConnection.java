@@ -59,7 +59,7 @@ public class MySQLConnection {
         List<Customer>  customerList = new ArrayList<>();
         Customer        customer     = null;
         
-        if ( args.length > 0 ) {
+        if ( args.length == 2 ) {
             user = args[0];
             password = args[1];
         }
