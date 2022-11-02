@@ -38,5 +38,7 @@ public class Main {
                 break;
         }
         System.out.println( "x " + operator + " y = " + result );
+        
+        calc.calc( x, operator, y );
     }
 }
