@@ -8,7 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.google.gson.Gson;
+
 public class MySQLConnection {
+    
+    private static final Logger logger = LogManager.getLogger( "mysql" );
     
     public void closeConnection( Connection con ) {
         
@@ -58,6 +65,7 @@ public class MySQLConnection {
         String          password     = null;
         List<Customer>  customerList = new ArrayList<>();
         Customer        customer     = null;
+        Gson            gson         = new Gson();
         
         if ( args.length == 2 ) {
             user = args[0];
@@ -102,7 +110,7 @@ public class MySQLConnection {
         }
         
         for ( Customer record : customerList ) {
-            System.out.println( record.toString() );
+            logger.debug( gson.toJson( record ) );
         }
     }
 }
