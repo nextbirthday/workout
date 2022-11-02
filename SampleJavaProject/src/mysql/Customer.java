@@ -1,15 +1,23 @@
 package mysql;
 
 public class Customer {
-    private int    customer_id;
-    private int    store_id;
-    private String first_name;
-    private String last_name;
-    private String email;
-    private int    address_id;
-    private int    active;
-    private String create_date;
-    private String last_update;
+    
+    public Customer() {}
+    
+    public Customer( Payment payment ) {
+        this.payment = payment;
+    }
+    
+    private int     customer_id;
+    private int     store_id;
+    private String  first_name;
+    private String  last_name;
+    private String  email;
+    private int     address_id;
+    private int     active;
+    private String  create_date;
+    private String  last_update;
+    private Payment payment;
     
     public int getCustomer_id() { return customer_id; }
     
@@ -46,6 +54,10 @@ public class Customer {
     public String getLast_update() { return last_update; }
     
     public void setLast_update( String last_update ) { this.last_update = last_update; }
+    
+    public Payment getPayment() { return payment; }
+    
+    public void setPayment( Payment payment ) { this.payment = payment; }
     
     @Override
     public String toString() {
