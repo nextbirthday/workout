@@ -1,19 +1,20 @@
 package calculator;
 
 public class Calculation {
-    public double add( double x, double y ) {
+    
+    private double add( double x, double y ) {
         return x + y;
     }
     
-    public double sub( double x, double y ) {
+    private double sub( double x, double y ) {
         return x - y;
     }
     
-    public double multi( double x, double y ) {
+    private double multi( double x, double y ) {
         return x * y;
     }
     
-    public double div( double x, double y ) {
+    private double div( double x, double y ) {
         return x / y;
     }
     
@@ -22,16 +23,16 @@ public class Calculation {
         
         switch ( operator ) {
             case "+":
-                result = x + y;
+                result = add( x, y );
                 break;
             case "-":
-                result = x - y;
+                result = sub( x, y );
                 break;
             case "*":
-                result = x * y;
+                result = multi( x, y );
                 break;
             case "/":
-                result = x / y;
+                result = div( x, y );
                 break;
         }
         System.out.println( "x " + operator + " y = " + result );
