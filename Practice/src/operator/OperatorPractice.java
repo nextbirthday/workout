@@ -19,8 +19,8 @@ public class OperatorPractice {
         System.out.println( "num2:" + num2 );
         System.out.println( "str" + str );
         
-        System.out.println("num 1 :" + num2);
-       
+        System.out.println( "num 1 :" + num2 );
+        
     }
     
     public void method2() {
@@ -31,11 +31,12 @@ public class OperatorPractice {
         System.out.println(  "두 번째 정수 입력:");
         int num2 = sc.nextInt();
         
-<<<<<<< HEAD
+
         String result = (num1 % 2 ==0) && (num2 % 2 ==0) ? " 모두 짝수이다." : "모두 짝수가 아닐수도 있다.";
-=======
-        String result = (num1 % 2 ==0) && (num2 % 2 ==0) ? " 모두 짝수이다." : 
+        
+        String result1 = (num1 % 2 ==0) && (num2 % 2 ==0) ? " 모두 짝수이다." : 
+            
             (num1 % 2 == 0) || (num2 % 2 == 0) ? "하나는 홀수이고 하나는 짝수이다.":"두 수 모두 홀수이다";
->>>>>>> 78a2372dcff7f6a4826809610fe039cccb3a0b48
+
     }
 }

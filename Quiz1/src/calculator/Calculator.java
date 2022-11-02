@@ -39,6 +39,7 @@ public class Calculator {
             
         }
         System.out.println( "결과 값:" + num1 + oper + num2 + "=" + result );
+        sc.close();
     }
     
 }
