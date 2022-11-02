@@ -26,7 +26,7 @@ public class Main {
             
             calc.calc( x, operator, y );
             
-            System.out.print( "계속하려면 아무 키나, 종료하려면 y(Y)를 입력해주세요. : " );
+            System.out.print( "계속하려면 아무 키나, 종료하려면 y(Y)를 입력하세요 : " );
             cmd = scan.next();
             if ( "y".equals( cmd ) || "Y".equals( cmd ) )
                 isExit = true;

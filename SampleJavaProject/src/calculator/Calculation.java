@@ -32,11 +32,14 @@ public class Calculation {
                 result = multi( x, y );
                 break;
             case "/":
-                if ( y != 0 )
+                if ( y != 0 ) {
                     result = div( x, y );
-                else
+                    break;
+                }
+                else {
                     System.out.println( "0으로 나눌 수 없습니다." );
-                return;
+                    return;
+                }
             default:
                 System.out.println( "연산자는 ( +, -, *, / ) 만 가능합니다." );
                 return;
