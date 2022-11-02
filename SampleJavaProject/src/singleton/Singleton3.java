@@ -7,6 +7,7 @@ public class Singleton3 {
     /**
      * 내부 스태틱 클래스 LazyHolder 가 초기화되면서 Singleton3 타입
      * 인스턴스를 생성하고 그것을 리턴하는 메서드
+     * 
      * @return 내부클래스에서 초기화한 final 인스턴스
      */
     public static Singleton3 getInstance() { return LazyHolder.INSTANCE; }

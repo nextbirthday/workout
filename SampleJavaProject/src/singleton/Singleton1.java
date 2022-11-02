@@ -13,6 +13,7 @@ public class Singleton1 {
      * 인스턴스가 존재하면 인스턴스를, null일 경우 인스턴스화를 하고 하나의 인스턴스만 리턴
      * <p>
      * <b>MultiThread 환경에서 Thread-safe 하지 않음에 주의</b>
+     * 
      * @return Singleton1 타입 인스턴스
      */
     public static Singleton1 getInstance() {
