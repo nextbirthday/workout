@@ -72,7 +72,7 @@ public class MySQLConnection {
             Class.forName( "com.mysql.cj.jdbc.Driver" );
             String        url = "jdbc:mysql://localhost/sakila";
             StringBuilder sql = new StringBuilder();
-            sql.append( "SELECT *          " );
+            sql.append( "SELECT *              " );
             sql.append( "  FROM sakila.customer" );
             con = DriverManager.getConnection( url, user, password );
             stmt = con.createStatement();
