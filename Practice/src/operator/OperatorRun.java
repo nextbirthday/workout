@@ -7,8 +7,9 @@ public class OperatorRun {
         //op.operatorTest();
         //op.operatorTest2();
         OperatorPractice op = new OperatorPractice();
-        int b = 10;
-        op.method1(); 
+       
+        //op.method1(); 
+        op.method2();
         
     }
     
