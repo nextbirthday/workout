@@ -3,7 +3,7 @@ package instance;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class InstanceTest {
+public class Instance {
     
     private static final Logger logger = LogManager.getLogger( "logger" );
     
@@ -15,10 +15,10 @@ public class InstanceTest {
      * 
      * @param p ParameterClass 타입 변수
      */
-    public void test1( ParameterClass p ) {
+    public void newAddress( ParameterClass p ) {
         p = new ParameterClass();
         p.value = 30;
-        logger.info( "test1() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.info( "newAddress() p의 주솟값 → " + p + ", value = " + p.value );
     }
     
     /**
@@ -27,21 +27,21 @@ public class InstanceTest {
      * 
      * @param p ParameterClass 타입 변수
      */
-    public void test2( ParameterClass p ) {
+    public void existingAddress( ParameterClass p ) {
         p.value = 30;
-        logger.debug( "test2() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.debug( "existingAddress() p의 주솟값 → " + p + ", value = " + p.value );
     }
     
     public static void main( String[] args ) {
-        InstanceTest   it = new InstanceTest();
+        Instance   it = new Instance();
         ParameterClass p  = new ParameterClass();
         p.value = 10;
         logger.info( "처음 생성된 인스턴스 p 주솟값 → " + p );
         
-        it.test1( p );
+        it.newAddress( p );
         logger.info( "main() p의 주솟값 → " + p + ", value = " + p.value );
         
-        it.test2( p );
+        it.existingAddress( p );
         logger.debug( "main() p의 주솟값 → " + p + ", value = " + p.value );
     }
 }
