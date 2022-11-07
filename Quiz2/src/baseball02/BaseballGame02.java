@@ -3,6 +3,8 @@ package baseball02;
 import java.util.Random;
 import java.util.Scanner;
 
+import sun.net.sdp.SdpSupport;
+
 public class BaseballGame02 {
     
     public static void main( String[] args ) {
@@ -107,7 +109,8 @@ public class BaseballGame02 {
                 ballCount = 0;
                 gameCount = 0;
                 System.out.println( "\n==게임을 재시작합니다.==\n" );
-            }
+                
+            } 
             
         } // 게임전체반복 while end
         
