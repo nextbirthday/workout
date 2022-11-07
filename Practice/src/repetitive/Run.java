@@ -8,7 +8,7 @@ public class Run {
         //re.testWhile();
         //re.testGugudan();
         //re.testBreak();
-        re.testFor2();
+        //re.testFor2();
         
         
         //Repetitive2 rp = new Repetitive2();

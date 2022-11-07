@@ -44,27 +44,26 @@ public class Repetitive2 {
             for ( int j = 0; j < i * 2 + 1; j++ ) {
                 System.out.println( "*" );
             }
-            //개행
-            System.out.println(  );
+            // 개행
+            System.out.println();
         }
+        
         // 하단부 (역 피라미드) 3~6행 (7,5,3,1)
-        for(int i =num/2; i>=0; i--) {
-            //공백 출력(0,1,2,3)
-            for(int j = num/2; j>i; j--) {
-                System.out.println( "" );                
+        for ( int i = num / 2; i >= 0; i-- ) {
+            
+            // 공백 출력(0,1,2,3)
+            for ( int j = num / 2; j > i; j-- ) {
+                System.out.println( "" );
             }
-            //별 출력(7,5,3,1)
-            for(int j =0; j<i*2+1; j++) {
+            
+            // 별 출력(7,5,3,1)
+            for ( int j = 0; j < i * 2 + 1; j++ ) {
                 System.out.println( "*" );
             }
-            //개행
-            System.out.println(  );
-                   }
-       
-       
-    
+            // 개행
+            System.out.println();
+        }
         
-       
     }
     
 }

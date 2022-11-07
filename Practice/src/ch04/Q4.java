@@ -22,7 +22,7 @@ public class Q4 {
             }
             spaceCount -= 1;
             starCount += 2;
-            System.out.println();
+            System.out.println( );
         }
     }
     

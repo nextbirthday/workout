@@ -109,10 +109,13 @@ public class Repetitive {
         }
         // 모두 생략
         int l = 0;
-        for(;;) {
-            if(l <10 ) {
-                System.out.println( l +"번째 l 출력" );
-            }else {
+        
+        for ( ;; ) {
+            
+            if ( l < 10 ) {
+                System.out.println( l + "번째 l 출력" );
+            }
+            else {
                 break;
             }
             l++;
