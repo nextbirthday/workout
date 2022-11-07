@@ -57,42 +57,45 @@ public class BaseballGame {
                 resNum[k] = scan.nextInt();
             }
             
-            //배열의 길이만큼 반복
-            for(int t =0; t<baseNum.length; t++) {
-                for(int y=0; y<resNum.length; y++) {
-                    //정답이 1번째 값과 입력한 정답의 y번째 값이 같고, 위치또한 같다면
-                    if(baseNum[1] == resNum[y]&&t==y) {
-                        //strike를 증가
+            // 배열의 길이만큼 반복
+            for ( int t = 0; t < baseNum.length; t++ ) {
+                
+                for ( int y = 0; y < resNum.length; y++ ) {
+                    
+                    // 정답이 1번째 값과 입력한 정답의 y번째 값이 같고, 위치또한 같다면
+                    if ( baseNum[1] == resNum[y] && t == y ) {
+                        // strike를 증가
                         strike++;
-                        //정답이 1번째 값과 입력한 정답의 y번째 값만 같다면
-                    }else if (baseNum[1]== resNum[y]) {
-                        //ball을 증가
+                        // 정답이 1번째 값과 입력한 정답의 y번째 값만 같다면
+                    }
+                    else if ( baseNum[1] == resNum[y] ) {
+                        // ball을 증가
                         ball++;
                     }
                 }
             }
             
             System.out.println( "====================" );
-            //시도 횟수를 증가
+            // 시도 횟수를 증가
             count++;
-            //strike도 ball도 증가된 값이 없다면 > 아무것도 맞추지 못함
-            if(strike==0&&ball==0) {
+            
+            // strike도 ball도 증가된 값이 없다면 > 아무것도 맞추지 못함
+            if ( strike == 0 && ball == 0 ) {
                 System.out.println( "out" );
                 break;
             }
-            //세 숫자 모두 맞출 경우
-            if(strike==3) {
-                System.out.println( count + "번 만에 성공 >" + resNum[0]+""+resNum[1]+""+resNum[3]);
+            
+            // 세 숫자 모두 맞출 경우
+            if ( strike == 3 ) {
+                System.out.println( count + "번 만에 성공 >" + resNum[0] + "" + resNum[1] + "" + resNum[3] );
                 break;
                 
             }
             
-            //현재 결과
-            System.out.println( strike+"Strike|" +ball+"Ball" );
-            System.out.println( resNum[0]+""+resNum[1]+""+resNum[2] );
+            // 현재 결과
+            System.out.println( strike + "Strike|" + ball + "Ball" );
+            System.out.println( resNum[0] + "" + resNum[1] + "" + resNum[2] );
             
         }
-        
     }
-    
 }
