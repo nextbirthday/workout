@@ -8,7 +8,7 @@ public class BaseballGameLogic {
     private int              strikeCount = 0;
     private int              ballCount   = 0;
     private int              tryCount    = 0;
-    Scanner                  scan        = null;
+    Scanner                  scan        = new Scanner( System.in );
     
     private int[] getRandomNumber() {
         Random rand         = new Random();
@@ -23,14 +23,14 @@ public class BaseballGameLogic {
             }
         }
         
-        // for ( int i : randomNumber ) {
-        // System.out.print( i + " " );
-        // }
+        for ( int i : randomNumber ) {
+            System.out.print( i + " " );
+        }
+        System.out.println();
         return randomNumber;
     }
     
     private int[] getUserNumber() {
-        scan = new Scanner( System.in );
         int[] userNumber = new int[MAX];
         System.out.print( "중복되는 자릿수가 없는 세 자리 정수를 입력하세요 : " );
         int temp = scan.nextInt();
