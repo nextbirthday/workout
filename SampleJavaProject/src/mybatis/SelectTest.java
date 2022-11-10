@@ -17,13 +17,13 @@ public class SelectTest {
     public static void main( String[] args ) {
         SqlSessionFactory sqlSessionFactory = MyBatisSqlSessionFactory.getInstance();
         SqlSession        session           = sqlSessionFactory.openSession();
-        List<Customer>    customerList      = session.selectList( "mybatis.sakila.getCustomer", 148 );
+        List<Customer>    customerList      = session.selectList( "mybatis.sakila.getCustomer" );
         
         for ( Customer i : customerList ) {
             logger.info( i );
             
             for ( Payment j : i.getPayments() ) {
-                logger.info( j );
+                logger.debug( j );
             }
         }
         
