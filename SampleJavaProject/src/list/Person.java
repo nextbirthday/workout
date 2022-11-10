@@ -1,4 +1,4 @@
-package record;
+package list;
 
 public class Person {
     private String name;

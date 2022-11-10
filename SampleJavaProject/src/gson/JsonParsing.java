@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import record.Person;
+import list.Person;
 
 /**
  * 구글에서 제공하는 json 파싱 라이브러리 <a href="https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.9">Gson</a>을 이용하여

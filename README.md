@@ -6,7 +6,7 @@
   - [Maven Repository](https://mvnrepository.com/)
   - [OpenJDK Archive](https://jdk.java.net/archive/)
   - [Apache Tomcat 9.0](https://tomcat.apache.org/download-90.cgi)
-  - [MyBatis](https://blog.mybatis.org/)
+  - [MyBatis](https://mybatis.org/mybatis-3/)
 
 ---
 

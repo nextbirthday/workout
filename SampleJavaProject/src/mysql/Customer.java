@@ -1,5 +1,7 @@
 package mysql;
 
+import java.util.List;
+
 public class Customer {
     
     public Customer() {}
@@ -8,16 +10,17 @@ public class Customer {
         this.payment = payment;
     }
     
-    private int     customer_id;
-    private int     store_id;
-    private String  first_name;
-    private String  last_name;
-    private String  email;
-    private int     address_id;
-    private int     active;
-    private String  create_date;
-    private String  last_update;
-    private Payment payment;
+    private int           customer_id;
+    private int           store_id;
+    private String        first_name;
+    private String        last_name;
+    private String        email;
+    private int           address_id;
+    private int           active;
+    private String        create_date;
+    private String        last_update;
+    private Payment       payment;
+    private List<Payment> payments;
     
     public int getCustomer_id() { return customer_id; }
     
@@ -59,9 +62,14 @@ public class Customer {
     
     public void setPayment( Payment payment ) { this.payment = payment; }
     
+    public List<Payment> getPayments() { return payments; }
+    
+    public void setPayments( List<Payment> payments ) { this.payments = payments; }
+    
     @Override
     public String toString() {
         return "Customer [customer_id=" + customer_id + ", store_id=" + store_id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email + ", address_id="
-                        + address_id + ", active=" + active + ", create_date=" + create_date + ", last_update=" + last_update + "]";
+                        + address_id + ", active=" + active + ", create_date=" + create_date + ", last_update=" + last_update + ", payment=" + payment + ", payments=" + payments
+                        + "]";
     }
 }

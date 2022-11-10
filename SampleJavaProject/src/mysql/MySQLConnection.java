@@ -97,7 +97,7 @@ public class MySQLConnection {
             sql.append( "  FROM sakila.customer c                   " );
             sql.append( "           INNER JOIN payment p            " );
             sql.append( "           ON c.customer_id = p.customer_id" );
-//            sql.append( " WHERE c.customer_id = 148                 " );
+            sql.append( " WHERE c.customer_id = 148                 " );
             
             con = DriverManager.getConnection( url, user, password );
             stmt = con.createStatement();

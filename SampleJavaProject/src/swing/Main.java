@@ -1,4 +1,4 @@
-package view;
+package swing;
 
 public class Main {
     
