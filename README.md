@@ -16,3 +16,4 @@
 |:---|:---:|:---:|
 |log4j-core|2.17.1|[링크](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/2.17.1)|
 |log4j-api|2.17.1|[링크](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api/2.17.1)|
+|mybatis|3.5.11|[링크](https://mvnrepository.com/artifact/org.mybatis/mybatis/3.5.11)|
