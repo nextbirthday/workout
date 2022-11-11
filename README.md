@@ -10,7 +10,7 @@
 
 ---
 
-### log4j2
+### 유틸리티
 
 |dependency|version|download link|
 |:---|:---:|:---:|
