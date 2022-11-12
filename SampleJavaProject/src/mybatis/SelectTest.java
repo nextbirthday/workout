@@ -20,10 +20,9 @@ public class SelectTest {
         List<Customer>    customerList      = session.selectList( "mybatis.sakila.getCustomer" );
         
         for ( Customer i : customerList ) {
-            logger.info( i );
             
             for ( Payment j : i.getPayments() ) {
-                logger.debug( j );
+                logger.debug( i.toString() + " " + j.toString() );
             }
         }
         
