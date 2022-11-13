@@ -23,7 +23,7 @@
         <result property="last_update" column="last_update" />
     </resultMap>
     
-    <select id="getCustomer" resultMap="customer">
+    <select id="getCustomerPaymentList" resultMap="customer">
         SELECT c.customer_id
              , c.store_id
              , c.first_name
@@ -41,7 +41,28 @@
           FROM sakila.customer c
                    INNER JOIN payment p
                    ON c.customer_id = p.customer_id
-         <!-- WHERE c.customer_id = ${customer_id} -->
-         WHERE c.customer_id IN (148, 149)
+         WHERE c.customer_id = #{customer_id}
+    </select>
+    
+    <select id="getCustomerPaymentList2" resultMap="customer">
+        SELECT c.customer_id
+             , c.store_id
+             , c.first_name
+             , c.last_name
+             , c.email
+             , c.address_id
+             , c.active
+             , c.create_date
+             , p.payment_id
+             , p.staff_id
+             , p.rental_id
+             , p.amount
+             , p.payment_date
+             , p.last_update
+          FROM sakila.customer c
+                   INNER JOIN payment p
+                   ON c.customer_id = p.customer_id
+         <!-- WHERE c.customer_id = #{customer_id} -->
+         WHERE c.customer_id BETWEEN 100 AND 110
     </select>
 </mapper>
