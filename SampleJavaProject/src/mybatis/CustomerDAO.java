@@ -12,10 +12,10 @@ public class CustomerDAO {
     private SqlSessionFactory sqlSessionFactory;
     private SqlSession        session;
     
-    protected List<Customer> getCustomerList( Customer customer ) {
+    protected List<Customer> getCustomerPaymentList( Customer customer ) {
         sqlSessionFactory = MyBatisSqlSessionFactory.getInstance();
         session = sqlSessionFactory.openSession();
-        List<Customer> customerList = session.selectList( "mybatis.sakila.getCustomerPaymentList2", customer );
+        List<Customer> customerList = session.selectList( "mybatis.sakila.getCustomerPaymentList", customer );
         session.close();
         
         return customerList;

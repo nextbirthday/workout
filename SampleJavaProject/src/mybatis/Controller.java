@@ -15,12 +15,10 @@ public class Controller {
     private CustomerDAO         dao;
     private static final Logger logger = LogManager.getLogger( "mybatis.sakila" );
     
-    public List<Customer> getCustomerPaymentList() {
+    public List<Customer> getCustomerPaymentList( Customer customer ) {
         // Spring 연동이 아니므로 setter 없이 직접 Instantiation
         dao = new CustomerDAO();
-        Customer customer = new Customer();
-        customer.setCustomer_id( 130 );
-        List<Customer> customerList = dao.getCustomerList( customer );
+        List<Customer> customerList = dao.getCustomerPaymentList( customer );
         
         return customerList;
     }
