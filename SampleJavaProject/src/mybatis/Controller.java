@@ -15,7 +15,7 @@ public class Controller {
     private CustomerDAO         dao;
     private static final Logger logger = LogManager.getLogger( "mybatis.sakila" );
     
-    public List<Customer> getCustomerPaymentList( Customer customer ) {
+    protected List<Customer> getCustomerPaymentList( Customer customer ) {
         // Spring 연동이 아니므로 setter 없이 직접 Instantiation
         dao = new CustomerDAO();
         List<Customer> customerList = dao.getCustomerPaymentList( customer );
@@ -23,7 +23,7 @@ public class Controller {
         return customerList;
     }
     
-    public void printToJson( List<Customer> customerList ) {
+    protected void printToJson( List<Customer> customerList ) {
         Gson gson = new Gson();
         
         for ( Customer i : customerList ) {

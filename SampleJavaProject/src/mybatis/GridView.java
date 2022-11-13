@@ -23,16 +23,16 @@ import mysql.Payment;
 
 public class GridView implements ActionListener {
     
-    JTable            table;
-    DefaultTableModel defaultTableModel;
-    JScrollPane       scrollPane;
-    JButton           getDataButton;
-    JButton           getData2Button;
-    JLabel            label;
-    JTextField        textField;
-    JPanel            panel;
-    JFrame            frame;
-    Controller        controller;
+    private JTable            table;
+    private DefaultTableModel defaultTableModel;
+    private JScrollPane       scrollPane;
+    private JButton           getDataButton;
+    private JButton           getData2Button;
+    private JLabel            label;
+    private JTextField        textField;
+    private JPanel            panel;
+    private JFrame            frame;
+    private Controller        controller;
     
     public GridView() {
         init();
