@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO" strict="true" name="XMLConfigTest">
+<Configuration>
     <Properties>
-        <!-- <Property name="logFile">src/mysql/query.log</Property> -->
-        <Property name="rollingFile">src/logs/query.log</Property>
+        <Property name="rollingFile">rolling</Property>
+        <Property name="mybatisFile">mybatis</Property>
     </Properties>
-    <Filter type="ThresholdFilter" level="trace" />
     <Appenders>
         <Console name="consoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" disableAnsi="false" />
         </Console>
-        <!-- <File name="fileAppender" fileName="${logFile}" append="false"> <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" /> </File> -->
-        <RollingFile name="rollingFileAppender" fileName="${rollingFile}" filePattern="src/logs/%d{yyyy-MM-dd}-%i-query.log" append="false">
+        <RollingFile name="rollingFileAppender" fileName="src/logs/${rollingFile}.log" filePattern="src/logs/%d{yyyy-MM-dd}-%i-${rollingFile}.log" append="false"
+            createOnDemand="true">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="5 MB" />
             </Policies>
         </RollingFile>
+        <RollingFile name="mybatisAppender" fileName="src/logs/${mybatisFile}.log" filePattern="src/logs/%d{yyyy-MM-dd}-%i-${mybatisFile}.log" append="false"
+            createOnDemand="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+        </RollingFile>
     </Appenders>
     <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="consoleAppender" />
+        </Root>
         <Logger name="logger" level="DEBUG" additivity="false">
             <AppenderRef ref="consoleAppender" />
         </Logger>
@@ -28,8 +38,7 @@
         </Logger>
         <Logger name="mybatis.sakila" level="TRACE" additivity="false">
             <AppenderRef ref="consoleAppender" />
-            <AppenderRef ref="rollingFileAppender" />
+            <AppenderRef ref="mybatisAppender" />
         </Logger>
-        <Root level="INFO" additivity="false" />
     </Loggers>
 </Configuration>
