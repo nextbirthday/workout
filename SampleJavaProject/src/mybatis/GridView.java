@@ -27,7 +27,7 @@ public class GridView implements ActionListener {
     private DefaultTableModel defaultTableModel;
     private JScrollPane       scrollPane;
     private JButton           getDataButton;
-    private JButton           getData2Button;
+    private JButton           exitButton;
     private JLabel            label;
     private JTextField        textField;
     private JPanel            panel;
@@ -62,15 +62,15 @@ public class GridView implements ActionListener {
         getDataButton.setFont( font );
         getDataButton.addActionListener( this );
         
-        getData2Button = new JButton( "종료" );
-        getData2Button.setFont( font );
-        getData2Button.addActionListener( this );
+        exitButton = new JButton( "종료" );
+        exitButton.setFont( font );
+        exitButton.addActionListener( this );
         
         panel = new JPanel( new FlowLayout() );
         panel.add( label );
         panel.add( textField );
         panel.add( getDataButton );
-        panel.add( getData2Button );
+        panel.add( exitButton );
         
         frame = new JFrame( "GRID VIEW" );
         frame.setLayout( new BorderLayout() );

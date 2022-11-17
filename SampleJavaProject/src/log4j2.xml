@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Properties>
-        <Property name="rollingFile">rolling</Property>
+        <Property name="mysqlFile">mysql</Property>
         <Property name="mybatisFile">mybatis</Property>
     </Properties>
     <Appenders>
         <Console name="consoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" disableAnsi="false" />
         </Console>
-        <RollingFile name="rollingFileAppender" fileName="src/logs/${rollingFile}.log" filePattern="src/logs/%d{yyyy-MM-dd}-%i-${rollingFile}.log" append="false"
+        <RollingFile name="rollingFileAppender" fileName="src/logs/${mysqlFile}.log" filePattern="src/logs/%d{yyyy-MM-dd HHmmss}-%i-${mysqlFile}.log" append="false"
             createOnDemand="true">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %c %-5p [ %l ] %m%n" />
             <Policies>
