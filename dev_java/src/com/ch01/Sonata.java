@@ -44,6 +44,7 @@ public class Sonata {
     //그러니까 바꾸면(리턴타입니다 또는 파라미터 타입...) 안된다.
     // 클론 받아쓰기 X1
     public static void main( String[] args ) {// 이것을 메인메서드라고 한다.
+
         System.out.println( "main 메서드 호출 성공" ); // 1
         methodA();
         
