@@ -69,7 +69,6 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer [customer_id=" + customer_id + ", store_id=" + store_id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email + ", address_id="
-                        + address_id + ", active=" + active + ", create_date=" + create_date + ", last_update=" + last_update + ", payment=" + payment + ", payments=" + payments
-                        + "]";
+                        + address_id + ", active=" + active + ", create_date=" + create_date + ", last_update=" + last_update + "]";
     }
 }
