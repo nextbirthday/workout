@@ -20,7 +20,7 @@ function get_data() {
         { field: "last_name", title: "Last Name" },
         { field: "email", title: "Email" },
         { field: "address_id", title: "Address ID" },
-        { field: "active", title: "Active", width: 50 },
+        { field: "active", title: "Active" },
         { field: "create_date", title: "Create Date" },
         { field: "payment_id", title: "Payment ID" },
         { field: "staff_id", title: "Staff ID" },
