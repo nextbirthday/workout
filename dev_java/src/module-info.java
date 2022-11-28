@@ -1,0 +1,2 @@
+module dev_java {
+}
