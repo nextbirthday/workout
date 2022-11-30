@@ -3,6 +3,7 @@ package ch04;
 public class Q4 {
     
     public static void main( String[] args ) {
+        
         int lineCount  = 4;
         int starCount  = 1;
         int spaceCount = lineCount / 2 + 1;

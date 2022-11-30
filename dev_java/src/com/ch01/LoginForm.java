@@ -8,8 +8,7 @@ public class LoginForm {
         name = "강감찬"; // 6번에서 선언한 변수의 초기화 default값이 강감찬
         // return name;
         // returen id;
-        return name;
-        
+        return name;        
     }  
     
     public static void main( String[] args ) {
