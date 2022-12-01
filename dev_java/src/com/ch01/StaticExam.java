@@ -3,6 +3,7 @@ package com.ch01;
 public class StaticExam {
     // static은 변수 앞에 또는 메소드 앞에 올 수 있다.
     // static이 있으면 정적 변수, 정적 메소드라 한다.
+    // static 하나 복사본을 갖지 않는다.
     // 인스턴스화 없이 어디서나 호출할 수 있다.
     
     int        i; //전역 변수는 초기화를 생략할 수 있다.  default value는 0이다.
