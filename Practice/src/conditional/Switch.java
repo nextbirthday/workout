@@ -27,7 +27,7 @@ public class Switch {
                 System.out.println( "해당하는 과일이 없습니다." );
                 break;
         }
-        System.out.println( fruit + "의 가격은"+ price + "원입니다.");
+        System.out.println( fruit + "의 가격은" + price + "원입니다." );
         
     }
 }
