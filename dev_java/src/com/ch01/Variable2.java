@@ -3,6 +3,15 @@ package com.ch01;
 // boolean -> true or false
 public class Variable2 {
     
+    int i  ;
+    
+    
+    void methodC() {
+        int i = 5;
+        
+        System.out.println( i );
+    }
+    
     public static void main( String[] args ) {
         
         int i = 2;
@@ -21,6 +30,11 @@ public class Variable2 {
         
         boolean isOk = false;
         // j = (int)isOk; Cannot cast from boolean to int
+        
+        Variable2 m3 = new Variable2();
+        m3.methodC();
     }
+    
+    
     
 }

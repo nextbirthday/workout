@@ -6,8 +6,8 @@ public class Main {
     
     public static void main( String[] args ) {
         
-        Calculation calc     = new Calculation();
-        Scanner     scan     = new Scanner( System.in );
+        Calculation calc     = new Calculation(); // 인스턴스화
+        Scanner     scan     = new Scanner( System.in ); 
         boolean     isExit   = false;
         double      x        = 0.0;
         double      y        = 0.0;

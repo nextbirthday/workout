@@ -27,6 +27,8 @@ public class Variable {
         
         Variable v1 = null; // 클래스를 선언만 하였다. 실제로 객체는 만들어지지 않았다.
         v1 = new Variable();
+        
+        //Variable v1 = new Variable();
         v1.age = 7; // 매우 중요 why? 위의 int age = 30;을 5로 바꾸지말고 지역변수와 멤버변수를 구분해서 변경가능
         v1.methodA(); // Variable클래스가 methodA의 소유주이다.
         // 이 때 비로소 객체가 생성됨 - heap메모리 영역에 로딩이 된다.
