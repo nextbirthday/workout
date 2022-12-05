@@ -1,6 +1,7 @@
 package conditional;
 
 public class Conditional {
+    
     public void testIf() {
         int kor  = 87;
         int math = 55;

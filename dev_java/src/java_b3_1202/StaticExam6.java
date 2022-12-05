@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class StaticExam6 {
         
     public static void main( String[] args ) {
+        
         Scanner scanner = new Scanner( System.in );
         System.out.println( "0~9사이의 수를 입력하세요 >" );
         
