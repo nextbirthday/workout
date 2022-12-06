@@ -12,7 +12,7 @@ public class Return1 {
         return 3.0;
     }
     
-    boolean isView() {
+   boolean isView() {
         boolean bool = false;
         return bool;
     }

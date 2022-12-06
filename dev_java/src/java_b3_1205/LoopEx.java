@@ -1,7 +1,5 @@
 package java_b3_1205;
 
-import java.util.Scanner;
-
 public class LoopEx {
     
     public static void main( String[] args ) {
@@ -20,18 +18,14 @@ public class LoopEx {
          * }
          */
         
-        Scanner scanner = new Scanner( System.in );
-        
-        scanner.nextInt();
         for ( int i = 2; i <= 9; i++ ) {
             System.out.println( i +"단" );
             
             for ( int j = 1; j <= 9; j++ ) {
                 System.out.println( i + "*" + j + "=" + i * j + "입니다." );
-            }      
-            
+            }     
         }
-        scanner.close();
+       
     }
     
 }

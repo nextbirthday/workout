@@ -11,7 +11,7 @@ public class Student {
         this.studentName = studentName;
     }
     
-    private String        studentName;
+    private String        studentName; //인스턴스 변수, 전역변수
     private List<Subject> subjectList = new ArrayList<>();
     
     public String getStudentName() { return studentName; }

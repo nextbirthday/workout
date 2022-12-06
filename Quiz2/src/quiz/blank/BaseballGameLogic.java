@@ -3,15 +3,17 @@ package quiz.blank;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 public class BaseballGameLogic {
     
     // 배열의 최대크기로 사용할 상수(constant)
     private static final int MAX = 3;
     
-    // 스트라이크 개수로 사용할 변수
+    // 스트라이크 개수로 사용할 변수 
     private int strikeCount = 0;
     
-    // 볼 개수로 사용할 변수
+    // 볼 개수로 사용할 변수 
     private int ballCount = 0;
     
     // 재시도 횟수로 사용할 변수
@@ -23,39 +25,32 @@ public class BaseballGameLogic {
     Scanner scan = new Scanner( System.in );
     
     private int[] getRandomNumber() {
-        
-        Random ran = new Random();
-        int[]  com = new int[3];
-        
-        for ( int i = 0; i < com.length; i++ ) {
-            com[i] = ( int ) ( Math.random() * 9 ) + 1;
-            
-            for ( int j = 0; j < i; j++ ) {
-                
-                if ( com[0] != com[1] && com[0] != com[2] && com[1] != com[2] ) {
-                    
-                }
-            }
-        }
         /*
          * TODO 랜덤한 한 자리 양의 정수를 3번 반복 생성, 세 자리 수를 만든다.
          * 순서대로 정수형 배열에 넣어 리턴하는 메서드를 작성한다.
          * 백의 자리가 0이 되거나, 각 자릿수는 겹치는 숫자일 수 없다.
          */
-        return com;
+        Random ran          = new Random();
+        int[]  randomnumber = new int[MAX];
+        
+        for ( int i = 0; i < randomnumber.length; i++ ) {
+            randomnumber[i] = ran.nextInt( 10 );
+            
+            for ( int j = 0; j < i; j++ ) {
+                
+                if(randomnumber[0]==0 || randomnumber[i] == randomnumber[j]) {
+                    i--;
+                    break;
+                }
+            }
+        }        
+        return randomnumber;
     }
     
     private int[] getUserNumber() {
         
         int[] user = new int[3];
-        
-        System.out.println( "정수 3개를 입력하세요>" );
-        
-        for ( int i = 0; i < user.length; i++ ) {
-            System.out.println( ( i + 1 ) + " 번째 숫자 입력" );
-            user[i] = scan.nextInt();
-        }
-        
+               
         return user;
     }
     /*
@@ -66,26 +61,13 @@ public class BaseballGameLogic {
      */
     
     private void compare( int[] randomNumber, int[] userNumber ) {
+        /*
+         * TODO 랜덤한 한 자리 양의 정수를 3번 반복 생성, 세 자리 수를 만든다.
+         * 순서대로 정수형 배열에 넣어 리턴하는 메서드를 작성한다.
+         * 백의 자리가 0이 되거나, 각 자릿수는 겹치는 숫자일 수 없다.
+         */
         tryCount++;
         
-        for ( int i = 0; i < randomNumber.length; i++ ) {
-            
-            for ( int j = 0; j < userNumber.length; j++ ) {
-                
-                if ( randomNumber[i] == userNumber[j] ) {
-                    if ( i == j )
-                        strikeCount++;
-                    else
-                        ballCount++;
-                }
-            }
-        }
-        /*
-         * TODO 랜덤으로 생성한 배열, 사용자가 입력한 숫자를 담은 배열을
-         * 파라미터(매개변수)로 받아 비교하여 카운트를 하는 메서드를 작성한다.
-         * (Hint : 전역변수 Count 들 활용)
-         * 별도로 내용을 출력해줄 필요는 없다.
-         */
     }
     
     public void playGame() {

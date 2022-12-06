@@ -24,7 +24,7 @@ public class BaseballGameLogic {
         for ( int i = 0; i < randomNumber.length; i++ ) {
             randomNumber[i] = rand.nextInt( 10 );
             
-            for ( int j = 0; j < i; j++ ) {
+            for ( int j = 0; j < i; j++ ) { 
                 
                 if ( randomNumber[0] == 0 || randomNumber[i] == randomNumber[j] ) {
                     i--;
