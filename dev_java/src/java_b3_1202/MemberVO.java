@@ -8,7 +8,7 @@ public class MemberVO {
     // 고로 MemberVO class에서는 main 메서드는 필요없다.    
     private String mem_id   = null;
     private String mem_pw   = null;
-    public String mem_name = null;
+    private String mem_name = null;
     
     // setter는 write, save
     // setter 메서드를 통해서 전역변수를 초기화 할 수 있다!!!
@@ -19,21 +19,22 @@ public class MemberVO {
     
     // getter는 read, listening
     public String getMem_id() { return mem_id; }     
+   
 
     public String getMem_pw() { return mem_pw; }
 
-    public void setMem_pw( String mem_pw ) { this.mem_pw = mem_pw; }    
-       
+    public void setMem_pw( String mem_pw ) { this.mem_pw = mem_pw; }
+
     public String getMem_name() { return mem_name; }
 
     public void setMem_name( String mem_name ) { this.mem_name = mem_name; }
-    
 
     public static void main( String[] args ) {
         
         MemberVO memberVO = new MemberVO();
+        memberVO.setMem_id("123");
+        System.out.println( memberVO.mem_name ); //null  
         
-        System.out.println( memberVO.mem_name ); //null     
     }   
     
 }

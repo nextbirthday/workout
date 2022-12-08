@@ -2,11 +2,8 @@ package conditional;
 
 public class Conditional {
     
-    public void testIf() {
-        int kor  = 87;
-        int math = 55;
-        int eng  = 68;
-        
+    public void testIf(int kor, int math, int eng) { // parameter 활용
+            
         int    sum = kor + math + eng;
         double avg = sum / 3.0;
         
@@ -40,7 +37,7 @@ public class Conditional {
             grade = "A";
             
             if ( kor >= 95 ) {
-                grade += "+";
+                grade += "+"; // grade = grade + "+"
             }
             else if ( kor >= 85 ) {
                 grade += "0";
@@ -51,10 +48,11 @@ public class Conditional {
         }
         else if ( kor >= 60 ) {
             grade = "B";
-        }   //75점 이상이면 B+, 65점 이상이면 B0, 나머지 B-
+        }   // 75점 이상이면 B+, 65점 이상이면 B0, 나머지 B-
         else {
             grade = "C";
-        }   //55점 이상이면 C+, 45점 이상이면 C0
+        }   // 55점 이상이면 C+, 45점 이상이면 C0
+        
         System.out.println( "국어 성적은" + grade + "입니다." );
         
     }

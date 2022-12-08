@@ -12,7 +12,7 @@ public class RanNumMaker {
     // 자리가 같다는 것을 배열의 index를 활용하시오.
     public String account( String user_input ) {
         // insert here
-        return "1 Strike 2 Ball";
+        return user_input;
     }
     
     public static void main( String[] args ) {

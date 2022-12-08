@@ -3,6 +3,7 @@ package operator;
 import java.util.Scanner;
 
 public class OperatorPractice {
+    
     public void method1() {
         
         int    num1 = 10, num2 = 0;

@@ -3,13 +3,12 @@ package conditional;
 public class Run {
     
     public static void main( String[] args ) {
-        Conditional co = new Conditional();
-        co.testIf();
-        //Switch sw = new Switch();
-        //sw.testSwitch();
+        //Conditional conditional = new Conditional();
+        //conditional.testIf( 100, 100, 100 );
         //ConditionalPractice cp = new ConditionalPractice();
-        //cp.method1();
-        //cp.method2();
-    }
+        //cp.oddEven( );
+        Switch sw = new Switch();
+        sw.testSwitch("바나나");
     
+}
 }

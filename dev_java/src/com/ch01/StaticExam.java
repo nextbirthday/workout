@@ -6,8 +6,8 @@ public class StaticExam {
     // static 하나 복사본을 갖지 않는다.
     // 인스턴스화 없이 어디서나 호출할 수 있다.
     
-    int        i; //전역 변수는 초기화를 생략할 수 있다.  default value는 0이다.
-    int j; //정적 변수 j
+    int i; //전역 변수는 초기화를 생략할 수 있다.  default value는 0이다.
+    static int j ; //정적 변수 j
     
     void methodA() {
         

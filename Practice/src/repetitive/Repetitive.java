@@ -38,18 +38,27 @@ public class Repetitive {
             i++; // 증감식
         }
         // 감소
-        int j = 10;
+        i = 10;
         
-        while ( j > 0 ) {
-            System.out.println( j + "번째 j출력" );
-            j--;
+        while ( i > 0 ) {
+            System.out.println( i + "번째 j출력" );
+            i--;
         }
         
         // 무한 루프 : 조건 값을 항상 true
-        int p = 0;
+        int     p       = 0;
+        boolean isBreak = false;
         
-        while ( true ) {
-            System.out.println( p++ + "번째 p 출력" );
+        while ( !isBreak ) { // !isBreak = true
+            
+            if ( p <= 10 )
+                System.out.println( p++ + "번째 p 출력" );
+            else {
+                System.out.println( "while문 종료" );
+                isBreak = true;
+                return;
+            }
+            
         }
     }
     
@@ -59,12 +68,13 @@ public class Repetitive {
             System.out.println( "=====" + i + "단=====" );
             
             for ( int j = 1; j < 10; j++ ) {
-                System.out.println( i + "X" + j + "=" + i * j );
+                System.out.println( i + "*" + j + "=" + i * j );
             }
         }
     }
     
     public void testBreak() {
+        
         // 숫자를 입력 받아 입력 받은 숫자만큼만 반복적으로 출력 후 종료
         Scanner sc = new Scanner( System.in );
         System.out.println( "반복할 횟수 입력:" );
@@ -87,7 +97,7 @@ public class Repetitive {
         // 초기식 생략 for문
         int i = 0;
         
-        for ( ; i < 10; i++ ) {
+        for ( ; i < 10; ++i ) {
             System.out.println( i + "번째 i 출력" );
         }
         
@@ -98,7 +108,7 @@ public class Repetitive {
                 System.out.println( j + "번째 j 출력" );
             }
             else {
-                break;
+                break; // break; 코드 사용할 것
             }
         }
         

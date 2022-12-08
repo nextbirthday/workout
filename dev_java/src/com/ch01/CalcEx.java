@@ -1,10 +1,9 @@
-package calculator;
+package com.ch01;
 
-public class Calculation {
-    int p ;
+public class CalcEx {
     
     private double add( double x, double y ) {
-               return x + y;
+        return x + y;
     }
     
     private double sub( double x, double y ) {
@@ -52,3 +51,4 @@ public class Calculation {
         System.out.println( "x " + operator + " y = " + result );
     }
 }
+

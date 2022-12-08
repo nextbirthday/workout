@@ -7,6 +7,7 @@ public class PrintEx {
     }
     
     public void print( int i ) {
+        System.out.println( "print method 에서 parameter로 받아온 변수 i의 값 = "+i );
         System.out.println( "print(int i) call" );
     }
     

@@ -11,21 +11,26 @@ public class ArrayEx {
         
         for ( int i = 0; i < com.length; i++ ) {
             com[i] = ( int ) ( Math.random() * 10 );
+            
+            for ( int j = 0; j < i; j++ ) {
+                
+                if ( com[0] == com[1] || com[1] == com[2] || com[0] == com[2] ) { // 3자리 모두 중복 안되게
+                    i--;
+                    break;
+                }
+            }
         }
         System.out.print( Arrays.toString( com ) );
     }
     
     void getRandomNumber2() {
-        
+        // 배열이
         int com = ( int ) ( Math.random() * 10 );
-        System.out.println( com );
         
-        com = ( int ) ( Math.random() );
-        System.out.println( com );
+        int com1 = ( int ) ( Math.random() * 10 );
         
-        
-        double com2 =  Math.random() * 10;
-        System.out.println( com + "," + com2 );
+        int com2 = ( int ) ( Math.random() * 10 );
+        System.out.println( com + "," + com1 + "," + com2 );
     }
     
     public static void main( String[] args ) {

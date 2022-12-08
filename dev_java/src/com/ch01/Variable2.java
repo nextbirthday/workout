@@ -3,9 +3,8 @@ package com.ch01;
 // boolean -> true or false
 public class Variable2 {
     
-    int i  ;
-    
-    
+    int i  ; //전역변수, 멤버변수
+        
     void methodC() {
         int i = 5;
         

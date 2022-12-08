@@ -8,8 +8,8 @@ public class StringEx {
         String s3 = new String("안녕");
         String s4 = new String("안녕");
 
-        //s1과 s2 주소번지는 같은지 비교하시오. T or F
-        //s3과 s4의 주소번지를 비교하시오. 
+        // s1과 s2 주소번지는 같은지 비교하시오. T or F
+        // s3과 s4의 주소번지를 비교하시오. 
         // s3이 가리키는 문자열이 s4와 같은지를 비교하려면 어떻게 해야할까?
         boolean result = s1.equals(s2);        
         System.out.println("boolean result = " + result);

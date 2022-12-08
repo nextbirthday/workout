@@ -16,12 +16,14 @@ public class MethodReturn {
     
     public static void main( String[] args ) {
         MethodReturn refVariable = new MethodReturn(); //인스턴스화
-        refVariable.returnNothing(); //returnNothing 메서드 호출
+        //refVariable.returnNothing(); //returnNothing 메서드 호출
         
         String returnedString = null; 
         System.out.println( returnedString );
         
         returnedString = refVariable.returnString();
         System.out.println( returnedString );
+        
+        //refVariable.returnString();
     }
 }

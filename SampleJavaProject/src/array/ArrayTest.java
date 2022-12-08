@@ -23,7 +23,7 @@ public class ArrayTest {
         ArrayTest test = new ArrayTest();
         
         // new 연산자 사용하여 초기화
-        int[] array0 = new int[10];
+        int[] array0 = new int[10]; // 배열의 선언과 생성만 했을 뿐 초기화는 하지 않았다.
         test.printIntArray( array0 );
         
         // new 연산자 사용하여 초기화, 길이에 변수 사용

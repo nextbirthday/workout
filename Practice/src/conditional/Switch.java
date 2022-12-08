@@ -1,15 +1,15 @@
 package conditional;
 
-import java.util.Scanner;
 
 public class Switch {
-    public void testSwitch() {
+    
+    public void testSwitch(String fruit) {
         // switch문
         // 정수, 문자, 문자열 가능
-        Scanner sc = new Scanner( System.in );
+        /*Scanner sc = new Scanner( System.in );
         System.out.println( "fruit name:" );
         
-        String fruit = sc.nextLine();
+        String fruit = sc.nextLine();*/
         
         int price = 0;
         

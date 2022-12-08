@@ -6,7 +6,7 @@ public class Sonata {
     // 호출할 수 있다.
     // int와 같이 타입을 나타내는 예약어가 있다 - 어디에? JDK설치할 수 있다 -> JDK11
     // JVM안에는 예약어가 들어가있다.
-    // 변수 선언 -> 타입 변수이름
+    // 변수 선언 -> '타입' '변수이름'
     // 정수형을 담을 수 있는 type
     
     int i = 10; // 변수 선언 및 초기화를 했다.
@@ -36,7 +36,7 @@ public class Sonata {
     // 코드 실행시 가장 먼저 호출되는 곳이다.
     // JVM이 자동으로 호출한다.
     
-    public static void login( String id, String pw ) {// 파라미터 자리는 선언하는 자리이다.
+    public void login( String id, String pw ) {// 파라미터 자리는 선언하는 자리이다.
         
         System.out.println( id + "," + pw ); // 변수 id를 출력//tomato가 출려된다.
         
@@ -56,8 +56,9 @@ public class Sonata {
         // static 영역에서는 내 안에 정의된 메소드라 하더라도
         // 반드시 인스턴스화를 하고 호출해야한다.
         // 두 번째 방법은 methodA();처럼 똑같이 static을 붙여서 선언
-        login( "apple", "123" );
-        login( "tomato", "123" );
+        Sonata test = new Sonata();
+        test.login( "apple", "123" );
+        test.login( "tomato", "123" );
         
     }
 }

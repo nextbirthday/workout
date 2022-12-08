@@ -16,8 +16,8 @@ public class LoginForm {
         // insert here - 강감찬
         // login("","");
         
-        System.out.println( pname );
-        System.out.println( login( "tomato", "123" ) );
+       System.out.println( pname );
+       System.out.println( login( "tomato", "123" ) );
         // println이라는 메소드 안에서 또 다른 메소드를 호출
         // 단, 반환타입이 있어야만한다.
         // login은 메소드(파라미터 자리에 선언된 변수는 지역변수)

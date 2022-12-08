@@ -1,6 +1,7 @@
 package com.ch01;
 
 public class Return1 {
+    
     void m() {}
     
     int m1() {

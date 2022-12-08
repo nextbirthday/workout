@@ -16,9 +16,9 @@ public class TestParam {
     
     public static void main( String[] args ) {        
         TestParam testparam = new TestParam(); // 인스턴스화
-        Param     p1         = new Param(); // 인스턴스화  0
+        Param     p         = new Param(); // 인스턴스화  0
         
-        testparam.effectParam( p1 );
-        System.out.println( "main ival ===>" + p1.ival );
+        testparam.effectParam( p );
+        System.out.println( "main ival ===>" + p.ival );
     }
 }

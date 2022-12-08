@@ -1,6 +1,7 @@
 package java_b3_1202;
 
 public class MemberAction {
+   
     // 회원가입이 성공하면 1을 반환, 실패하면 0을 반환
     // 회원가입을 처리하는 메서드 선언하기
     
@@ -10,7 +11,7 @@ public class MemberAction {
         
         int result = -1; // end of file
         result = 0;
-        
+        int x = 10;
         if ( 1 == 1 ) {
             result = 1;
         }
@@ -20,8 +21,8 @@ public class MemberAction {
         return result;
     }
     
-    public int memberinsert( MemberVO memberVO ) {
-        System.out.println( "meeberinsert 호출 : 파라미터 1개" );
+    public int memberinsert( MemberVO memberVO ) { 
+        System.out.println( "memberinsert 호출 : 파라미터 1개" );
         System.out.println( memberVO.getMem_id() + "," + memberVO.getMem_pw() + "," + memberVO.getMem_name() );
         
         int result = -1;

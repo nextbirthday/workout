@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class LoopArrayFor {
     
     void deptnos() {
-        int[] deptnos = new int[] { 0, 1, 2 };
+        int[] deptnos = { 0, 1, 2 };
         
         for ( int i = 0; i < deptnos.length; i++ ) {
             System.out.println( deptnos );

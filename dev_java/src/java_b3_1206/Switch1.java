@@ -3,9 +3,9 @@ package java_b3_1206;
 public class Switch1 {
     public static void main( String[] args ) {
         
-        String bread = "donut";
+        String bread = "donut"; 
         
-        switch ( bread ) {
+        switch ( bread ) {//변수 사용
             case "소보로": {
                 int protocol = 100;
                 System.out.println( "소보로 빵 입니다." + protocol );
