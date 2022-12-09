@@ -4,7 +4,8 @@ public class Test03Main {
     
     public static void main( String[] args ) {
         Test03 test = new Test03();
-        test.testArray();
+        //test.testArray();
+        test.testTryCatch();
     }
     
 }

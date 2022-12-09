@@ -1,8 +1,7 @@
 package calculator;
 
 public class Calculation {
-    int p ;
-    
+       
     private double add( double x, double y ) {
                return x + y;
     }

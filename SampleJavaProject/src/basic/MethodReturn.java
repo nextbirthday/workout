@@ -2,7 +2,9 @@ package basic;
 
 public class MethodReturn {
     
-    MethodReturn() {}
+    MethodReturn() {
+        System.out.println( "MethodReturn 생성자 호출" );
+    }
     
     public void returnNothing() {
         System.out.println( "메서드 이름 앞에 void 붙으면 아무 것도 리턴하지 않는 메서드" );
@@ -16,14 +18,14 @@ public class MethodReturn {
     
     public static void main( String[] args ) {
         MethodReturn refVariable = new MethodReturn(); //인스턴스화
-        //refVariable.returnNothing(); //returnNothing 메서드 호출
+       //new MethodReturn();
+        refVariable.returnNothing();
         
         String returnedString = null; 
         System.out.println( returnedString );
         
         returnedString = refVariable.returnString();
-        System.out.println( returnedString );
+        System.out.println( returnedString );     
         
-        //refVariable.returnString();
     }
 }
