@@ -6,6 +6,15 @@ public class StudentScore {
     private double dbScore;
     private double linuxScore;
     
+    public StudentScore() {}
+    
+    public StudentScore( String studentName, double javaScore, double dbScore, double linuxScore ) {
+        this.studentName = studentName;
+        this.javaScore = javaScore;
+        this.dbScore = dbScore;
+        this.linuxScore = linuxScore;
+    }
+    
     public String getStudentName() { return studentName; }
     
     public void setStudentName( String studentName ) { this.studentName = studentName; }

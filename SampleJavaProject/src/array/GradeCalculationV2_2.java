@@ -3,7 +3,7 @@ package array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GradeCalculationV2 {
+public class GradeCalculationV2_2 {
     
     public void calc( List<StudentScore> data ) {
         
@@ -27,9 +27,9 @@ public class GradeCalculationV2 {
     }
     
     public static void main( String[] args ) {
-        GradeCalculationV2 gcv2         = new GradeCalculationV2();
-        List<StudentScore> data         = new ArrayList<StudentScore>();
-        StudentScore       studentScore = new StudentScore();
+        GradeCalculationV2_2 gcv2         = new GradeCalculationV2_2();
+        List<StudentScore>   data         = new ArrayList<StudentScore>();
+        StudentScore         studentScore = new StudentScore();
         
         studentScore.setStudentName( "이순신" );
         studentScore.setJavaScore( 80 );
