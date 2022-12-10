@@ -2,6 +2,10 @@ package java_b3_1205;
 
 public class SumEx {
     
+    public SumEx() {
+        // TODO Auto-generated constructor stub
+    }
+    
     void sumFor() {
         int sum = 0;
         

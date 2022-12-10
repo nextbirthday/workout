@@ -17,15 +17,17 @@ public class MethodReturn {
     }
     
     public static void main( String[] args ) {
-        MethodReturn refVariable = new MethodReturn(); //인스턴스화
-       //new MethodReturn();
+       
+        MethodReturn refVariable = new MethodReturn(); // 인스턴스화
+        // new MethodReturn(); // 생성자호출
+        
         refVariable.returnNothing();
         
-        String returnedString = null; 
+        String returnedString = null;
         System.out.println( returnedString );
         
         returnedString = refVariable.returnString();
-        System.out.println( returnedString );     
+        System.out.println( returnedString );
         
     }
 }

@@ -33,10 +33,10 @@ public class Instance {
     }
     
     public static void main( String[] args ) {
-        Instance   it = new Instance();
+        Instance   it = new Instance(); 
         ParameterClass p  = new ParameterClass();
         p.value = 10;
-        logger.info( "처음 생성된 인스턴스 p 주솟값 → " + p );
+        logger.info( "처음 생성된 인스턴스 p 주솟값 → " + p );  //37번에서 생성된 p 주소값
         
         it.newAddress( p );
         logger.info( "main() p의 주솟값 → " + p + ", value = " + p.value );

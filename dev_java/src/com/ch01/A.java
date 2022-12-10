@@ -1,4 +1,4 @@
-package com.ch01;
+\package com.ch01;
 
 public class A {
     

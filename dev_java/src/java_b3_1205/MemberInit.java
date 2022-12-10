@@ -7,7 +7,7 @@ public class MemberInit {
     int hap;
     
     public MemberInit() { //똑같이 괄호가 있지만 리턴타입이 없다.
-        System.out.println( "디폴트 생성자 호출 성공" + " " + i + "," + hap ); // 0, 0
+        System.out.println( "디폴트 생성자 호출 성공" + " " + i + "," + hap ); 
     }
     
     public MemberInit( int i, int hap ) {
@@ -18,8 +18,7 @@ public class MemberInit {
     
     public static void main( String[] args ) {
         MemberInit mi  = new MemberInit(); // 9번 '생성자 호출' - 메서드 오버로딩 매커니즘을 따른다.
-        MemberInit mi2 = new MemberInit( 1, 0 ); // 13번 생성자 호출
-        
+        MemberInit mi2 = new MemberInit( 1, 0 ); // 13번 생성자 호출        
     }
     
 }
