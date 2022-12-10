@@ -21,7 +21,7 @@ public class UpDownLogic {
         boolean isBreak    = false;
         
         while ( !isBreak ) {
-            System.out.print( "0 이상 " + (MAX - 1) + " 이하 범위의 정수를 입력하세요 : " );
+            System.out.print( "0 이상 " + ( MAX - 1 ) + " 이하 범위의 정수를 입력하세요 : " );
             
             try {
                 userNumber = scan.nextInt();
