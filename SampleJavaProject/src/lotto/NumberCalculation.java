@@ -16,7 +16,7 @@ public class NumberCalculation {
                 }
             }
         }
-        Arrays.sort( pickNumber );
+        Arrays.sort( pickNumber ); //Arrays.sort  입력된 배열을, 오름차순으로 정렬한다.
         return pickNumber;
     }
     
