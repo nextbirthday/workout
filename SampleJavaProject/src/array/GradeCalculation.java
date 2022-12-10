@@ -4,10 +4,10 @@ public class GradeCalculation {
     
     public void calc( String[][] data ) {
         
-        double javaSum  = 0;
+        double javaSum  = 0; // local variable
         double dbSum    = 0;
         double linuxSum = 0;
-        int    rowCount = 0;
+        int    rowCount = 0; //why??
         
         for ( int row = 0; row < data.length; row++ ) {
             rowCount++;
