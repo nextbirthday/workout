@@ -8,7 +8,7 @@ public class UpDownLogic {
     
     private static final int MAX      = 30;
     private int              tryCount = 0;
-    private Scanner          scan     = new Scanner( System.in );
+    private Scanner          scan;
     
     private int getRandomNumber() {
         Random rand = new Random();
@@ -55,6 +55,7 @@ public class UpDownLogic {
     }
     
     public void play() {
+        scan = new Scanner( System.in );
         int     randomNubmer = getRandomNumber();
         int     userNumber   = getUserNumber();
         int     result;
@@ -62,8 +63,11 @@ public class UpDownLogic {
         
         while ( !isBreak ) {
             result = compare( randomNubmer, userNumber );
-            if ( result == 0 )
+            
+            if ( result == 0 ) {
                 isBreak = true;
+                scan.close();
+            }
             else
                 userNumber = getUserNumber();
         }
