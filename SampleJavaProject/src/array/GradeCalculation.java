@@ -11,6 +11,8 @@ public class GradeCalculation {
         
         for ( int row = 0; row < data.length; row++ ) {
             System.out.println( data[row][0] + "의 성적" );
+            // 현재는 점수가 인티저 스트링이라 인티저로 파싱했는데, 부동소수점일 경우는 에러발생
+            // Double.parseDouble() 사용하면 됨
             double sum = Integer.parseInt( data[row][1] ) + Integer.parseInt( data[row][2] ) + Integer.parseInt( data[row][3] );
             System.out.println( "총점 : " + sum );
             System.out.println( "평균 : " + ( sum / subjectCount ) + "\n" );
