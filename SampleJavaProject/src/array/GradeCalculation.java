@@ -4,17 +4,10 @@ public class GradeCalculation {
     
     public void calc( String[][] data ) {
         
-<<<<<<< HEAD
-        double javaSum  = 0; // local variable
-        double dbSum    = 0;
-        double linuxSum = 0;
-        int    rowCount = 0; //why??
-=======
-        double    javaSum      = 0;
+        double    javaSum      = 0; // local variable
         double    dbSum        = 0;
         double    linuxSum     = 0;
         final int subjectCount = 3;
->>>>>>> 3d18819baf8d81e8fb30f7f8ceae55cde9d5256f
         
         for ( int row = 0; row < data.length; row++ ) {
             System.out.println( data[row][0] + "의 성적" );

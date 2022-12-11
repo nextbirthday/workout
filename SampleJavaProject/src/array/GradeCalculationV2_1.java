@@ -27,12 +27,30 @@ public class GradeCalculationV2_1 {
     }
     
     public static void main( String[] args ) {
-        GradeCalculationV2_1 gcv2 = new GradeCalculationV2_1();
-        List<StudentScore>   data = new ArrayList<StudentScore>();
+        GradeCalculationV2_1 gcv2         = new GradeCalculationV2_1();
+        List<StudentScore>   data         = new ArrayList<StudentScore>();
+        StudentScore         studentScore = new StudentScore();
         
-        data.add( new StudentScore( "이순신", 80, 75, 70 ) );
-        data.add( new StudentScore( "강감찬", 90, 85, 95 ) );
-        data.add( new StudentScore( "김춘추", 65, 60, 60 ) );
+        studentScore.setStudentName( "이순신" );
+        studentScore.setJavaScore( 80 );
+        studentScore.setDbScore( 75 );
+        studentScore.setLinuxScore( 70 );
+        data.add( studentScore );
+        
+        studentScore = new StudentScore();
+        studentScore.setStudentName( "강감찬" );
+        studentScore.setJavaScore( 90 );
+        studentScore.setDbScore( 85 );
+        studentScore.setLinuxScore( 95 );
+        data.add( studentScore );
+        
+        studentScore = new StudentScore();
+        studentScore.setStudentName( "김춘추" );
+        studentScore.setJavaScore( 65 );
+        studentScore.setDbScore( 60 );
+        studentScore.setLinuxScore( 60 );
+        data.add( studentScore );
+        
         gcv2.calc( data );
     }
 }
