@@ -15,7 +15,14 @@ import javax.swing.JTextField;
 
 public class ButtonArray implements ActionListener { 
     
+    
+    // 메인메서드
+    public static void main( String[] args ) {
+       new ButtonArray();
+    }
+    
     AccountSample action = new AccountSample(this);
+    // this 예약어 쓰는 이유// 업무의 프로세스 
     
     // 선언부
     JFrame jf        = new JFrame();
@@ -110,8 +117,5 @@ public class ButtonArray implements ActionListener {
             jtf_input.setText( "" );
         }        
     }
-    // 메인메서드
-    public static void main( String[] args ) {
-        new ButtonArray();
-    }
+   
 }
