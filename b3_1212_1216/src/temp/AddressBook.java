@@ -11,75 +11,101 @@ import javax.swing.JPanel;
 
 public class AddressBook implements ActionListener {
     
-    @Override
-    public void actionPerformed( ActionEvent e ) {
-        Object obj = e.getSource();
-        
-        if ( obj == searchButton ) {
-            aDialog.titleChange( searchButton.getText() );
-            aDialog.jdg.setVisible( true );
-        }
-        else if ( obj == insertButton ) {
-            aDialog.titleChange( insertButton.getText() );
-            aDialog.jdg.setVisible( true );
-        }
-        else if ( obj == modifyButton ) {
-            aDialog.titleChange( modifyButton.getText() );
-            aDialog.jdg.setVisible( true );
-        }
-        else if ( obj == detailButton ) {
-            aDialog.titleChange( detailButton.getText() );
-            aDialog.jdg.setVisible( true );
-        }
-    }
+    private AddressDialog addressDialog;
+    private JFrame        frame;
+    private JPanel        northPanel, centerPanel;
+    private JButton       selectButton, insertButton, updateButton, detailButton;
     
-    // field
-    AddressDialog aDialog;
-    
-    JFrame  jf           = new JFrame( "AddressBook ver 1.0" );
-    JButton searchButton = new JButton( "조회" );
-    JButton insertButton = new JButton( "입력" );
-    JButton modifyButton = new JButton( "수정" );
-    JButton detailButton = new JButton( "상세보기" );
-    
-    // constructor
     public AddressBook() {
         initDisplay();
     }
     
-    // view method
-    void initDisplay() {
+    private void initDisplay() {
+        frame = new JFrame( "AddressBook ver 1.0" );
+        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        frame.setSize( 600, 500 );
         
-        JPanel jp_north  = new JPanel();
-        JPanel jp_center = new JPanel();
+        northPanel = new JPanel();
+        northPanel.setLayout( new FlowLayout( 0 ) );
         
-        jf.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        selectButton = new JButton( "조회" );
+        insertButton = new JButton( "입력" );
+        updateButton = new JButton( "수정" );
+        detailButton = new JButton( "상세보기" );
         
-        jp_north.setLayout( new FlowLayout( 0 ) );
-        
-        jf.add( "North", jp_north );
-        jf.add( "Center", jp_center );
-        
-        jp_center.setBackground( Color.ORANGE );
-        
-        jp_north.add( searchButton );
-        jp_north.add( insertButton );
-        jp_north.add( modifyButton );
-        jp_north.add( detailButton );
-        
-        searchButton.addActionListener( this );
+        selectButton.addActionListener( this );
         insertButton.addActionListener( this );
-        modifyButton.addActionListener( this );
+        updateButton.addActionListener( this );
         detailButton.addActionListener( this );
         
-        jf.setSize( 600, 500 );
-        jf.setVisible( true );
+        northPanel.add( selectButton );
+        northPanel.add( insertButton );
+        northPanel.add( updateButton );
+        northPanel.add( detailButton );
         
-        aDialog = new AddressDialog( this );
+        centerPanel = new JPanel();
+        centerPanel.setBackground( Color.ORANGE );
+        
+        frame.add( "North", northPanel );
+        frame.add( "Center", centerPanel );
+        frame.setVisible( true );
+    }
+    
+    @Override
+    public void actionPerformed( ActionEvent e ) {
+        Object obj = e.getSource();
+        
+        if ( obj == selectButton ) {
+            /*
+             * 1. addressDialog 를 인스턴스화하고, changeTitle( String title ) 을 호출
+             * 각 버튼의 getText() 메서드를 이용하여 버튼 이름을 가져와 파라미터로 넘긴다.
+             */
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( selectButton.getText() );
+            
+            /*
+             * 2. 생성자를 이용하여 다이얼로그 인스턴스 생성과 동시에 버튼 이름을 파라미터로 받아 타이틀을 설정한다.
+             */
+            // addressDialog = new AddressDialog( selectButton.getText() );
+            
+            /*
+             * 3. 생성자, changeTitle() 메서드를 사용하지 않고 다이얼로그 참조변수를 직접 사용한다.
+             * AddressDialog 클래스의 dialog 변수의 Access modifier 를 private 으로 설정할 경우 접근할 수 없다.
+             * ('protected' Access modifier 는 같은 패키지, 혹은 Child class만 접근할 수 있음)
+             */
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( selectButton.getText() );
+        }
+        else if ( obj == insertButton ) {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( insertButton.getText() );
+            
+            // addressDialog = new AddressDialog( insertButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( insertButton.getText() );
+        }
+        else if ( obj == updateButton ) {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( updateButton.getText() );
+            
+            // addressDialog = new AddressDialog( updateButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( updateButton.getText() );
+        }
+        else {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( detailButton.getText() );
+            
+            // addressDialog = new AddressDialog( detailButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( detailButton.getText() );
+        }
     }
     
     public static void main( String[] args ) {
         new AddressBook();
     }
-    
 }
