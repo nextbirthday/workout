@@ -15,7 +15,7 @@ public class UpDownLogic {
         
         return rand.nextInt( MAX );
     }
-    
+     
     private int getUserNumber() {
         int     userNumber = 0;
         boolean isBreak    = false;

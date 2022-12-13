@@ -7,7 +7,7 @@ public class Main {
     
     public Main() {
         System.out.println( "Main defalut constructor call" );
-        getIsOk();
+        // getIsOk();
         // 디폴트 생성자는 생략이 가능하다. 그러나 지금은 isOk배열의 생성을 위해서
         // getIsOk()을 경유하도록 해야지 NullPointerException을 피할 수 있다.
     }

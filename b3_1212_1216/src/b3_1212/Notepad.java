@@ -28,7 +28,9 @@ public class Notepad {
     // constructor 언제 호출? instance화 하면 ex.) new constructor();
     // constructor도 method처럼 호출이 가능하다.
     // constructor는 return type이 없다.
+    // parameter가 있는 constructor가 하나라도 있다면 디폴트 생성자가 제공되지 않는다.
+    // 어떠한 constructor도 선언하지 않았을 때만 제공된다. 생략할 수 있다.
+    // constructor를 통해서 할 수 있는 역할은 초기화 (initialization)에 있다.
     
-    // memory StackOverFlow 발생 - server가 터질 수 있다. - 인스턴스화의 위치 판단
-    
+    // memory StackOverFlow 발생 - server가 터질 수 있다. - 인스턴스화의 위치 판단    
 }

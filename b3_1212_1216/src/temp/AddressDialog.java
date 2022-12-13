@@ -3,6 +3,7 @@ package temp;
 import javax.swing.JDialog;
 
 public class AddressDialog {
+    
     protected JDialog dialog;
     // private JDialog dialog;
     
@@ -44,7 +45,8 @@ public class AddressDialog {
      * 
      * @param title 타이틀로 사용할 String
      */
-    public void changeTitle( String title ) {
+    public void changeTitle( String title, boolean isView ) {
         dialog.setTitle( title );
+        dialog.setVisible( isView );
     }
 }
