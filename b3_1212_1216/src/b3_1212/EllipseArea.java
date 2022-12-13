@@ -36,18 +36,18 @@ public class EllipseArea {
             
             if ( i % 3 == 0 ) {
                 System.out.println( i + "는 3의 배수입니다." );
-            }            
+            }
         }
     }
     
     public static void main( String[] args ) {
         
         EllipseArea test = new EllipseArea();
-        // test.radius( 10, 20 );
+        // test.radius( 15, 20 );
         // int result = test.biggerReturn( 5, 8 );
         // System.out.println( result );
         // test.moonWeight();
-        test.multiple( 3, 14 );
+        test.multiple( 5, 15 );
     }
     
 }

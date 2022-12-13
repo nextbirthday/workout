@@ -76,33 +76,33 @@ public class AddressBook implements ActionListener {
             // addressDialog = new AddressDialog();
             // addressDialog.dialog.setTitle( selectButton.getText() );
         }
-//        else if ( obj == insertButton ) {
-//            addressDialog = new AddressDialog();
-//            addressDialog.changeTitle( insertButton.getText(), true );
-//            
-//            // addressDialog = new AddressDialog( insertButton.getText() );
-//            
-//            // addressDialog = new AddressDialog();
-//            // addressDialog.dialog.setTitle( insertButton.getText() );
-//        }
-//        else if ( obj == updateButton ) {
-//            addressDialog = new AddressDialog();
-//            addressDialog.changeTitle( updateButton.getText(), true );
-//            
-//            // addressDialog = new AddressDialog( updateButton.getText() );
-//            
-//            // addressDialog = new AddressDialog();
-//            // addressDialog.dialog.setTitle( updateButton.getText() );
-//        }
-//        else {
-//            addressDialog = new AddressDialog();
-//            addressDialog.changeTitle( detailButton.getText(), true );
-//            
-//            // addressDialog = new AddressDialog( detailButton.getText() );
-//            
-//            // addressDialog = new AddressDialog();
-//            // addressDialog.dialog.setTitle( detailButton.getText() );
-//        }
+        else if ( obj == insertButton ) {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( insertButton.getText(), true );
+            
+            // addressDialog = new AddressDialog( insertButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( insertButton.getText() );
+        }
+        else if ( obj == updateButton ) {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( updateButton.getText(), true );
+            
+            // addressDialog = new AddressDialog( updateButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( updateButton.getText() );
+        }
+        else {
+            addressDialog = new AddressDialog();
+            addressDialog.changeTitle( detailButton.getText(), true );
+            
+            // addressDialog = new AddressDialog( detailButton.getText() );
+            
+            // addressDialog = new AddressDialog();
+            // addressDialog.dialog.setTitle( detailButton.getText() );
+        }
     }
     
     public static void main( String[] args ) {
