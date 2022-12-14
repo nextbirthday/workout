@@ -24,5 +24,4 @@ public class Txt_1205 {
     //data에 대한 접근 data에 담긴 값의 상태 
     
     //출력 위치에 따른 차이점
-
 }

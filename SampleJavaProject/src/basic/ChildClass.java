@@ -10,7 +10,7 @@ public class ChildClass extends ParentClass {
     @Override
     protected void parentMethod() {
         // 오버라이딩은 부모 클래스에서 선언된 메서드의 '이름'과 '파라미터 개수'는 유지하고,
-        // body(중괄호 안) 부분을 자식 클래스에서 재정의하여 사용하는 것
+        // body(중괄호 = {} 안) 부분을 자식 클래스에서 재정의하여 사용하는 것
         logger.info( "자식 클래스에서 오버라이딩한 메서드" );
     }
     

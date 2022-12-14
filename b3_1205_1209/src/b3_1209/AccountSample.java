@@ -22,8 +22,7 @@ public class AccountSample {
     
     public String account() {
         int i = 10;
-        return "낮춰라";
-        
+        return "낮춰라";        
     }
     
     public void account2() {

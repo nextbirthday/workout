@@ -14,4 +14,6 @@ public class Notepad {
     // 구현체 class가 있어야한다.
     
     // ActionListener - Interface
+    
+    // class 개념의 이해
 }

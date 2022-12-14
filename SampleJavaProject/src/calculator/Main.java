@@ -7,8 +7,8 @@ public class Main {
     public static void main( String[] args ) {
         
         Calculation calc     = new Calculation(); // 인스턴스화
-        Scanner     scan     = new Scanner( System.in ); 
-        boolean     isExit   = false;
+        Scanner     scan     = new Scanner( System.in ); // Scanner import
+        boolean     isExit   = false; //primitive type boolean type variable isExit 선언
         double      x        = 0.0;
         double      y        = 0.0;
         String      operator = null;
