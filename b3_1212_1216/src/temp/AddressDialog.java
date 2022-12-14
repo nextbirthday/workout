@@ -13,7 +13,7 @@ public class AddressDialog {
     
     public AddressDialog( String title ) {
         initDisplay( title );
-    }
+    } // git test용 주석
     
     /**
      * 타이틀 없이 다이얼로그를 초기화하는 메서드
