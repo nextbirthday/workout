@@ -3,6 +3,8 @@ package b3_1212;
 public class Notepad {
     // Array - Class - new - address - 간접 참조 방식
     // 전역변수 scope, 지역변수 scope
+    // scope 란 변수를 사용할 수 있는 범위
+    // {} 안에서 변수를 선언했을 경우 영역이 끝나기 전까지는 어디서든 사용이 가능하다.
     // 초기화 (initialization)
     // 변수 - 하나의 변수에 하나의 값만 담을 수 있다.
     // Array - size를 변경할 수 없다. 늘었다 줄었다 불가능하다.

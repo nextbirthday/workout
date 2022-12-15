@@ -48,7 +48,7 @@ public class Sub implements ActionListener {
         return 1;
     }
     
-    // Callback method (ex. save button이 click되었을 때 JVM이 감지하고 인터셉트하여 method 호출을 해준다.
+    // Callback method 例. save button이 click되었을 때 JVM이 감지하고 인터셉트하여 method 호출을 해준다.
     // parameter인 ActionEvent 객체를 통해서 event가 감지된 버튼을 구분할 수 있다.
     // 이 객체는 parameter에 있으므로 JVM으로부터 주입이 되는 객체이다.
     // 개발자가 instance화 하지 않고 JVM이 대신 해준다.

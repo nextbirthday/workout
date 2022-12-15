@@ -63,6 +63,7 @@ public class AddressBook implements ActionListener {
     // 첫번째 파라미터는 양식을 가진 JTable이고 두번째는 수직 스크롤바 정책을 세번째는 수평스크롤바 정책을
     // 정해줌
     JScrollPane   jsp_addr = new JScrollPane( jtb_addr, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+    
     AddressDialog aDialog  = new AddressDialog();
     
     // 생성자

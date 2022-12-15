@@ -17,6 +17,4 @@ public class Notepad {
     // 이 때 파라미터 자리에 인자를 추가할 수 있다. -여러개의 생성자를 선언할 수 있다.
     // = method overloading rule
     // parameter의 개수가 다르거나 type가 달라야 한다.
-    
-    
 }
