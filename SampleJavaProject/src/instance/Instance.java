@@ -16,7 +16,7 @@ public class Instance {
      * @param p ParameterClass 타입 변수
      */
     public void newAddress( ParameterClass p ) {
-        p = new ParameterClass(); // @efgh5678
+        p = new ParameterClass(); 
         p.value = 30;
         logger.info( "newAddress() p의 주솟값 → " + p + ", value = " + p.value );
     }

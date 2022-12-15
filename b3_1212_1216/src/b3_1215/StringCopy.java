@@ -1,4 +1,4 @@
-package jTable;
+package b3_1215;
 
 public class StringCopy {
     public static void main( String[] args ) {

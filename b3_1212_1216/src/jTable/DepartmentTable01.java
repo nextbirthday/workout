@@ -2,8 +2,6 @@ package jTable;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings( "serial" )
-public class DepartmentTable01 extends JFrame implements ActionListener { // DepartmentTable01 is a JFrame
+public class DepartmentTable01 extends JFrame { // DepartmentTable01 is a JFrame
     
     String[]          header   = { "부서번호", "부서명", "지역" };
     String[][]        data     = new String[1][3];
@@ -43,20 +41,14 @@ public class DepartmentTable01 extends JFrame implements ActionListener { // Dep
         
         for ( int i = 0; i < buttonText.length; i++ ) {
             button = new JButton( buttonText[i] );
-            button.addActionListener( this );
             northPanel.add( button );
             button.setBackground( Color.red );
             button.setForeground( Color.white );
         }
-        
     }
     
     public static void main( String[] args ) {
         new DepartmentTable01();
     }
     
-    @Override
-    public void actionPerformed( ActionEvent e ) {
-        // Object object = e.getSource();
-    }
 }

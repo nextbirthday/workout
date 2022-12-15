@@ -21,8 +21,7 @@ public class AccountSample {
     // 전역변수는 초기화를 해주지 않아도 된다. 왜냐하면 생성자가 초기화 해줄 수 있으니까
     
     public String account() {
-        int i = 10;
-        return "낮춰라";        
+        return "낮춰라";
     }
     
     public void account2() {

@@ -1,19 +1,51 @@
 package b3_1215;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Quiz {
-    // 키보드로 부터 5개의 정수를 입력 받아서 배열에 저장하세요. - 이들의 합계와 평균을 출력하는 프로그램 작성
-    void gradePrint() {
+    
+    int[] getRandomNumber = new int[100];
+    
+    int[] getRandomNumber() {
         
-        int    total        = 0;
-        double subjectCount = 5.0;
-        double avg          = 0;
-        int[]  score        = new int[5];
+        for ( int i = 0; i < getRandomNumber.length; i++ ) {
+            getRandomNumber[i] = ( int ) ( Math.random() * 10 );
+        }
+        return getRandomNumber;
+    }
+    
+    void randomNumberPrint( int[] randomNumber ) {
+        
+        for ( int i = 0; i < 10; i++ ) {
+            int k = 0;
+            k = i * 10;
+            
+            for ( int j = k; j <= k + 9; j++ ) {
+                System.out.print( randomNumber[j] );
+                
+            }
+            System.out.println( "" );
+        }
+    }
+    
+    public static void main( String[] args ) {
+        Quiz  test         = new Quiz();
+        int[] randomNumber = test.getRandomNumber();
+        test.randomNumberPrint( randomNumber );
+        // test.getRandomNumber();
+        // test.gradePrint( 0, 0, 5.0 );
+        // test.randomNumberPrint();
+        // test.getRandomNumberCount();
+    }
+    
+    void gradePrint( int total, double avg, double subjectCount ) {
+        
+        int[] score = new int[5];
         
         Scanner scanner = new Scanner( System.in );
         
-        for ( int i = 0; i < 5; i++ ) { // n번 입력받는 것을 for문을 활용해 코드를 간결하게 만들었음 
+        for ( int i = 0; i < 5; i++ ) {
             System.out.println( "점수를 입력해주세요 : " );
             score[i] = scanner.nextInt();
             total += score[i];
@@ -23,16 +55,81 @@ public class Quiz {
         scanner.close();
     }
     
-//    -10에서 10사이의 정수 10개를 랜덤하게 채번하여  음수와 양수의 합계를 구하는 프로그램을 작성하시오.
-//    출력) 배열 : 9 -2 -3 8 0 -3 -8 -6 -2 0 / 음수합 : -24 , 양수합 : 17
-
     void randomNumberPrint() {
-        int getRandomNumber = (int)(Math.random()*20 -10);
-        int[] randomNumber = new int[10];
+        int[] getRandomNumber = new int[10];
+        int   positiveSum     = 0;
+        int   negativeSum     = 0;
+        int   zeroCount       = 0;
+        
+        for ( int i = 0; i < getRandomNumber.length; i++ ) {
+            int j = ( int ) ( Math.random() * 21 ) - 10;
+            getRandomNumber[i] = j;
+            System.out.print( getRandomNumber[i] );
+            System.out.println();
+            
+            if ( getRandomNumber[i] > 0 ) {
+                positiveSum += getRandomNumber[i];
+            }
+            else if ( j < 0 ) {
+                negativeSum += getRandomNumber[i];
+            }
+            else if ( j == 0 ) {
+                zeroCount++;
+            }
+        }
+        System.out.println( "0이 출력된 횟수는 " + zeroCount + "번 입니다." );
+        System.out.println( "양수의 합은 : " + positiveSum + "입니다." );
+        System.out.println( "음수의 합은 : " + negativeSum + "입니다." );
     }
     
-    public static void main( String[] args ) {
-        Quiz test = new Quiz();
-        test.gradePrint();
+    void getRandomNumberCount() {
+        int[] getRandomNumber = new int[100];
+        int[] zeroToNine      = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int[] count           = new int[10];
+        
+        for ( int i = 0; i < getRandomNumber.length; i++ ) {
+            getRandomNumber[i] = ( int ) ( Math.random() * 10 );
+            
+            if ( ( i + 1 ) % 10 == 0 ) {
+                System.out.println( getRandomNumber[i] );
+            }
+            else {
+                System.out.print( getRandomNumber[i] + " " );
+            }
+            
+            if ( getRandomNumber[i] == 0 ) {
+                count[0]++;
+            }
+            else if ( getRandomNumber[i] == 1 ) {
+                count[1]++;
+            }
+            else if ( getRandomNumber[i] == 2 ) {
+                count[2]++;
+            }
+            else if ( getRandomNumber[i] == 3 ) {
+                count[3]++;
+            }
+            else if ( getRandomNumber[i] == 4 ) {
+                count[4]++;
+            }
+            else if ( getRandomNumber[i] == 5 ) {
+                count[5]++;
+            }
+            else if ( getRandomNumber[i] == 6 ) {
+                count[6]++;
+            }
+            else if ( getRandomNumber[i] == 7 ) {
+                count[7]++;
+            }
+            else if ( getRandomNumber[i] == 8 ) {
+                count[8]++;
+            }
+            else if ( getRandomNumber[i] == 9 ) {
+                count[9]++;
+            }
+        }
+        System.out.println( Arrays.toString( zeroToNine ) );
+        System.out.println( Arrays.toString( count ) );
     }
+    
 }

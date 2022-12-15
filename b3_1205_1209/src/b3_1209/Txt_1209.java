@@ -1,8 +1,5 @@
 package b3_1209;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
 public class Txt_1209 {
     
     // equals method

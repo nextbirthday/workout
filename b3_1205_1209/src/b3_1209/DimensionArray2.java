@@ -1,7 +1,5 @@
 package b3_1209;
 
-import java.util.Arrays;
-
 public class DimensionArray2 {
     
     void multiDimensionArray( int[][] array ) {
