@@ -15,7 +15,9 @@ import javax.swing.JRadioButton;
 
 import controller.Shop;
 import dto.Coffee;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class Customer implements ActionListener {
     
     JFrame       frame;
@@ -26,6 +28,7 @@ public class Customer implements ActionListener {
     Shop         shop;
     
     public Customer() {
+        log.info( "Customer 생성자 호출" );
         shop = Shop.getInstance();
         kiosk();
     }
@@ -62,7 +65,8 @@ public class Customer implements ActionListener {
     
     @Override
     public void actionPerformed( ActionEvent e ) {
-        Object object        = e.getSource();
+        Object object = e.getSource();
+        log.info( "이벤트 발생 : " + object );
         Coffee orderedCoffee = null;
         
         if ( object == orderButton ) {
@@ -83,6 +87,7 @@ public class Customer implements ActionListener {
                 ie.printStackTrace();
             }
         }
+        log.info( "고객이 돌려받은 Coffee DTO : " + orderedCoffee.toString() );
         JOptionPane.showMessageDialog( frame, "주문하신 " + orderedCoffee.getName() + " " + orderedCoffee.getCount() + "잔 나왔습니다.", "픽업", JOptionPane.INFORMATION_MESSAGE );
     }
     
