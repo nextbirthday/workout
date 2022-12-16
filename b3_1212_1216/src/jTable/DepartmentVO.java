@@ -12,7 +12,7 @@ public class DepartmentVO {
     public String getdName() {
         return dName;
     }
-    
+                   
     public void setdName( String dName ) {
         this.dName = dName;
     }
