@@ -1,4 +1,4 @@
-package temp;
+package inheritance;
 
 public class Parent {
     protected int parentVar;
