@@ -18,4 +18,16 @@ public class Notepad {
     // 스코프란 변수를 사용할 수 있는 범위를 얘기하는데
     // {} 안에서 변수를 선언했을 경우 영역이 끝나기 전까지는 어디서든 사용이 가능하다
     
+    // static method는 static method call '가능'
+    // static method 는 instance variable 사용 '불가능'
+    // static method는 instance method call '불가능'
+    // 왜 static method는 인스턴스 멤버를 쓸 수 없나요?
+    // static method 호출 시 객체가 없을 수도 있어서 ( static 은 항상 호출 가능)
+    long add( int a, long b ) {
+        return a + b;
+    }
+    
+    long add( long a, int b ) {
+        return a + b;
+    }
 }
