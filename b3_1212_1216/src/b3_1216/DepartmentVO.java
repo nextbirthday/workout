@@ -1,7 +1,7 @@
 package b3_1216;
 
-public class DepartmentVO  {
-    private int    deptno;
+public class DepartmentVO {
+    private  int    deptno;
     private String dName;
     private String loc;
     
@@ -12,6 +12,7 @@ public class DepartmentVO  {
         this.dName = dName;
         this.loc = loc;
     }
+    
     
     public int getDeptno() { return deptno; }
     
@@ -28,4 +29,9 @@ public class DepartmentVO  {
     public String getLoc() { return loc; }
     
     public void setLoc( String loc ) { this.loc = loc; }
+    
+    @Override
+    public String toString() {
+        return "DepartmentVO [deptno=" + deptno + ", dName=" + dName + ", loc=" + loc + "]";
+    }
 }

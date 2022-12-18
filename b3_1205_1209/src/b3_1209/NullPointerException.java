@@ -8,7 +8,7 @@ public class NullPointerException {
           
         }
         
-        String str2 = "null";
+        String str2 = "banana";
         if(str2.equals( "exit" )) { // NullPointerException
             
         }

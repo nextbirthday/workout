@@ -34,7 +34,6 @@ public class DepartmentTable02 extends JFrame { // DepartmentTable01 is a JFrame
         this.setSize( 500, 400 );
         this.setVisible( true );
         this.setDefaultCloseOperation( EXIT_ON_CLOSE );
-        
     }
     
     public static void main( String[] args ) {

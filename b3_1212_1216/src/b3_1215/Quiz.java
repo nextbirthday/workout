@@ -33,54 +33,13 @@ public class Quiz {
         Quiz  test         = new Quiz();
         int[] randomNumber = test.getRandomNumber();
         test.randomNumberPrint( randomNumber );
-        // test.getRandomNumber();
-        // test.gradePrint( 0, 0, 5.0 );
+       
         // test.randomNumberPrint();
         // test.getRandomNumberCount();
     }
     
-    void gradePrint( int total, double avg, double subjectCount ) {
-        
-        int[] score = new int[5];
-        
-        Scanner scanner = new Scanner( System.in );
-        
-        for ( int i = 0; i < 5; i++ ) {
-            System.out.println( "점수를 입력해주세요 : " );
-            score[i] = scanner.nextInt();
-            total += score[i];
-        }
-        avg = total / subjectCount;
-        System.out.println( "총점은 : " + total + "입니다.\n" + "평균은 : " + avg + "입니다." );
-        scanner.close();
-    }
+       
     
-    void randomNumberPrint() {
-        int[] getRandomNumber = new int[10];
-        int   positiveSum     = 0;
-        int   negativeSum     = 0;
-        int   zeroCount       = 0;
-        
-        for ( int i = 0; i < getRandomNumber.length; i++ ) {
-            int j = ( int ) ( Math.random() * 21 ) - 10;
-            getRandomNumber[i] = j;
-            System.out.print( getRandomNumber[i] );
-            System.out.println();
-            
-            if ( getRandomNumber[i] > 0 ) {
-                positiveSum += getRandomNumber[i];
-            }
-            else if ( j < 0 ) {
-                negativeSum += getRandomNumber[i];
-            }
-            else if ( j == 0 ) {
-                zeroCount++;
-            }
-        }
-        System.out.println( "0이 출력된 횟수는 " + zeroCount + "번 입니다." );
-        System.out.println( "양수의 합은 : " + positiveSum + "입니다." );
-        System.out.println( "음수의 합은 : " + negativeSum + "입니다." );
-    }
     
     void getRandomNumberCount() {
         int[] getRandomNumber = new int[100];

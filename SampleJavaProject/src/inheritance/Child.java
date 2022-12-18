@@ -1,5 +1,8 @@
 package inheritance;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Child extends Parent {
     
     private int childVar;
@@ -19,7 +22,9 @@ public class Child extends Parent {
          * 타입이 Parent이기 때문에 Child에서 선언한 childVar, childMethod() 를 사용할 수 없다.
          * Child 타입의 멤버를 사용하려면 다운캐스팅을 해주면 된다.
          */
-        Parent p = new Child();
+        Parent       p        = new Child();
+        List<String> tempList = new LinkedList<>();
+        
         System.out.println( p + ", parentVar : " + p.parentVar );
         // 아래 두 라인은 에러 발생
         // p.childVar;

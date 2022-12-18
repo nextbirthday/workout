@@ -1,6 +1,7 @@
 package dto;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 public class Coffee {
-    private final String name;
-    private int          count;
+    @NonNull
+    private String name;
+    private int    count;
 }
