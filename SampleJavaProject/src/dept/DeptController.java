@@ -10,15 +10,15 @@ public class DeptController {
         
         switch ( cmd ) {
             // INSERT
-            case "C":
+            case Command.INSERT:
                 result = model.insertDept( dto );
                 break;
             // UPDATE
-            case "U":
+            case Command.UPDATE:
                 result = model.updateDept( dto );
                 break;
             // DELETE
-            case "D":
+            case Command.DELETE:
                 result = model.deleteDept( dto );
                 break;
         }
