@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class DeptList {
+    
     List<DepartmentVO> records = new Vector<>();
     
     private void printData( List<DepartmentVO> records ) {
@@ -73,7 +74,6 @@ public class DeptList {
     
     // 부서 상세보기
     List<DepartmentVO> deptSelect() {
-        
         records.add( new DepartmentVO( 50, "영업2팀", "서울대" ) );
         return records;
     }

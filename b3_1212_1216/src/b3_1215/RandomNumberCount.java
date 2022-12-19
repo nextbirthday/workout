@@ -44,9 +44,5 @@ public class RandomNumberCount {
         for ( int i = 0; i < test.count.length; i++ ) {
             System.out.print( test.count[i] + " " );
         }
-        
-        int x = 0;
-        x++;
-        x++;
     }
 }

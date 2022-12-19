@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings( "serial" )
 public class DepartmentView extends JFrame implements ActionListener {
+    
     DepartmentDialog dialog;
     
     DepartmentController dc = DepartmentController.getInstance();
@@ -62,6 +63,12 @@ public class DepartmentView extends JFrame implements ActionListener {
         int    result = 0;
         
         if ( object == button[0] ) { // 등록
+            result = dc.cudVO( new DepartmentVO( 10, "개발팀", "삼성역" ), "C" );
+            
+            // model.addRow( );
+            if ( result == 1 ) {
+                JOptionPane.showMessageDialog( this, "부서정보를 등록하였습니다." );
+            }
             dialog = new DepartmentDialog( this, true );
         }
         
@@ -84,7 +91,7 @@ public class DepartmentView extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog( this, "부서정보를 삭제하였습니다." );
             }
         }
-        else if ( object == button[3] ) {
+        else if ( object == button[3] ) { // 상세보기
             records = dc.getData();
             
             for ( DepartmentVO vo : records ) {
