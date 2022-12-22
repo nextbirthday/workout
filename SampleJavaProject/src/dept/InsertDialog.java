@@ -29,12 +29,22 @@ public class InsertDialog extends JDialog {
             centerPanel.add( new JTextField() );
         }
         
+        if ( centerPanel.getComponent( 1 ) instanceof JTextField ) {
+            boolean isEditable = true;
+            
+            if ( Command.UPDATE.equals( cmd ) )
+                ( ( JTextField ) centerPanel.getComponent( 1 ) ).setEditable( !isEditable );
+            else
+                ( ( JTextField ) centerPanel.getComponent( 1 ) ).setEditable( isEditable );
+        }
+        
         button = new JButton( "CONFIRM" );
         button.addActionListener( view );
         button.setActionCommand( "CONFIRM" );
         southPanel = new JPanel();
         southPanel.add( button );
         
+        this.setTitle( "데이터 입력(수정)" );
         this.add( "Center", centerPanel );
         this.add( "South", southPanel );
         this.setSize( 250, 200 );

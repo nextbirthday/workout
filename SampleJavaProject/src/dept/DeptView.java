@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -64,10 +63,28 @@ public class DeptView extends JFrame implements ActionListener {
         this.setVisible( true );
     }
     
+    private void getDept() {
+        
+        if ( model.getRowCount() > 0 ) {
+            
+            while ( model.getRowCount() > 0 ) {
+                model.removeRow( 0 );
+            }
+        }
+        controller.getDept().forEach( e -> addRow( e ) );
+    }
+    
+    private void addRow( DeptDTO dto ) {
+        Object[] row = { dto.getDeptno(), dto.getDname(), dto.getLoc() };
+        model.addRow( row );
+    }
+    
     @Override
     public void actionPerformed( ActionEvent e ) {
-        String cmd    = e.getActionCommand();
-        int    result = -1;
+        String      cmd        = e.getActionCommand();
+        Component[] components = null;
+        int         index      = 0;
+        int         result     = -1;
         
         switch ( cmd ) {
             /*
@@ -75,41 +92,39 @@ public class DeptView extends JFrame implements ActionListener {
              * 메서드 호출로 테이블을 새로고침 할 수 있음.
              */
             case "SELECT":
-                if ( model.getRowCount() > 0 ) {
+                getDept();
+                break;
+            
+            // 커맨드만 다이얼로그로 넘겨주는 역할
+            case "INSERT":
+                dialog = new InsertDialog( this, Command.INSERT );
+                break;
+            
+            // 테이블에서 선택한 레코드값을 다이얼로그로 전달
+            case "UPDATE":
+                if ( table.getSelectedRow() != -1 ) {
+                    dialog = new InsertDialog( this, Command.UPDATE );
+                    components = dialog.centerPanel.getComponents();
                     
-                    for ( int i = model.getRowCount() - 1; i >= 0; i-- ) {
-                        model.removeRow( 0 );
+                    for ( Component component : components ) {
+                        if ( component instanceof JTextField )
+                            ( ( JTextField ) component ).setText( String.valueOf( model.getValueAt( table.getSelectedRow(), index++ ) ) );
                     }
                 }
-                List<DeptDTO> records = controller.getDept();
-                
-                for ( DeptDTO dto : records ) { // 자료형 변수명 : 배열명
-                    Object[] row = { dto.getDeptno(), dto.getDname(), dto.getLoc() };
-                    model.addRow( row );
+                else {
+                    JOptionPane.showMessageDialog( this, "수정할 레코드를 선택해주세요.", "ERROR", JOptionPane.ERROR_MESSAGE );
                 }
-                
                 break;
             
-            // 다이얼로그만 열어주는 역할
-            case "INSERT":
-                dialog = new InsertDialog( this, "C" );
-                break;
-            
-            // 다이얼로그만 열어주는 역할
-            case "UPDATE":
-                /*
-                 * UPDATE 시 다이얼로그에 선택한 레코드 정보 텍스트필드에 불러오기 필요
-                 */
-                dialog = new InsertDialog( this, "U" );
-                break;
-            
+            // deptno ( PK : Primary Key ) 기준으로 레코드 삭제
             case "DELETE":
                 if ( table.getSelectedRow() != -1 ) { // index는 0부터 시작이니까
                     int deptno = Integer.parseInt( String.valueOf( model.getValueAt( table.getSelectedRow(), 0 ) ) );
-                    result = controller.cudDept( new DeptDTO( deptno, null, null ), "D" );
+                    result = controller.cudDept( new DeptDTO( deptno, null, null ), Command.DELETE );
                     
                     if ( result == 1 ) {
                         log.info( result + " : DELETE 성공" );
+                        getDept();
                     }
                     else
                         log.error( result + " : DELETE 실패" );
@@ -127,13 +142,8 @@ public class DeptView extends JFrame implements ActionListener {
             case "CONFIRM":
                 String[] userText = new String[3];
                 String command = dialog.cmd;
-                int index = 0;
                 
-                int deptno = 0;
-                String dname = "";
-                String loc = "";
-                
-                Component[] components = dialog.centerPanel.getComponents();
+                components = dialog.centerPanel.getComponents();
                 for ( Component component : components ) {
                     
                     if ( component instanceof JTextField ) {
@@ -142,31 +152,37 @@ public class DeptView extends JFrame implements ActionListener {
                 }
                 
                 try {
-                    deptno = Integer.parseInt( userText[0] );
+                    int    deptno = Integer.parseInt( userText[0] );
+                    String dname  = userText[1];
+                    String loc    = userText[2];
+                    
+                    if ( Command.INSERT.equals( command ) ) {
+                        result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
+                        
+                        if ( result == 1 ) {
+                            log.info( result + " : INSERT 성공" );
+                            getDept();
+                        }
+                        else
+                            log.info( result + " : INSERT 실패" );
+                    }
+                    else {
+                        result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
+                        
+                        if ( result == 1 ) {
+                            log.info( result + " : UPDATE 성공" );
+                            getDept();
+                        }
+                        else
+                            log.info( result + " : UPDATE 실패" );
+                    }
                 }
                 catch ( NumberFormatException nfe ) {
                     JOptionPane.showMessageDialog( dialog, nfe + " : deptno는 정수만 입력할 수 있습니다." );
                     return;
                 }
-                dname = userText[1];
-                loc = userText[2];
-                
                 dialog.dispose();
                 
-                if ( "C".equals( command ) ) {
-                    result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
-                    if ( result == 1 )
-                        log.info( result + " : INSERT 성공" );
-                    else
-                        log.info( result + " : INSERT 실패" );
-                }
-                else {
-                    result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
-                    if ( result == 1 )
-                        log.info( result + " : UPDATE 성공" );
-                    else
-                        log.info( result + " : UPDATE 실패" );
-                }
                 break;
         }
     }
