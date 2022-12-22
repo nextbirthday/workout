@@ -83,15 +83,18 @@ public class DeptView extends JFrame implements ActionListener {
                 }
                 List<DeptDTO> records = controller.getDept();
                 
-                for ( DeptDTO dto : records ) {
+                for ( DeptDTO dto : records ) { // 자료형 변수명 : 배열명
                     Object[] row = { dto.getDeptno(), dto.getDname(), dto.getLoc() };
                     model.addRow( row );
                 }
+                
                 break;
+            
             // 다이얼로그만 열어주는 역할
             case "INSERT":
                 dialog = new InsertDialog( this, "C" );
                 break;
+            
             // 다이얼로그만 열어주는 역할
             case "UPDATE":
                 /*
@@ -101,7 +104,7 @@ public class DeptView extends JFrame implements ActionListener {
                 break;
             
             case "DELETE":
-                if ( table.getSelectedRow() != -1 ) {
+                if ( table.getSelectedRow() != -1 ) { // index는 0부터 시작이니까
                     int deptno = Integer.parseInt( String.valueOf( model.getValueAt( table.getSelectedRow(), 0 ) ) );
                     result = controller.cudDept( new DeptDTO( deptno, null, null ), "D" );
                     

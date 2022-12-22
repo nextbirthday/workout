@@ -1,4 +1,4 @@
-package lecture_2022_12.week_4_Dept;
+package lecture_2022_12.week_4_List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-public class DeptDTO {
+public class DepartmentDTO {
     private int    deptno;
-    private String dName;
+    private String dname;
     private String loc;
 }

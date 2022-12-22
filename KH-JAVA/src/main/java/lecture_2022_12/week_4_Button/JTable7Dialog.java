@@ -99,9 +99,9 @@ public class JTable7Dialog extends JDialog implements ActionListener {
         
         // 입력을 위한 윈도우 설정 - 모든 값을 빈문자열로 세팅함
         if ( oneRow == null ) {
-            setDeptno( " " );
-            setDname( " " );
-            setLoc( " " );
+            setDeptno( "" );
+            setDname( "" );
+            setLoc( "" );
         }
         // 상세조회, 수정시는 배열로 받은 값으로 세팅함
         // 부모창에서 set method 호출시 파라미터로 넘겨준 값으로 초기화한것
@@ -126,11 +126,9 @@ public class JTable7Dialog extends JDialog implements ActionListener {
             if ( oneRow != null ) {
                 
             }
-            else {
+            else { // (oneRow == null)
                 String[] oneRow = { getDeptno(), getDname(), getLoc() };
-                System.out.println( "Before" + oneRow[0] + oneRow[1] + oneRow[2] );
                 DeptTable3.dataList.add( oneRow );
-                System.out.println( "After" + oneRow[0] + oneRow[1] + oneRow[2] );
                 view.refreshData();
                 this.dispose();
             }

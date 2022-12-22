@@ -50,7 +50,6 @@ public class GradeCalculationV2_1 {
         studentScore.setDbScore( 60 );
         studentScore.setLinuxScore( 60 );
         data.add( studentScore );
-        
         gcv2.calc( data );
     }
 }

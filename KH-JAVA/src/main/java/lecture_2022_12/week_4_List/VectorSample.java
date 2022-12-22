@@ -5,6 +5,10 @@ import java.util.Vector;
 
 public class VectorSample {
     
+    // List<e> 서로 다른 타입을 담을 수 있다.
+    // Vector는 multi - thread에서 안전 (ArrayList에 비해 속도는 느리다.)
+    // ArrayList는 single- thread에서 안전( Vector에 비해 속도는 빠르다.)
+    
     public static void main( String[] args ) {
         // 2중 for문의 구조 [out = List-size(), inner = String[] - length]
         // 끼워넣기가 가능, 수정에 대한 API 제공은 없다. 클라우드 기반 데이터베이스 제품이 이런식
@@ -15,8 +19,6 @@ public class VectorSample {
         list.add( temp2 );
         
         List<String> listStr = new Vector<>(); // 단일 for문 처리
-        listStr.add( "null" );
-        listStr.add( "null" );
         listStr.add( "null" );
         
         try {

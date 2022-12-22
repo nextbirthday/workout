@@ -82,4 +82,6 @@ public class DeptModel {
         }
         return dataBase;
     }
+    
+    public static void main( String[] args ) {}
 }

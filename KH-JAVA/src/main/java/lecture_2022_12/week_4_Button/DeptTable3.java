@@ -87,7 +87,7 @@ public class DeptTable3 extends JFrame implements ActionListener {
         }
         
         // 입력, 수정 전에 조회된 정보는 삭제함
-        while ( model.getRowCount() > 0 ) { 
+        while ( model.getRowCount() > 0 ) {
             model.removeRow( 0 );
         }
         
@@ -102,25 +102,25 @@ public class DeptTable3 extends JFrame implements ActionListener {
     public void actionPerformed( ActionEvent e ) {
         Object object = e.getSource();
         
-        if ( object == selectButton ) {
+        if ( object == selectButton ) { // 조회
             refreshData();
         }
         
-        if ( object == insertButton ) {
-            // 다이얼로그.set(제목,활성화여부,데이터로우값-String[]);
+        if ( object == insertButton ) { // 입력
             dialog.set( "입력", true, null );
         }
-        else if ( object == updateButton ) {
-            // getSelectedRow - JTable 목록에서 선택한 로우의 index 값을 가져온다.
+        else if ( object == updateButton ) { // 수정
+            // getSelectedRow - JTable 목록에서 선택한 row의 index 값을 가져온다.
             // DataSet 객체로 List를 사용중이니 List에서 꺼낸 값을 String[]로 초기화
             int      index  = table.getSelectedRow();
             String[] oneRow = dataList.get( index );
             
             dialog.set( "수정", true, oneRow );
         }
-        else if ( object == detailButton ) {
+        else if ( object == detailButton ) {// 상세보기
             int      index  = table.getSelectedRow();
             String[] oneRow = dataList.get( index );
+            
             dialog.set( "상세보기", true, oneRow );
         }
     }

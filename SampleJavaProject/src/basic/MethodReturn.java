@@ -13,18 +13,18 @@ public class MethodReturn {
     public String returnString() {
         String returnStr = "얘는 리턴할 변수예요 ㅎㅎ";
         System.out.println( "메서드 이름 앞에 타입이 붙으면 그 타입 변수를 리턴하는 메서드" );
+        
         return returnStr;
     }
     
     public static void main( String[] args ) {
-       
+        
         MethodReturn refVariable = new MethodReturn(); // 인스턴스화
-        // new MethodReturn(); // 생성자호출
         
         refVariable.returnNothing();
         
         String returnedString = null;
-        System.out.println( returnedString );
+        System.out.println( returnedString ); //null
         
         returnedString = refVariable.returnString();
         System.out.println( returnedString );

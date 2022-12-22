@@ -2,9 +2,13 @@ package list;
 
 public class Person {
     private String name;
+    
     private int    age;
+    
     private int    sex;
+    
     private double height;
+    
     private double weight;
     
     public String getName() { return name; }

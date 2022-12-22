@@ -17,7 +17,8 @@ public class StudentScore {
     
     public String getStudentName() { return studentName; }
     
-    public void setStudentName( String studentName ) { this.studentName = studentName; }
+    public void setStudentName( String studentName ) { 
+        this.studentName = studentName; }
     
     public double getJavaScore() { return javaScore; }
     

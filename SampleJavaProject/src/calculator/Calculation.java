@@ -1,9 +1,9 @@
 package calculator;
 
 public class Calculation {
-       
+    
     private double add( double x, double y ) {
-               return x + y;
+        return x + y;
     }
     
     private double sub( double x, double y ) {
