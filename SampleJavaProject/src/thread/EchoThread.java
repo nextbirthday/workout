@@ -11,12 +11,14 @@ import java.util.Date;
 
 public class EchoThread extends Thread {
     
-    private Socket clientSocket;
+    private Socket             clientSocket;
+    private ConnectionRunnable connectionRunnable;
     
     EchoThread() {}
     
-    EchoThread( Socket clientSocket ) {
+    EchoThread( Socket clientSocket, ConnectionRunnable connectionRunnable ) {
         this.clientSocket = clientSocket;
+        this.connectionRunnable = connectionRunnable;
     }
     
     private String getTime() {
@@ -44,6 +46,8 @@ public class EchoThread extends Thread {
         }
         catch ( IOException e ) {
             e.printStackTrace();
+            System.out.println( "클라이언트 연결이 해제되었습니다." );
+            connectionRunnable.threadList.remove( this );
         }
         catch ( IllegalArgumentException iae ) {
             iae.printStackTrace();
