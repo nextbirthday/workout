@@ -22,8 +22,8 @@ public class DeptModel2 {
         int result = 0;
         
         try {
-            con = dataBaseConnection.getConnection( "root", "q1w2e3r4" );
-            stmt = dataBaseConnection.getStatement( con );
+            con = dataBaseConnection.getConnection();
+            stmt = con.createStatement();
             result = stmt.executeUpdate( insert( dto ) );
             
             dataBaseConnection.closeStatement( stmt );
@@ -43,8 +43,8 @@ public class DeptModel2 {
         int result = 0;
         
         try {
-            con = dataBaseConnection.getConnection( "root", "q1w2e3r4" );
-            stmt = dataBaseConnection.getStatement( con );
+            con = dataBaseConnection.getConnection();
+            stmt = con.createStatement();
             result = stmt.executeUpdate( update( dto ) );
             
             dataBaseConnection.closeStatement( stmt );
@@ -64,8 +64,8 @@ public class DeptModel2 {
         int result = 0;
         
         try {
-            con = dataBaseConnection.getConnection( "root", "q1w2e3r4" );
-            stmt = dataBaseConnection.getStatement( con );
+            con = dataBaseConnection.getConnection();
+            stmt = con.createStatement();
             result = stmt.executeUpdate( delete( dto ) );
             
             dataBaseConnection.closeStatement( stmt );
@@ -84,13 +84,14 @@ public class DeptModel2 {
         List<DeptDTO> data = new ArrayList<>();
         
         try {
-            con = dataBaseConnection.getConnection( "root", "q1w2e3r4" );
-            stmt = dataBaseConnection.getStatement( con );
-            rs = dataBaseConnection.getResultSet( stmt, select() );
+            con = dataBaseConnection.getConnection();
+            stmt = con.createStatement();
+            rs = stmt.executeQuery( select() );
             
             while ( rs.next() ) {
                 data.add( new DeptDTO( rs.getInt( "deptno" ), rs.getString( "dname" ), rs.getString( "loc" ) ) );
             }
+            log.info( data );
             
             dataBaseConnection.closeResultSet( rs );
             dataBaseConnection.closeStatement( stmt );
@@ -106,9 +107,13 @@ public class DeptModel2 {
     }
     
     private String insert( DeptDTO dto ) {
-        String sql = "INSERT INTO test.dept VALUES (" + dto.getDeptno() + ", '" + dto.getDname() + "', '" + dto.getLoc() + "')";
-        System.out.println( sql );
-        return sql;
+        StringBuilder builder = new StringBuilder();
+        builder.append( "INSERT INTO test.dept " );
+        builder.append( "VALUES (" + dto.getDeptno() + ", '" );
+        builder.append( dto.getDname() + "', '" );
+        builder.append( dto.getLoc() + "')" );
+        log.info( builder );
+        return builder.toString();
     }
     
     private String select() {
@@ -121,7 +126,7 @@ public class DeptModel2 {
         builder.append( "   SET dname = '" + dto.getDname() + "'" );
         builder.append( "     , loc   = '" + dto.getLoc() + "'" );
         builder.append( " WHERE deptno = " + dto.getDeptno() );
-        
+        log.info( builder );
         return builder.toString();
     }
     
@@ -130,6 +135,7 @@ public class DeptModel2 {
         builder.append( "DELETE          " );
         builder.append( "  FROM test.dept" );
         builder.append( " WHERE deptno = " + dto.getDeptno() );
+        log.info( builder );
         return builder.toString();
     }
 }
