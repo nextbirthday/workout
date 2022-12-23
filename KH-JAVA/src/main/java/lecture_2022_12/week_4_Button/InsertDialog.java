@@ -41,6 +41,7 @@ public class InsertDialog extends JDialog implements ActionListener {
     
     public InsertDialog( DepartmentView view ) {
         this.view = view;
+        initDisplay();
     }
     
     public void initDisplay() {
@@ -103,8 +104,8 @@ public class InsertDialog extends JDialog implements ActionListener {
         this.setTitle( title );
         this.setVisible( isView );
         this.dto = dto;
-        setValue( dto );
         setEditable( isEdit );
+        setValue( dto );
     }
     
     private void setEditable( boolean isEdit ) { // 입력 혹은 수정일 때는 true, 상세보기는 false

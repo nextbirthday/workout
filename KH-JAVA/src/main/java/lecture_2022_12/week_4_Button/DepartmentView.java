@@ -77,6 +77,7 @@ public class DepartmentView extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog( this, "조회 결과가 없습니다.", "WARN", JOptionPane.WARNING_MESSAGE );
             return;
         }
+        
         System.out.println( "DepartmentView : " + dataBase.size() );
         
         for ( int i = 0; i < dataBase.size(); i++ ) {
@@ -93,19 +94,65 @@ public class DepartmentView extends JFrame implements ActionListener {
     public void actionPerformed( ActionEvent e ) {
         Object object = e.getSource();
         
-        if ( object == selectButton ) {
+        if ( object == selectButton ) {// 조회
             refreshData();
         }
         
-        if ( object == insertButton ) {
+        if ( object == insertButton ) { // 입력
             dialog.set( "입력", true, null, true );
         }
         
-        else if ( object == updateButton ) {
+        else if ( object == updateButton ) { // 수정
             // JTable 목록에서 선택한 row의 index 값을 가져옴
             int index = table.getSelectedRow();
-            // DataSet Object로 Vector를 사용중이니 Vector에서 꺼낸 값을 String[] 초기화
+            // DataSet Object로 Vector를 사용중이니 Vector에서 꺼낸 값을 제네릭 타입으로 초기화
             DepartmentDTOBuilder dto = dataBase.get( index );
+            dialog.set( "수정", true, dto, true );
+        }
+        else if ( object == detailButton ) { // 상세보기
+            int index = table.getSelectedRow();
+            
+            if ( index == -1 ) { // -1은 end of file의 의미 (끝까지 다 찾았는데 없다.)
+                JOptionPane.showMessageDialog( this, "상세보기 할 row를 선택해주세요." );
+                return;
+            }
+            DepartmentDTOBuilder dto = dataBase.get( index );
+            dialog.set( "상세보기", true, dto, false );
+            
+        }
+        else if ( object == deleteButton ) { // 삭제
+            int index = table.getSelectedRow();
+            
+            if ( index == -1 ) { // -1은 end of file의 의미 (끝까지 다 찾았는데 없다.)
+                JOptionPane.showMessageDialog( null, "삭제할 row을 선택해주세요." );
+                return;
+            }
+            
+            dataBase.remove( index );
+            refreshData();
+            // int index = table.getSelectedRow();
+            //
+            // for ( int i = 0; i < dataBase.size(); i++ ) {
+            //
+            // if ( dataBase.get( index ) == dataBase.get( i ) ) {
+            // model.removeRow( index );
+            // JOptionPane.showMessageDialog( null, "선택하신 열의 부서정보가 삭제되었습니다." );
+            // }
+            // }
+            
+        }
+        
+        if ( object == deleteButton ) { // 삭제
+            // int index = table.getSelectedRow();
+            //
+            // for ( int i = 0; i < dataBase.size(); i++ ) {
+            //
+            // if ( dataBase.get( index ) == dataBase.get( i ) ) {
+            // model.removeRow( index );
+            // JOptionPane.showMessageDialog( null, "선택하신 열의 부서정보가 삭제되었습니다." );
+            // }
+            // }
+            
         }
     }
     
