@@ -130,28 +130,6 @@ public class DepartmentView extends JFrame implements ActionListener {
             
             dataBase.remove( index );
             refreshData();
-            // int index = table.getSelectedRow();
-            //
-            // for ( int i = 0; i < dataBase.size(); i++ ) {
-            //
-            // if ( dataBase.get( index ) == dataBase.get( i ) ) {
-            // model.removeRow( index );
-            // JOptionPane.showMessageDialog( null, "선택하신 열의 부서정보가 삭제되었습니다." );
-            // }
-            // }
-            
-        }
-        
-        if ( object == deleteButton ) { // 삭제
-            // int index = table.getSelectedRow();
-            //
-            // for ( int i = 0; i < dataBase.size(); i++ ) {
-            //
-            // if ( dataBase.get( index ) == dataBase.get( i ) ) {
-            // model.removeRow( index );
-            // JOptionPane.showMessageDialog( null, "선택하신 열의 부서정보가 삭제되었습니다." );
-            // }
-            // }
             
         }
     }
@@ -159,5 +137,4 @@ public class DepartmentView extends JFrame implements ActionListener {
     public static void main( String[] args ) {
         new DepartmentView();
     }
-    
 }

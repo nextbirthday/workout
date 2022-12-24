@@ -15,14 +15,14 @@ import javax.swing.JTextArea;
 @SuppressWarnings( "serial" )
 public class TalkServer extends JFrame implements Runnable, ActionListener {
     // 자바는 단일상속만 가능하다. 자바는 단일상속의 단점을 보완하기 위해 interface는 다중으로 처리 가능하다.(구현체클래스)
-    // 클라이언트 측에서 new Socket하면 그 소켓정보를 받아서 쓰레드로 넘김
+    // 클라이언트 측에서 new Socket하면 그 소켓정보를 받아서 쓰레드로 넘긴다.
     TalkServerThread tst = null;
     
     // 동시에 여러명이 접속하니까 List - Vector<>(); - multi thread 안전
     List<TalkServerThread> globalList = null;
     
     ServerSocket server = null;
-    Socket socket = null;
+    Socket       socket = null;
     
     JTextArea   jta_log  = new JTextArea( 10, 30 );
     JScrollPane jsp_log  = new JScrollPane( jta_log, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
@@ -30,7 +30,6 @@ public class TalkServer extends JFrame implements Runnable, ActionListener {
     
     public TalkServer() {
         // initDisplay(); 시점의 문제 - 화면을 먼저 호출해야 하기 때문에 생성자의 제어권 안에 놓으면 안된다.
-        //
     }
     
     public void initDisplay() {

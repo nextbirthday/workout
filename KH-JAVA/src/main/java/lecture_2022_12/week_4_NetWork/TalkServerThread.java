@@ -37,7 +37,7 @@ public class TalkServerThread extends Thread { //토크서버스레드가 클라
             }
             // 현재 서버에 입장한 클라이언트 스레드 추가하기
             ts.globalList.add( this );
-            this.broadCastring( message );
+            this.broadCasting( message );
         }
         catch ( Exception e ) {
             
@@ -45,7 +45,7 @@ public class TalkServerThread extends Thread { //토크서버스레드가 클라
     }
     
     // 현재 입장해 있는 친구들 모두에게 메시지 전송하기 구현
-    public void broadCastring( String message ) {
+    public void broadCasting( String message ) {
         
         for ( TalkServerThread tst : ts.globalList ) {
             tst.send( message ); // 34번 코드와의 차이점 설명....

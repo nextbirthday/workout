@@ -8,7 +8,7 @@ public class Protocol {
     public static final int TALK_OUT = 500;
     public static final String separator = "#";
 }
-
+// final 예약어
 // final 클래스 앞에 오면 상속을 못한다. 
 // method 앞에 오면 method overriding을 못한다. 
 // variable 앞에 오면  constant

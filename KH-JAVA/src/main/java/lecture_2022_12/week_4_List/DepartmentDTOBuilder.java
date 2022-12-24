@@ -3,7 +3,7 @@ package lecture_2022_12.week_4_List;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
+@Data 
 @Builder
 public class DepartmentDTOBuilder {
     private int    deptno;

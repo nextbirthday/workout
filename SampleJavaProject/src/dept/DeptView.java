@@ -99,7 +99,7 @@ public class DeptView extends JFrame implements ActionListener {
             case "INSERT":
                 dialog = new InsertDialog( this, Command.INSERT );
                 break;
-            
+             
             // 테이블에서 선택한 레코드값을 다이얼로그로 전달
             case "UPDATE":
                 if ( table.getSelectedRow() != -1 ) {
@@ -118,7 +118,7 @@ public class DeptView extends JFrame implements ActionListener {
             
             // deptno ( PK : Primary Key ) 기준으로 레코드 삭제
             case "DELETE":
-                if ( table.getSelectedRow() != -1 ) { // index는 0부터 시작이니까
+                if ( table.getSelectedRow() != -1 ) { // 선택된 row가 없으면 -1을 return
                     int deptno = Integer.parseInt( String.valueOf( model.getValueAt( table.getSelectedRow(), 0 ) ) );
                     result = controller.cudDept( new DeptDTO( deptno, null, null ), Command.DELETE );
                     
