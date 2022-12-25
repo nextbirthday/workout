@@ -3,8 +3,7 @@ package dept;
 import java.util.List;
 
 public class DeptController {
-    protected DeptModel  model  = new DeptModel();
-    protected DeptModel2 model2 = new DeptModel2();
+    private DeptModel2 model2 = new DeptModel2();
     
     public int cudDept( DeptDTO dto, String cmd ) {
         int result = -1;
