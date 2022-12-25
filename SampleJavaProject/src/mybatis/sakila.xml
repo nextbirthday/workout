@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.sakila">
+    <resultMap type="mysql.Customer" id="customer">
+        <id property="customer_id" column="customer_id" />
+        <result property="store_id" column="store_id" />
+        <result property="first_name" column="first_name" />
+        <result property="last_name" column="last_name" />
+        <result property="email" column="email" />
+        <result property="address_id" column="address_id" />
+        <result property="active" column="active" />
+        <result property="create_date" column="create_date" />
+        <collection property="payments" ofType="mysql.Payment" resultMap="payment" />
+    </resultMap>
+    
+    <resultMap type="mysql.Payment" id="payment">
+        <id property="payment_id" column="payment_id" />
+        <result property="customer_id" column="customer_id" />
+        <result property="staff_id" column="staff_id" />
+        <result property="rental_id" column="rental_id" />
+        <result property="amount" column="amount" />
+        <result property="payment_date" column="payment_date" />
+        <result property="last_update" column="last_update" />
+    </resultMap>
+    
+    <select id="getCustomerPaymentList" resultMap="customer">
+        SELECT c.customer_id
+             , c.store_id
+             , c.first_name
+             , c.last_name
+             , c.email
+             , c.address_id
+             , c.active
+             , c.create_date
+             , p.payment_id
+             , p.staff_id
+             , p.rental_id
+             , p.amount
+             , p.payment_date
+             , p.last_update
+          FROM sakila.customer c
+                   INNER JOIN payment p
+                   ON c.customer_id = p.customer_id
+         WHERE c.customer_id = #{customer_id}
+    </select>
+</mapper>

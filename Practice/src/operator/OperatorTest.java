@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class OperatorTest {
     public void operatorTest() {
         // 산술 연산자 % : 나누었을 때 나머지를 구하는 연산자
-        // 짝수 -> 값 % 2 == 0
+        // 짝수 -> 변수(value) % 2 == 0
         // 홀수 -> 값 % 2 == 1
         // n의 배수 -> 값 % n == 0
         
@@ -26,7 +26,8 @@ public class OperatorTest {
         // 복합대입연산자
         // 코드가 간결하여 메모리에 직접 연산을 수행하여 연산속도가 빠름
         int num4 = 5;
-        num4 += 10;
+        
+        num4 += 10; // num4 = num4+10;
         System.out.println( "num4 :" + num4 ); // 15
         
         num4 -= 10;
@@ -51,6 +52,6 @@ public class OperatorTest {
         int num = sc.nextInt();
         
         String result = num > 0 ? "양수" : num == 0 ? "0이다" : "음수다";
-        System.out.println( result);
+        System.out.println( result );
     }
 }

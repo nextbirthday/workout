@@ -54,6 +54,7 @@ public class VariablePractice {
     }
     
     public void method4() {
+        
         // Q4 문자열을 입력받아 각자의 유니코드를 출력
         Scanner sc = new Scanner( System.in );
         System.out.println( "문자열 입력 :" );
