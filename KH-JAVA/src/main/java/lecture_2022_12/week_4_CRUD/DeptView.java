@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@SuppressWarnings( "serial" )
+@SuppressWarnings("serial")
 public class DeptView extends JFrame implements ActionListener {
     
     private JPanel            northPanel, centerPanel;
