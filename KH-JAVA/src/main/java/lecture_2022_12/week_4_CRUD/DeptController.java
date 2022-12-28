@@ -21,13 +21,15 @@ public class DeptController {
                 break;
             
             case "UPDATE":
-                log.info( "업데이트 탔음" );
+                log.info( "Controller UPDATE" );
                 log.info( team );
                 result = model.updateTeam( team );
                 break;
+                
             case "DELETE":
                 result = model.deleteTeam( team );
                 break;
+                
             default:
                 break;
         }

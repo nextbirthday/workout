@@ -5,6 +5,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
+import lombok.extern.log4j.Log4j2;
+@Log4j2
 public class TalkServerThread extends Thread { //토크서버스레드가 클라이언트랑 연결된 하나의 회선 
     
     TalkServer         ts     = null;

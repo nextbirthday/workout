@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @SuppressWarnings( "serial" )
 public class TalkServer extends JFrame implements Runnable, ActionListener {
     // 자바는 단일상속만 가능하다. 자바는 단일상속의 단점을 보완하기 위해 interface는 다중으로 처리 가능하다.(구현체클래스)

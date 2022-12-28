@@ -21,15 +21,15 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @SuppressWarnings( "serial" )
 public class DeptView extends JFrame implements ActionListener {
-    String[]                  columnNames = { "팀 번호", "팀 네임", "팀 위치", "팀원 수" };
+    
     private JPanel            northPanel, centerPanel;
     private JButton           button;
     private DefaultTableModel model;
     private JTable            table;
     private JScrollPane       scrollPane;
-    Font                      font        = new Font( "맑은 고딕", Font.PLAIN, 10 );
+    Font                      font       = new Font( "맑은 고딕", Font.PLAIN, 10 );
     IUDialog                  dialog;
-    DeptController            controller  = new DeptController();
+    DeptController            controller = new DeptController();
     
     public DeptView() {
         init();
@@ -63,7 +63,7 @@ public class DeptView extends JFrame implements ActionListener {
             button.addActionListener( this );
             northPanel.add( button );
         }
-        
+        String[] columnNames = { "팀 번호", "팀 네임", "팀 위치", "팀원 수" };
         model = new DefaultTableModel( columnNames, 0 );
         table = new JTable( model );
         scrollPane = new JScrollPane( table );
@@ -105,7 +105,7 @@ public class DeptView extends JFrame implements ActionListener {
                     dialog.setText( teamNumber, teamName, teamLoc, memberNumber );
                 }
                 else {
-                    JOptionPane.showMessageDialog( null, "수정하실 레코드를 선택해주세요." );
+                    JOptionPane.showMessageDialog( null, "수정 실패 (사유 : 선택된 레코드가 없습니다.)" );
                 }
                 break;
             

@@ -1,5 +1,8 @@
 package inheritance;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class Child extends Parent {
     
     private int childVar;
@@ -21,7 +24,6 @@ public class Child extends Parent {
          */
         Parent p = new Child();
         // List<String> tempList = new LinkedList<>();
-        
         System.out.println( p + ", parentVar : " + p.parentVar );
         // 아래 두 라인은 에러 발생
         // p.childVar;
