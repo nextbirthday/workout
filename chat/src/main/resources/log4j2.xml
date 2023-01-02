@@ -23,6 +23,7 @@
         <Logger name="logger" level="DEBUG" additivity="false">
             <AppenderRef ref="consoleAppender" />
         </Logger>
+        <!-- mybatis mapper 파일의 namespace와 name이 일치하는 Logger는 쿼리 시 자동으로 사용된다 -->
         <Logger name="oracle" level="TRACE" additivity="false">
             <AppenderRef ref="consoleAppender" />
             <!-- <AppenderRef ref="mybatisAppender" /> -->
