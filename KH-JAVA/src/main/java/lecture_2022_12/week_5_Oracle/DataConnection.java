@@ -1,4 +1,4 @@
-package lecture_2022_12_Week5_OracleConnect;
+package lecture_2022_12.week_5_Oracle;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

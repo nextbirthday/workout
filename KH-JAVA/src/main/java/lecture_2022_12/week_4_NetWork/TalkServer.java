@@ -68,9 +68,7 @@ public class TalkServer extends JFrame implements Runnable, ActionListener {
     } ////////// end of run method
     
     @Override
-    public void actionPerformed( ActionEvent e ) {
-        // 로그를 파일로 저장하기
-    }
+    public void actionPerformed( ActionEvent e ) {}
     
     public static void main( String[] args ) { // entry point
         // 스레드를 출발시키면 지연이 발생하기 때문에 화면을 먼저 호출한다.

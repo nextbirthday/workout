@@ -25,13 +25,14 @@ import lombok.extern.log4j.Log4j2;
 public class DeptViewMap extends JFrame implements ActionListener {
     
     List<Map<String, Object>> deptList = new Vector<>();
-    Map<String, Object>       tMap;
+    // DeptViewMap의 인스턴스로 접근했을 때 유지되어야 하나요?
+    Map<String, Object>       tMap;// 선언 = null
     private JPanel            northPanel, centerPanel;
     private JButton           button;
     private DefaultTableModel model;
     private JTable            table;
     private JScrollPane       scrollPane;
-    Font                      font     = new Font( "맑은 고딕", Font.PLAIN, 10 );
+    Font                      font = new Font( "맑은 고딕", Font.PLAIN, 10 );
     IUDialog                  dialog;
     
     public void init() {
@@ -47,7 +48,9 @@ public class DeptViewMap extends JFrame implements ActionListener {
             northPanel.add( button );
         }
         String[] columnNames = { "deptno", "dname", "loc" };
+        // String[][] datas = new String[1][3];
         model = new DefaultTableModel( columnNames, 0 );
+        // model = new DefaultTableModel( datas,columnNames );
         table = new JTable( model );
         scrollPane = new JScrollPane( table );
         centerPanel.add( scrollPane );
@@ -59,16 +62,17 @@ public class DeptViewMap extends JFrame implements ActionListener {
     }
     
     protected Map<String, Object> setTmap( int deptno, String dname, String loc ) {
-        tMap = new HashMap();
+        tMap = new HashMap<>();
         tMap.put( "deptno", deptno );
         tMap.put( "dname", dname );
         tMap.put( "loc", loc );
+        // log.info( tMap );
         return tMap;
     }
     
     protected List<Map<String, Object>> selectTeam() {
-        
-        deptList.add( setTmap( 10, "인사팀", "한남동" ) );
+        deptList.clear();
+        deptList.add( setTmap( 10, "인사팀", "서울" ) );
         deptList.add( setTmap( 20, "전산팀", "판교데이터센터" ) );
         deptList.add( setTmap( 30, "데이터팀", "삼성동" ) );
         log.info( deptList );
@@ -80,26 +84,22 @@ public class DeptViewMap extends JFrame implements ActionListener {
     }
     
     protected void getData() {
+        System.out.println( model.getRowCount() );
         
         while ( model.getRowCount() > 0 ) {
             model.removeRow( 0 );
         }
         
-        List<Map<String, Object>> tempList = new Vector<>();
+        List<Map<String, Object>> tempList = selectTeam();
         
-        tempList = selectTeam();
-        log.info( tempList );
-        
-        if ( tempList.size() <= 0 ) {
-            JOptionPane.showMessageDialog( this, "조회 결과가 없습니다.", "WARN", JOptionPane.WARNING_MESSAGE );
-            return;
-        }
+        // log.info( tempList );
         
         for ( int i = 0; i < tempList.size(); i++ ) {
             Object[] temp = { tempList.get( i ).get( "deptno" ), tempList.get( i ).get( "dname" ), tempList.get( i ).get( "loc" ) };
             log.info( temp );
             model.addRow( temp );
         }
+        
     }
     
     protected int insertDept() {
@@ -117,6 +117,7 @@ public class DeptViewMap extends JFrame implements ActionListener {
                 break;
             
             case "SELECT":
+                
                 getData();
                 break;
             
@@ -136,7 +137,6 @@ public class DeptViewMap extends JFrame implements ActionListener {
     
     public static void main( String[] args ) {
         new DeptViewMap();
-        
     }
     
 }
