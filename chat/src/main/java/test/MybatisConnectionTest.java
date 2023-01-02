@@ -15,7 +15,7 @@ import dto.Member;
 
 public class MybatisConnectionTest {
     
-    private static final Logger logger = LogManager.getLogger( "mybatis.oracle" );
+    private static final Logger logger = LogManager.getLogger( "oracle" );
     
     public static void main( String[] args ) {
         String            resource          = "mybatis-config.xml";
