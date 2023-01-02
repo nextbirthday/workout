@@ -1,4 +1,4 @@
-package lecture_2022_12.week_5_CRUD;
+package lecture_2022_12.week_5_CRUD02;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -6,24 +6,27 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import lecture_2022_12.week_4_Button.DepartmentView;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @SuppressWarnings( "serial" )
-public class DeptView extends JFrame implements ActionListener {
+public class DeptView02 extends JFrame implements ActionListener {
     
-    public DeptView() {
+    public DeptView02() {
         init();
     }
     
@@ -33,21 +36,26 @@ public class DeptView extends JFrame implements ActionListener {
     private JTable            table;
     private JScrollPane       scrollPane;
     Font                      font       = new Font( "맑은 고딕", Font.PLAIN, 10 );
-    DeptController            controller = new DeptController();
-    IUDialog                  dialog;
+    DeptController02          controller = new DeptController02();
     
     protected void getDept() {
         
         while ( model.getRowCount() > 0 ) {
             model.removeRow( 0 );
         }
-        List<Map<String, Object>> tempList = controller.getDept();
-        log.info( tempList );
         
-        for ( int i = 0; i < tempList.size(); i++ ) {
-            Object[] temp = { tempList.get( i ).get( "deptno" ), tempList.get( i ).get( "dname" ), tempList.get( i ).get( "loc" ) };
+        List<DeptVO02> deptList = controller.getDept();
+        
+        for ( DeptVO02 dept : deptList ) {
+            Object[] temp = { dept.deptno, dept.dname, dept.loc };
             model.addRow( temp );
         }
+        
+        if ( model.getRowCount() <= 0 ) {
+            JOptionPane.showMessageDialog( this, "조회 결과가 없습니다.", "WARN", JOptionPane.WARNING_MESSAGE );
+            return;
+        }
+        
     }
     
     public void init() {
@@ -85,11 +93,10 @@ public class DeptView extends JFrame implements ActionListener {
                 break;
             
             case "INSERT":
-                dialog = new IUDialog( this );
                 break;
             
             case "UPDATE":
-                dialog = new IUDialog( this );
+                
                 break;
             
             case "DELETE":
@@ -102,6 +109,6 @@ public class DeptView extends JFrame implements ActionListener {
     }
     
     public static void main( String[] args ) {
-        new DeptView();
+        new DeptView02();
     }
 }
