@@ -17,4 +17,9 @@
           FROM ONION.MEMBER_TEST
          <!-- WHERE USER_id = #{user_id} -->
     </select>
+    
+    <insert id="addMember" parameterType="dto.Member">
+        INSERT INTO ONION.MEMBER_TEST( USER_ID, NICKNAME, PASSWORD, PHONE_NUMBER, JOINED_AT )
+        VALUES( USER_ID_SEQ.NEXTVAL, #{nickname}, #{password}, #{phone_number}, SYSDATE )
+    </insert>
 </mapper>

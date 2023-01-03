@@ -20,7 +20,6 @@ public class MybatisConnectionTest {
     public static void main( String[] args ) {
         String            resource          = "mybatis-config.xml";
         SqlSessionFactory sqlSessionFactory = null;
-        List<Member>      memberList        = null;
         
         try {
             InputStream inputStream = Resources.getResourceAsStream( resource );
@@ -31,7 +30,17 @@ public class MybatisConnectionTest {
         }
         
         SqlSession session = sqlSessionFactory.openSession();
-        memberList = session.selectList( "getMemberList" );
+        
+        int result = session.insert( "addMember", new Member( "test_user", "q1w2e3r4", "010-5555-9999" ) );
+        logger.info( "INSERT RESULT : " + result );
+        
+        if ( result > 0 ) {
+            session.commit();
+        }
+        
+        List<Member> memberList = session.selectList( "getMemberList" );
         memberList.forEach( e -> logger.info( e.toString() ) );
+        
+        session.close();
     }
 }
