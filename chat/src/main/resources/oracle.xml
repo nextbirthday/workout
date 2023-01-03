@@ -9,7 +9,6 @@
         <result property="activate" column="ACTIVATE" />
         <result property="joined_at" column="JOINED_AT" />
         <result property="deactivated_at" column="DEACTIVATED_AT" />
-        <result property="create_date" column="CREATE_DATE" />
     </resultMap>
     
     <select id="getMemberList" resultMap="member">
@@ -17,4 +16,16 @@
           FROM ONION.MEMBER_TEST
          <!-- WHERE USER_id = #{user_id} -->
     </select>
+    
+    <insert id="addMember" parameterType="dto.Member">
+        INSERT INTO ONION.MEMBER_TEST( USER_ID, NICKNAME, PASSWORD, PHONE_NUMBER, JOINED_AT )
+        VALUES( USER_ID_SEQ.NEXTVAL, #{nickname}, #{password}, #{phone_number}, SYSDATE )
+    </insert>
+    
+    <!-- DB에서 삭제하지 않고 ACTIVATE 상태를 N으로 변경 -->
+    <update id="deleteMember" parameterType="dto.Member">
+        UPDATE ONION.MEMBER_TEST
+        SET ACTIVATE = 'N', DEACTIVATED_AT = SYSDATE
+        WHERE USER_ID = #{user_id}
+    </update>
 </mapper>
