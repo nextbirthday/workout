@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnectionMgr {
-    public static final String _DRIVER = "oracle.jdbc.driver.OracleDriver";
-    public static final String _URL    = "jdbc:oracle:thin:@localhost:1521:orcl11";
-    public static String       _USER   = "scott";
-    public static String       _PW     = "tiger";
+   public static final String _DRIVER = "oracle.jdbc.driver.OracleDriver";
+   public static final String _URL    = "jdbc:oracle:thin:@localhost:1521:orcl11";
+   public static String       _USER   = "scott";
+   public static String       _PW     = "tiger";
     
     // interface name - Connection
     public Connection getConnection() {
@@ -150,7 +150,7 @@ public class DBConnectionMgr {
  * 이것들을 요청할 때는 executeUpdate(INSERT문 or UPDATE or DELETE문)
  * SELECT일 때는
  * ResultSet rs = executeQuery("SELECT*FROM dept");
- * 오라클에서 제공되는 커서를 조작하는 인터페이스를 리턴 타입으로 제공박아서
+ * 오라클에서 제공되는 커서를 조작하는 인터페이스를 리턴 타입으로 제공받아서
  * 조회 결과를 Collection에 담을 수 있다.
  * 
  * List<DeptVO> deptList = new ArrayList<>();
