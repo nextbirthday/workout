@@ -30,7 +30,7 @@ public class TalkClient extends JFrame implements ActionListener {
     ObjectInputStream  ois      = null;// 듣기 할 때
     String             nickName = null;// 닉네임 등록
     
-    //////////////// 통신과 관련한 전역변수 추가 끝 //////////////
+    //////////////// 화면과 관련한 전역변수 추가 //////////////
     JPanel            jp_second       = new JPanel();
     JPanel            jp_second_south = new JPanel();
     JButton           jbtn_one        = new JButton( "1:1" );

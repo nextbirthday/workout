@@ -54,4 +54,11 @@
         WHERE zdo = #{zdo}
         ORDER BY 1
     </select>
+    
+    <select id="getDong" resultMap="zipcode">
+        SELECT DISTINCT dong
+        FROM scott.zipcode_t
+        WHERE sigu = #{sigu}
+        ORDER BY 1
+    </select>
 </mapper>

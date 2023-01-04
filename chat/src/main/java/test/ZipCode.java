@@ -27,15 +27,20 @@ public class ZipCode implements ActionListener {
     @Override
     public void actionPerformed( ActionEvent e ) {
         String action = e.getActionCommand();
-        JOptionPane.showMessageDialog( null, action );
+//        JOptionPane.showMessageDialog( null, action );
         
         switch ( action ) {
             case "zdoBox":
                 String zdo = String.valueOf( zdoBox.getSelectedItem() );
-                List<ZipCodeDTO> siguList = getSigu( zdo );
+                siguBox.removeAllItems();
+                getSigu( zdo ).forEach( sigu -> siguBox.addItem( sigu.getSigu() ) );
                 
-                for ( int i = 0; i < siguList.size(); i++ )
-                    siguBox.addItem( siguList.get( i ).getSigu() );
+                break;
+            case "siguBox":
+                String sigu = String.valueOf( siguBox.getSelectedItem() );
+                dongBox.removeAllItems();
+                getDong( sigu ).forEach( dong -> dongBox.addItem( dong.getDong() ) );
+                
                 break;
         }
     }
@@ -53,7 +58,7 @@ public class ZipCode implements ActionListener {
         panel = new JPanel( new FlowLayout() );
         List<ZipCodeDTO> zdoList = getZdo();
         String[]         zdos    = new String[zdoList.size()];
-        
+        String[]         temp    = { "전체" };
         for ( int i = 0; i < zdoList.size(); i++ )
             zdos[i] = zdoList.get( i ).getZdo();
         
@@ -61,15 +66,15 @@ public class ZipCode implements ActionListener {
         zdoBox.addActionListener( this );
         zdoBox.setActionCommand( "zdoBox" );
         
-        siguBox = new JComboBox<>();
+        siguBox = new JComboBox<>( temp );
         siguBox.addActionListener( this );
         siguBox.setActionCommand( "siguBox" );
         
-        dongBox = new JComboBox<>();
+        dongBox = new JComboBox<>( temp );
         dongBox.addActionListener( this );
         dongBox.setActionCommand( "dongBox" );
         
-        riBox = new JComboBox<>();
+        riBox = new JComboBox<>( temp );
         riBox.addActionListener( this );
         riBox.setActionCommand( "riBox" );
         
@@ -96,6 +101,14 @@ public class ZipCode implements ActionListener {
         List<ZipCodeDTO>  siguList          = session.selectList( "getSigu", zdo );
         siguList.forEach( e -> log.info( e.toString() ) );
         return siguList;
+    }
+    
+    private List<ZipCodeDTO> getDong( String sigu ) {
+        SqlSessionFactory sqlSessionFactory = OracleConnection.getSqlSessionFactory();
+        SqlSession        session           = sqlSessionFactory.openSession();
+        List<ZipCodeDTO>  dongList          = session.selectList( "getDong", sigu );
+        dongList.forEach( e -> log.info( e.toString() ) );
+        return dongList;
     }
     
     public static void main( String[] args ) {
