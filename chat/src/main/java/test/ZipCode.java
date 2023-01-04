@@ -27,20 +27,25 @@ public class ZipCode implements ActionListener {
     @Override
     public void actionPerformed( ActionEvent e ) {
         String action = e.getActionCommand();
-//        JOptionPane.showMessageDialog( null, action );
+        // JOptionPane.showMessageDialog( null, action );
         
         switch ( action ) {
             case "zdoBox":
                 String zdo = String.valueOf( zdoBox.getSelectedItem() );
                 siguBox.removeAllItems();
                 getSigu( zdo ).forEach( sigu -> siguBox.addItem( sigu.getSigu() ) );
-                
                 break;
+            
             case "siguBox":
                 String sigu = String.valueOf( siguBox.getSelectedItem() );
                 dongBox.removeAllItems();
                 getDong( sigu ).forEach( dong -> dongBox.addItem( dong.getDong() ) );
-                
+                break;
+            
+            case "dongBox":
+                String dong = String.valueOf( dongBox.getSelectedItem() );
+                riBox.removeAllItems();
+                getRi( dong ).forEach( ri -> riBox.addItem( ri.getRi() ) );
                 break;
         }
     }
@@ -109,6 +114,14 @@ public class ZipCode implements ActionListener {
         List<ZipCodeDTO>  dongList          = session.selectList( "getDong", sigu );
         dongList.forEach( e -> log.info( e.toString() ) );
         return dongList;
+    }
+    
+    private List<ZipCodeDTO> getRi( String dong ) {
+        SqlSessionFactory sqlSessionFactory = OracleConnection.getSqlSessionFactory();
+        SqlSession        session           = sqlSessionFactory.openSession();
+        List<ZipCodeDTO>  riList            = session.selectList( "getRi", dong );
+        riList.forEach( e -> log.info( e.toString() ) );
+        return riList;
     }
     
     public static void main( String[] args ) {
