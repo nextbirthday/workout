@@ -11,6 +11,19 @@
         <result property="deactivated_at" column="DEACTIVATED_AT" />
     </resultMap>
     
+    <resultMap type="dto.ZipCodeDTO" id="zipcode">
+        <id property="uid_no" column="UID_NO"/>
+        <result property="zipcode" column="ZIPCODE" />
+        <result property="zdo" column="ZDO" />
+        <result property="sigu" column="SIGU" />
+        <result property="dong" column="DONG" />
+        <result property="ri" column="RI" />
+        <result property="bungi" column="BUNGI" />
+        <result property="aptname" column="APTNAME" />
+        <result property="upd_date" column="UPD_DATE" />
+        <result property="address" column="ADDRESS" />
+    </resultMap>
+    
     <select id="getMemberList" resultMap="member">
         SELECT *
           FROM ONION.MEMBER_TEST
@@ -28,4 +41,17 @@
         SET ACTIVATE = 'N', DEACTIVATED_AT = SYSDATE
         WHERE USER_ID = #{user_id}
     </update>
+    
+    <select id="getZdo" resultMap="zipcode">
+        SELECT DISTINCT zdo
+        FROM scott.zipcode_t
+        ORDER BY 1
+    </select>
+    
+    <select id="getSigu" resultMap="zipcode">
+        SELECT DISTINCT sigu
+        FROM scott.zipcode_t
+        WHERE zdo = #{zdo}
+        ORDER BY 1
+    </select>
 </mapper>
