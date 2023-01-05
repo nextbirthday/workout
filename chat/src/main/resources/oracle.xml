@@ -43,57 +43,30 @@
     </update>
     
     <select id="getZdo" resultMap="zipcode">
-        SELECT '전체' AS zdo
-        FROM DUAL
-        UNION ALL
-        SELECT *
-        FROM
-        (
-            SELECT DISTINCT zdo
-            FROM scott.zipcode_t
-            ORDER BY 1
-        )
+        SELECT DISTINCT zdo
+        FROM scott.zipcode_t
+        ORDER BY 1
     </select>
     
     <select id="getSigu" resultMap="zipcode">
-        SELECT '전체' AS sigu
-        FROM DUAL
-        UNION ALL
-        SELECT *
-        FROM
-        (
-    	    SELECT DISTINCT sigu
-            FROM scott.zipcode_t
-            WHERE zdo = #{zdo}
-            ORDER BY 1
-        )
+	    SELECT DISTINCT sigu
+        FROM scott.zipcode_t
+        WHERE zdo = #{zdo}
+        ORDER BY 1
     </select>
     
     <select id="getDong" resultMap="zipcode">
-        SELECT '전체' AS dong
-        FROM DUAL
-        UNION ALL
-        SELECT *
-        FROM
-        (
-            SELECT DISTINCT dong
-            FROM scott.zipcode_t
-            WHERE sigu = #{sigu}
-            ORDER BY 1
-        )
+        SELECT DISTINCT dong
+        FROM scott.zipcode_t
+        WHERE sigu = #{sigu}
+        ORDER BY 1
     </select>
     
     <select id="getRi" resultMap="zipcode">
-        SELECT '전체' AS ri
-        FROM DUAL
-        UNION ALL
-        SELECT *
-        FROM
-        (
-            SELECT DISTINCT ri
-            FROM scott.zipcode_t
-            WHERE dong = #{dong}
-            ORDER BY 1
-        )
+        SELECT DISTINCT ri
+        FROM scott.zipcode_t
+        WHERE dong = #{dong}
+        AND ri IS NOT NULL
+        ORDER BY 1
     </select>
 </mapper>

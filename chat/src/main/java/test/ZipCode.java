@@ -1,13 +1,12 @@
 package test;
 
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.List;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,35 +17,51 @@ import lombok.extern.log4j.Log4j2;
 import util.OracleConnection;
 
 @Log4j2
-public class ZipCode implements ActionListener {
+public class ZipCode implements ItemListener {
     
     JFrame            frame;
     JPanel            panel;
     JComboBox<String> zdoBox, siguBox, dongBox, riBox;
     
     @Override
-    public void actionPerformed( ActionEvent e ) {
-        String action = e.getActionCommand();
-        // JOptionPane.showMessageDialog( null, action );
+    public void itemStateChanged( ItemEvent e ) {
         
-        switch ( action ) {
-            case "zdoBox":
-                String zdo = String.valueOf( zdoBox.getSelectedItem() );
-                siguBox.removeAllItems();
+        if ( e.getStateChange() == ItemEvent.SELECTED ) {
+            
+            if ( e.getSource() == zdoBox ) {
+                String zdo = String.valueOf( e.getItem() );
+                removeItem( siguBox );
                 getSigu( zdo ).forEach( sigu -> siguBox.addItem( sigu.getSigu() ) );
-                break;
-            
-            case "siguBox":
-                String sigu = String.valueOf( siguBox.getSelectedItem() );
-                dongBox.removeAllItems();
+            }
+            else if ( e.getSource() == siguBox ) {
+                String sigu = String.valueOf( e.getItem() );
+                removeItem( dongBox );
                 getDong( sigu ).forEach( dong -> dongBox.addItem( dong.getDong() ) );
-                break;
-            
-            case "dongBox":
-                String dong = String.valueOf( dongBox.getSelectedItem() );
-                riBox.removeAllItems();
+            }
+            else if ( e.getSource() == dongBox ) {
+                String dong = String.valueOf( e.getItem() );
+                removeItem( riBox );
                 getRi( dong ).forEach( ri -> riBox.addItem( ri.getRi() ) );
-                break;
+            }
+        }
+    }
+    
+    private void removeItem( JComboBox<?> comboBox ) {
+        
+        /*
+         * comboBox.removeAllItems() 를 사용할 경우 itemStateChanged 가 발생해버림
+         * 임시방편으로 아래와 같이 리스너 제거 후 인덱스 뒤에서부터 아이템 삭제,
+         * 다시 리스너를 넣어준다.
+         * 리스너를 제거하지 않을 경우 '리'까지 값이 선택된 후 다시 '도'를 선택할 경우
+         * 아이템을 하나씩 삭제하면서 이벤트가 계속 발생하는 것 같다.
+         */
+        if ( comboBox.getItemCount() > 0 ) {
+            comboBox.removeItemListener( this );
+            
+            for ( int i = comboBox.getItemCount() - 1; i > 0; i-- ) {
+                comboBox.removeItemAt( i );
+            }
+            comboBox.addItemListener( this );
         }
     }
     
@@ -68,20 +83,16 @@ public class ZipCode implements ActionListener {
             zdos[i] = zdoList.get( i ).getZdo();
         
         zdoBox = new JComboBox<>( zdos );
-        zdoBox.addActionListener( this );
-        zdoBox.setActionCommand( "zdoBox" );
+        zdoBox.addItemListener( this );
         
         siguBox = new JComboBox<>( temp );
-        siguBox.addActionListener( this );
-        siguBox.setActionCommand( "siguBox" );
+        siguBox.addItemListener( this );
         
         dongBox = new JComboBox<>( temp );
-        dongBox.addActionListener( this );
-        dongBox.setActionCommand( "dongBox" );
+        dongBox.addItemListener( this );
         
         riBox = new JComboBox<>( temp );
-        riBox.addActionListener( this );
-        riBox.setActionCommand( "riBox" );
+        riBox.addItemListener( this );
         
         panel.add( zdoBox );
         panel.add( siguBox );
