@@ -28,13 +28,10 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
     JComboBox jcb_dong   = null;
     JPanel    northPanel = new JPanel();
     
-<<<<<<< HEAD
-=======
     DefaultTableModel model      = new DefaultTableModel();
     JTable            table      = new JTable( model );
     JScrollPane       scrollPane = new JScrollPane( table );
     
->>>>>>> 80cb23bfd82d2d01194bc95e05d1c83408f924a9
     // DB연결을 위한 전역변수 추가
     DBConnectionMgr   dbMgr             = new DBConnectionMgr();
     Connection        con               = null;
