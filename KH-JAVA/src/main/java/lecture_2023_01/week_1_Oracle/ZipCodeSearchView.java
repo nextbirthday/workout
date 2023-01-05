@@ -1,5 +1,7 @@
 package lecture_2023_01.week_1_Oracle;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.Connection;
@@ -14,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import lecture_2022_12.week_5_Oracle.DBConnectionMgr;
 
@@ -28,9 +31,13 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
     JComboBox jcb_dong   = null;
     JPanel    northPanel = new JPanel();
     
-    DefaultTableModel model      = new DefaultTableModel();
+    // 테이블 생성
+    String[]          cols       = { "우편번호", "주소" };
+    String[][]        data       = new String[3][3];
+    DefaultTableModel model      = new DefaultTableModel( data, cols );
     JTable            table      = new JTable( model );
-    JScrollPane       scrollPane = new JScrollPane( table );
+    JTableHeader      header     = table.getTableHeader();
+    JScrollPane       scrollPane = new JScrollPane( table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
     
     // DB연결을 위한 전역변수 추가
     DBConnectionMgr   dbMgr             = new DBConnectionMgr();
@@ -139,11 +146,17 @@ public class ZipCodeSearchView extends JFrame implements ItemListener {
     }
     
     public void init() {
+        header.setBackground( Color.orange );
+        header.setFont( new Font( "맑은고딕", Font.BOLD, 20 ) );
+        table.getColumnModel().getColumn( 0 ).setPreferredWidth( 100 );
+        table.getColumnModel().getColumn( 1 ).setPreferredWidth( 300 );
+        table.setGridColor( Color.red );
         northPanel.add( jcb_zdo );
         northPanel.add( jcb_sigu );
         northPanel.add( jcb_dong );
+        this.add( "Center", scrollPane );
         this.add( "North", northPanel );
-        this.setSize( 630, 400 );
+        this.setSize( 830, 500 );
         this.setVisible( true );
         this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
