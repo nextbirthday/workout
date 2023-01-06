@@ -13,21 +13,24 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-
 @SuppressWarnings( "serial" )
 public class ChatRoomView extends JFrame implements ActionListener {
     
-    JPanel      centerPanel   = new JPanel();
-    JPanel      southPanel    = new JPanel();
-    JButton     sendButton    = new JButton( "전송" );
-    JTextField  chatTextField = new JTextField( 20 );
-    JTextArea   chatDisplay   = new JTextArea( 15, 38 );
-    JScrollPane scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+    JPanel         centerPanel   = new JPanel();
+    JPanel         southPanel    = new JPanel();
+    JButton        sendButton    = new JButton( "전송" );
+    JTextField     chatTextField = new JTextField( 20 );
+    JTextArea      chatDisplay   = new JTextArea( 15, 38 );
+    JScrollPane    scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                    JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
+    private String nickName;
     
     public ChatRoomView() {}
     
-    public ChatRoomView( boolean isView ) {
+    public ChatRoomView( boolean isView, String nickName ) {
         initChatRoomView( isView );
+        this.nickName = nickName;
+        chatDisplay.append( nickName + "님 환영합니다.\n" );
     }
     
     public void initChatRoomView( boolean isView ) {
@@ -57,12 +60,14 @@ public class ChatRoomView extends JFrame implements ActionListener {
         
         if ( chatTextField == object || sendButton == object ) {
             String message = chatTextField.getText();
-            chatDisplay.append( message + "\n" );
+            if ( "exit".equals( message ) )
+                this.dispose();
+            chatDisplay.append( nickName + " : " + message + "\n" );
             chatTextField.setText( "" );
         }
     }
     
-    public static void main( String[] args ) {
-        ChatRoomView test = new ChatRoomView( true );
-    }
+    // public static void main( String[] args ) {
+    // ChatRoomView test = new ChatRoomView( true );
+    // }
 }

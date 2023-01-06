@@ -13,14 +13,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+@SuppressWarnings( "serial" )
 public class LoginApp extends JFrame implements ActionListener {
     public static String myId     = null; // 나의 아이디
-    String               imgPath  = "C:\\Users\\HOJAE\\Desktop\\Java\\workout\\images\\";
+    String               imgPath  = "src/main/resources/";
     JLabel               msg      = new JLabel();
     JFrame               jf_login = new JFrame(); // 메인 프레임
     JPanel               jp_login = new JPanel( null ); // 제일 큰 도화지
@@ -47,6 +49,7 @@ public class LoginApp extends JFrame implements ActionListener {
     public void initDisplay() {
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         // ActionListener
+        jbtn_login.setActionCommand( "SIGN_IN" );
         jbtn_login.addActionListener( this );
         // 아이디를 입력해주세요, 비밀번호를 입력해주세요. 미리 보여질 글자를 담고있는 JLabel 정의
         msg.setFont( msgf );
@@ -81,7 +84,6 @@ public class LoginApp extends JFrame implements ActionListener {
         jlb_infomissing.addMouseListener( new MouseAdapter() {
             @Override
             public void mousePressed( MouseEvent e ) {
-                // TODO Auto-generated method stub
                 super.mousePressed( e );
                 FindIdPwView fipv = new FindIdPwView();
                 fipv.initDisplay();
@@ -123,6 +125,7 @@ public class LoginApp extends JFrame implements ActionListener {
         jf_login.setTitle( "양파쿵야 톡" );
         jf_login.setContentPane( jp_login ); // 액자에 도화지 끼우기
         jf_login.setSize( 400, 600 );
+        jf_login.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         jf_login.setLocationRelativeTo( null );// 창 가운데서 띄우기
         jf_login.setVisible( true );
     }
@@ -135,13 +138,23 @@ public class LoginApp extends JFrame implements ActionListener {
     
     @Override
     public void actionPerformed( ActionEvent e ) {
-        // join = new Join();
+        String cmd = e.getActionCommand();
         
-        Object obj = e.getSource();
-        
-        if ( obj == jbtn_login ) {
-            
+        switch ( cmd ) {
+            case "SIGN_IN":
+                if ( jtf_id.getText().length() > 0 && jtf_pw.getPassword().length > 0 ) {
+                    
+                    String nickName = new SignUpLogic().signIn( jtf_id.getText(), String.valueOf( jtf_pw.getPassword() ) );
+                    
+                    if ( nickName != null ) {
+                        new ChatRoomView( true, nickName );
+                        jf_login.dispose();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog( jf_login, "아이디 혹은 비밀번호를 확인해주세요." );
+                    }
+                }
+                break;
         }
     }
-    
 }
