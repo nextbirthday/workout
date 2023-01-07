@@ -75,12 +75,37 @@ public class ZipCodeSearchViewClone extends JDialog implements ItemListener, Foc
     private String[] dongs  = null;
     
     public ZipCodeSearchViewClone() {
+        zdos = getZDOList();
+        zdoCombo = new JComboBox( zdos );
+        zdoCombo.addItemListener( this );
+        siguCombo = new JComboBox( totals );
+        siguCombo.addItemListener( this );
+        dongCombo = new JComboBox( totals );
+        dongCombo.addItemListener( this );
+        dongSearchField.addFocusListener( this );
+        dongSearchField.addActionListener( this );
+        searchButton.addActionListener( this );
+    }
+    
+    MemberShipClone msc;
+    
+    public ZipCodeSearchViewClone( MemberShipClone msc ) {
+        this.msc = msc;
         /*
          * DB에서 records를 가져올 때 가져오는 시점을 생각해보기
          * 데이터를 보여줘야 하는 place에 배치해야 한다면 이른 인스턴스화나 메서드호출 시점도 고려하기.
          */
         zdos = getZDOList();
-        
+        zdoCombo = new JComboBox( zdos );
+        zdoCombo.addItemListener( this );
+        siguCombo = new JComboBox( totals );
+        siguCombo.addItemListener( this );
+        dongCombo = new JComboBox( totals );
+        dongCombo.addItemListener( this );
+        dongSearchField.addFocusListener( this );
+        dongSearchField.addActionListener( this );
+        searchButton.addActionListener( this );
+        initDisplay();
     }
     
     // 대분류 정보 초기화에 필요한 DB조회하기 구현 메서드
@@ -222,17 +247,9 @@ public class ZipCodeSearchViewClone extends JDialog implements ItemListener, Foc
     } // end of refreshData
     
     public void initDisplay() {
-        
-        zdoCombo = new JComboBox( zdos );
-        zdoCombo.addItemListener( this );
-        siguCombo = new JComboBox( totals );
-        siguCombo.addItemListener( this );
-        dongCombo = new JComboBox( totals );
+        this.setDefaultLookAndFeelDecorated( true );
         
         table.addMouseListener( this );
-        dongSearchField.addFocusListener( this );
-        dongSearchField.addActionListener( this );
-        searchButton.addActionListener( this );
         
         header.setBackground( Color.cyan );
         header.setFont( new Font( "맑은고딕", Font.ITALIC, 20 ) );
@@ -260,7 +277,13 @@ public class ZipCodeSearchViewClone extends JDialog implements ItemListener, Foc
     public void mousePressed( MouseEvent e ) {}
     
     @Override
-    public void mouseReleased( MouseEvent e ) {}
+    public void mouseReleased( MouseEvent e ) {
+        
+        if ( e.getClickCount() == 2 ) {
+            int index = table.getSelectedRow();
+            
+        }
+    }
     
     @Override
     public void mouseEntered( MouseEvent e ) {}
@@ -272,6 +295,11 @@ public class ZipCodeSearchViewClone extends JDialog implements ItemListener, Foc
     public void actionPerformed( ActionEvent e ) {
         Object object = e.getSource();
         
+        if ( object == searchButton || object == dongSearchField ) {
+            String myDong = dongSearchField.getText();
+            refreshData( zdo, myDong );
+            log.info( zdo );
+        }
     }
     
     @Override
@@ -301,8 +329,16 @@ public class ZipCodeSearchViewClone extends JDialog implements ItemListener, Foc
                 sigus = getSiguList( zdo );
                 
                 siguCombo.removeAllItems();
+                
+                for ( int i = 0; i < sigus.length; i++ ) {
+                    siguCombo.addItem( sigus[i] );
+                }
             }
         }
     }
     
+    public static void main( String[] args ) {
+        ZipCodeSearchViewClone test = new ZipCodeSearchViewClone();
+        test.initDisplay();
+    }
 }
