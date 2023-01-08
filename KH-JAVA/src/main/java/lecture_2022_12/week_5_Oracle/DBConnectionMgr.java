@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnectionMgr {
-   public static final String _DRIVER = "oracle.jdbc.driver.OracleDriver";
-   public static final String _URL    = "jdbc:oracle:thin:@localhost:1521:orcl11";
-   public static String       _USER   = "scott";
-   public static String       _PW     = "tiger";
+    public static final String _DRIVER = "oracle.jdbc.driver.OracleDriver";
+    public static final String _URL    = "jdbc:oracle:thin:@localhost:1521:orcl11";
+    public static String       _USER   = "scott";
+    public static String       _PW     = "tiger";
     
     // interface name - Connection
     public Connection getConnection() {

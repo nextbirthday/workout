@@ -1,4 +1,4 @@
-package OnionTalk;
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,24 +13,21 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+
 @SuppressWarnings( "serial" )
 public class ChatRoomView extends JFrame implements ActionListener {
     
-    JPanel         centerPanel   = new JPanel();
-    JPanel         southPanel    = new JPanel();
-    JButton        sendButton    = new JButton( "전송" );
-    JTextField     chatTextField = new JTextField( 20 );
-    JTextArea      chatDisplay   = new JTextArea( 15, 38 );
-    JScrollPane    scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                    JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
-    private String nickName;
+    JPanel      centerPanel   = new JPanel();
+    JPanel      southPanel    = new JPanel();
+    JButton     sendButton    = new JButton( "전송" );
+    JTextField  chatTextField = new JTextField( 20 );
+    JTextArea   chatDisplay   = new JTextArea( 15, 38 );
+    JScrollPane scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
     
     public ChatRoomView() {}
     
-    public ChatRoomView( boolean isView, String nickName ) {
+    public ChatRoomView( boolean isView ) {
         initChatRoomView( isView );
-        this.nickName = nickName;
-        chatDisplay.append( nickName + "님 환영합니다.\n" );
     }
     
     public void initChatRoomView( boolean isView ) {
@@ -48,7 +45,7 @@ public class ChatRoomView extends JFrame implements ActionListener {
         sendButton.addActionListener( this );
         this.setLayout( new GridLayout( 1, 2 ) );
         this.add( centerPanel );
-        this.setTitle( "1:1 채팅" );
+        this.setTitle( "nickname" );
         this.setVisible( isView );
         this.setSize( 400, 600 );
         this.setDefaultCloseOperation( DISPOSE_ON_CLOSE );
@@ -60,14 +57,12 @@ public class ChatRoomView extends JFrame implements ActionListener {
         
         if ( chatTextField == object || sendButton == object ) {
             String message = chatTextField.getText();
-            if ( "exit".equals( message ) )
-                this.dispose();
-            chatDisplay.append( nickName + " : " + message + "\n" );
+            chatDisplay.append( message + "\n" );
             chatTextField.setText( "" );
         }
     }
     
-    // public static void main( String[] args ) {
-    // ChatRoomView test = new ChatRoomView( true );
-    // }
+    public static void main( String[] args ) {
+        ChatRoomView test = new ChatRoomView( true );
+    }
 }

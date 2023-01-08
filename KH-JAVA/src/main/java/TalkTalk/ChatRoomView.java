@@ -1,4 +1,4 @@
-package OnionTalk;
+package TalkTalk;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,27 +13,31 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @SuppressWarnings( "serial" )
 public class ChatRoomView extends JFrame implements ActionListener {
     
-    JPanel         centerPanel   = new JPanel();
-    JPanel         southPanel    = new JPanel();
-    JButton        sendButton    = new JButton( "전송" );
-    JTextField     chatTextField = new JTextField( 20 );
-    JTextArea      chatDisplay   = new JTextArea( 15, 38 );
-    JScrollPane    scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+    JPanel      centerPanel   = new JPanel();
+    JPanel      southPanel    = new JPanel();
+    JButton     sendButton    = new JButton( "전송" );
+    JTextField  chatTextField = new JTextField( 20 );
+    JTextArea   chatDisplay   = new JTextArea( 15, 38 );
+    JScrollPane scrollPane    = new JScrollPane( chatDisplay, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                     JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
-    private String nickName;
+    String      nickname;
     
     public ChatRoomView() {}
     
-    public ChatRoomView( boolean isView, String nickName ) {
+    public ChatRoomView( boolean isView, String nickname ) {
+        // 전역변수로 선언된 nickname 초기화 시점
+        this.nickname = nickname;
         initChatRoomView( isView );
-        this.nickName = nickName;
-        chatDisplay.append( nickName + "님 환영합니다.\n" );
     }
     
     public void initChatRoomView( boolean isView ) {
+        
         centerPanel.setLayout( new BorderLayout() );
         centerPanel.add( "Center", scrollPane );
         centerPanel.add( "South", southPanel );
@@ -46,9 +50,10 @@ public class ChatRoomView extends JFrame implements ActionListener {
         chatDisplay.setBackground( Color.cyan );
         chatTextField.addActionListener( this );
         sendButton.addActionListener( this );
+        chatDisplay.append( nickname + "님이 입장하셨습니다.\n" );
         this.setLayout( new GridLayout( 1, 2 ) );
         this.add( centerPanel );
-        this.setTitle( "1:1 채팅" );
+        this.setTitle( "nickname" );
         this.setVisible( isView );
         this.setSize( 400, 600 );
         this.setDefaultCloseOperation( DISPOSE_ON_CLOSE );
@@ -60,14 +65,9 @@ public class ChatRoomView extends JFrame implements ActionListener {
         
         if ( chatTextField == object || sendButton == object ) {
             String message = chatTextField.getText();
-            if ( "exit".equals( message ) )
-                this.dispose();
-            chatDisplay.append( nickName + " : " + message + "\n" );
+            chatDisplay.append( message + "\n" );
             chatTextField.setText( "" );
         }
     }
     
-    // public static void main( String[] args ) {
-    // ChatRoomView test = new ChatRoomView( true );
-    // }
 }

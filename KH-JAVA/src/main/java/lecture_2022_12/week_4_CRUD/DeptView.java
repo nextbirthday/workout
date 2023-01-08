@@ -22,6 +22,8 @@ import lombok.extern.log4j.Log4j2;
 @SuppressWarnings( "serial" )
 public class DeptView extends JFrame implements ActionListener {
     
+    // 1번 브랜치
+    
     private JPanel            northPanel, centerPanel;
     private JButton           button;
     private DefaultTableModel model;
@@ -37,6 +39,8 @@ public class DeptView extends JFrame implements ActionListener {
     
     protected void getData() {
         
+        // 2번 브랜치가 수정한 메서드
+        // ㅁㅂqwewq
         while ( model.getRowCount() > 0 ) {
             model.removeRow( 0 );
         }
@@ -52,6 +56,13 @@ public class DeptView extends JFrame implements ActionListener {
     }
     
     public void init() {
+        // 1번 브랜치 수정사항
+        // ㅁ
+        // ㅁ
+        // ㅁ
+        // ㅁㅇㅁㄴ
+        //
+        // ㄴ
         northPanel = new JPanel( new FlowLayout( FlowLayout.RIGHT ) );
         centerPanel = new JPanel();
         northPanel.setBackground( Color.cyan );
