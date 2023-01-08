@@ -250,7 +250,7 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-### DB 접속정보 파일 ###
-connection.properties
+### properties 파일 ###
+*.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java,gradle,maven,intellij
