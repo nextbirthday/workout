@@ -41,7 +41,7 @@ public class LoginApp implements ActionListener {
     JLabel         jlb_idtext      = new JLabel( "  아이디를 입력하세요" );
     JLabel         jlb_pwtext      = new JLabel( "  비밀번호를 입력하세요" );
     Font           f_join          = new Font( "맑은 고딕", Font.PLAIN, 12 );
-    ImageIcon      img_main        = new ImageIcon( imgPath + "main2.png" ); // 메인 바나나 이미지 아이콘
+    ImageIcon      img_main        = new ImageIcon( imgPath + "main2.png" ); // 메인 이미지 아이콘
     ImageIcon      img_loginbt     = new ImageIcon( imgPath + "bt_login.png" ); // 로그인 이미지 아이콘
     JButton        jbtn_main       = new JButton( img_main ); // 메인 사진 붙이기용 버튼
     JButton        jbtn_login      = new JButton( img_loginbt ); // 로그인 버튼
@@ -162,6 +162,17 @@ public class LoginApp implements ActionListener {
             else {
                 showDialog( "아이디 또는 비밀번호를 확인해주세요." );
             }
+            
+            // model.signIn( new Account( jtf_id.getText(), String.valueOf( jtf_pw.getPassword() ), null, null, myId, null ) );
+            // System.out.println( myId );
+            //
+            // if ( myId != null ) {
+            // ChatRoomView chatView = new ChatRoomView( true, myId );
+            // jf_login.dispose();
+            // }
+            // else {
+            // showDialog( "아이디 또는 비밀번호를 확인해주세요." );
+            // }
             
         }
         
