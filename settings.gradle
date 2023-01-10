@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'workout'
-include('KH-JAVA', 'sample-project')
+include('KH-JAVA', 'sample-project', 'b3_1212_1216')
