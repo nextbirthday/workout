@@ -26,7 +26,7 @@
     
     <select id="getMemberList" resultMap="member">
         SELECT *
-          FROM ONION.MEMBER_TEST
+        FROM ONION.MEMBER_TEST
          <!-- WHERE USER_id = #{user_id} -->
     </select>
     
@@ -43,30 +43,30 @@
     </update>
     
     <select id="getZdo" resultMap="zipcode">
-        SELECT DISTINCT zdo
-        FROM scott.zipcode_t
+        SELECT DISTINCT ZDO
+        FROM SCOTT.ZIPCODE_T
         ORDER BY 1
     </select>
     
     <select id="getSigu" resultMap="zipcode">
-	    SELECT DISTINCT sigu
-        FROM scott.zipcode_t
-        WHERE zdo = #{zdo}
+        SELECT DISTINCT SIGU
+        FROM SCOTT.ZIPCODE_T
+        WHERE ZDO = #{zdo}
         ORDER BY 1
     </select>
     
     <select id="getDong" resultMap="zipcode">
-        SELECT DISTINCT dong
-        FROM scott.zipcode_t
-        WHERE sigu = #{sigu}
+        SELECT DISTINCT DONG
+        FROM SCOTT.ZIPCODE_T
+        WHERE SIGU = #{sigu}
         ORDER BY 1
     </select>
     
     <select id="getRi" resultMap="zipcode">
-        SELECT DISTINCT ri
-        FROM scott.zipcode_t
-        WHERE dong = #{dong}
-        AND ri IS NOT NULL
+        SELECT DISTINCT RI
+        FROM SCOTT.ZIPCODE_T
+        WHERE DONG = #{dong}
+        AND RI IS NOT NULL
         ORDER BY 1
     </select>
 </mapper>
