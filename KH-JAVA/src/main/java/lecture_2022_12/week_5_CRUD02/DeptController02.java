@@ -16,5 +16,4 @@ public class DeptController02 {
     
     protected List<DeptVO02> getDept() { return model2.selectDept(); }
     
-    
 }
