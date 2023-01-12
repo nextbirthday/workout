@@ -8,7 +8,7 @@
 >
 > ## 위 세 가지는 아래 설명에서는 생략한다.
 
-![JOIN](./images/join-types-representation.png)
+![JOIN](https://user-images.githubusercontent.com/48945286/212005266-93ba53dd-0f7c-4f4f-a281-4822e926152c.png)
 
 ```sql
 SELECT *
