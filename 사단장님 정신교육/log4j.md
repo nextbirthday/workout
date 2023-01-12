@@ -4,24 +4,24 @@
 
 ## 이벤트 레벨
 
-![프로젝트 우클릭 메뉴](./images/level.png)
+![프로젝트 우클릭 메뉴](/images/level.png)
 
 # Java project 에서 log4j 설정 방법
 
 * log4j-core, log4j-api jar 파일 다운로드 ( [README.md](./README.md) 참조 )
 * 다운로드한 두 파일을 프로젝트 루트(/) 경로 바로 아래 resources 폴더를 생성, 복사
 
-![프로젝트 우클릭 메뉴](./images/menu.png)
+![프로젝트 우클릭 메뉴](/images/menu.png)
 * 프로젝트명 우클릭, **Build Path** → **Configure Build Path...** 선택
 
 ---
 
-![자바 빌드 패스](./images/java_build_path.png)
+![자바 빌드 패스](/images/java_build_path.png)
 * **Libraries** 탭, **Classpath** → **Add JARs...** 선택
 
 ---
 
-![JAR 추가](./images/jars.png)
+![JAR 추가](/images/jars.png)
 * 프로젝트 내부로 옮긴 jar 파일 경로를 찾아 추가하고 **OK** → **Apply and Close**
 
 ---
