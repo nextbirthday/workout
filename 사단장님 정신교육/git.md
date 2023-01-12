@@ -1,17 +1,17 @@
 ## 콘솔에서의 깃 사용법 (연동 생략)
 
-![git의 구조](./images/git.jpg)
+![git의 구조](/images/git.jpg)
 
 원격(remote, 깃헙에 저장된 것을 뜻함) 리포지토리를 로컬(내 컴퓨터)로 clone 하고, Eclipse와 연동한 이후 프로세스
 
-![폴더 이동](./images/change_directory.png)
+![폴더 이동](/images/change_directory.png)
 
 1. 먼저 `clone` 땡긴 리포지토리 폴더로 이동한다(하위에 `.git` 파일이 있음).
     ``` bash
     cd 이동할 디렉토리 경로
     ```
 
-![git pull](./images/pull.png)
+![git pull](/images/pull.png)
 
 2. 로컬 브랜치의 변경사항이 없다면 `git pull` 명령어를 사용하여 로컬을 최신화한다.
 
@@ -22,7 +22,7 @@
     git config --local user.email "깃헙 이메일"
     ```
 
-![git status](./images/status_add_commit.png)
+![git status](/images/status_add_commit.png)
 
 3. 변경사항이 있다면 먼저 작업 내용을 `add`(스테이징), `commit`(변경내역 확정)한다.
 
@@ -35,7 +35,7 @@
     git commit
     ```
 
-![push reject](./images/push_reject.png)
+![push reject](/images/push_reject.png)
 
 4. 변경사항이 로컬 리포지토리에 반영되었으면, 원격의 최신화 여부를 확인하고, 원격 변경사항이 있을 경우 `merge`(병합)한다.
 

@@ -8,7 +8,7 @@
 >
 > ## 위 세 가지는 아래 설명에서는 생략한다.
 
-![JOIN](./images/join-types-representation.png)
+![JOIN](/images/join-types-representation.png)
 
 ```sql
 SELECT *
