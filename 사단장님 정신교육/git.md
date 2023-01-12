@@ -1,6 +1,6 @@
 ## 콘솔에서의 깃 사용법 (연동 생략)
 
-![git의 구조](./images/git.jpg)
+![git의 구조](/images/git.jpg)
 
 원격(remote, 깃헙에 저장된 것을 뜻함) 리포지토리를 로컬(내 컴퓨터)로 clone 하고, Eclipse와 연동한 이후 프로세스
 
