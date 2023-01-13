@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -68,6 +69,10 @@ public class ProductView extends JFrame implements ActionListener {
             model.addRow( tempRow );
         }
         
+        if ( tempList.size() == 0 ) {
+            JOptionPane.showMessageDialog( null, "입력된 상품정보가 없습니다." );
+        }
+        
     }
     
     @Override
@@ -94,6 +99,8 @@ public class ProductView extends JFrame implements ActionListener {
             case "CLOSE":
                 this.dispose();
                 break;
+            
+            case "SAVE":
             
             case "EXIT":
                 dialog.dispose();

@@ -3,6 +3,8 @@ package crud;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class ProductModel {
     
     List<Product> productList = new ArrayList<>();
@@ -12,16 +14,12 @@ public class ProductModel {
         
         int result = 0;
         
-        if ( productList.size() == 0 ) {
-            // dialog = new InsertDialog().setText();
-        }
+        productList = new InsertDialog().setText();
         
         return productList;
     }
     
     public List<Product> selectProduct() {
-        
-        if ( productList.size() == 0 ) {}
         
         return productList;
     }
