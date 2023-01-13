@@ -79,22 +79,24 @@ public class ProductView extends JFrame implements ActionListener {
         
     }
     
-    protected int deleteProduct( Integer productcode ) {
+    protected int deleteProduct( int productcode ) {
         int result = 0;
         
-        if ( productList.size() > 0 ) {
+        if ( productList.size() == 0 ) {
+            JOptionPane.showMessageDialog( null, "삭제하실 레코드가 없습니다." );
+        }
+        else {
             
             for ( int i = 0; i < productList.size(); i++ ) {
                 
-                if ( productList.get( i ).productcode == productcode ) {
-                    productList.remove( i );
+                if ( Integer.parseInt(
+                                String.valueOf( model.getValueAt( table.getSelectedRow(), 0 ) ) ) == productList.get( i ).productcode ) {
                     model.removeRow( i );
+                    result++;
+                    JOptionPane.showMessageDialog( null, "상품정보를 삭제하였습니다." );
+                    log.info( productList.get( i ) );
                 }
             }
-            result++;
-        }
-        else {
-            JOptionPane.showMessageDialog( null, "삭제하실 레코드가 없습니다." );
         }
         
         return result;
@@ -121,7 +123,8 @@ public class ProductView extends JFrame implements ActionListener {
     
     @Override
     public void actionPerformed( ActionEvent e ) {
-        String cmd = e.getActionCommand();
+        String cmd    = e.getActionCommand();
+        int    result = 0;
         
         switch ( cmd ) {
             
@@ -141,20 +144,14 @@ public class ProductView extends JFrame implements ActionListener {
                 break;
             
             case "DELETE":
-                
-                if ( productList.size() == 0 ) {
-                    refreshData();
+                result = deleteProduct( Integer.parseInt( String.valueOf( model.getValueAt( table.getSelectedRow(), 0 ) ) ) );
+                if ( result == 0 ) {
+                    JOptionPane.showMessageDialog( null, "상품정보가 삭제되지 않았습니다. 다시 시도해주세요." );
                 }
                 else {
-                    String[] temp = null;
-                    
-                    for ( int i = 0; i < columnNames.length; i++ ) {
-                        temp[i] = String.valueOf( model.getValueAt( table.getSelectedRow(), i ) );
-                    }
-                    System.out.println( temp );
-                    
-                    new InsertDialog( this, true );
+                    JOptionPane.showMessageDialog( null, "선택하신 상품정보가 삭제되었습니다. " );
                 }
+                
                 break;
             
             case "CLOSE":

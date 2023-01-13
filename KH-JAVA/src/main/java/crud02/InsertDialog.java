@@ -33,26 +33,23 @@ public class InsertDialog extends JDialog implements ActionListener {
     
     private JButton insertButton = new JButton( "SAVE" );
     private JButton updateButton = new JButton( "UPDATE" );
-    private JButton deleteButton = new JButton( "DELETE" );
     private JButton closeButton  = new JButton( "CLOSE" );
     private JPanel  northPanel, centerPanel, southPanel;
     
-    private JLabel       productcodeLabel   = new JLabel( "productcode" );
-    private JLabel       productLabel       = new JLabel( "product" );
-    private JLabel       productnameLabel   = new JLabel( "productname" );
-    private JLabel       priceLabel         = new JLabel( "price" );
-    private JLabel       availabilityLabel  = new JLabel( "availability" );
-    private JLabel       deleteproductLabel = new JLabel( "상품삭제" );
-    protected JTextField productcodeField   = new JTextField();
-    protected JTextField productField       = new JTextField();
-    protected JTextField productnameField   = new JTextField();
-    protected JTextField priceField         = new JTextField();
-    protected JTextField availabilityField  = new JTextField();
-    protected JTextField deleteproductField = new JTextField();
+    private JLabel       productcodeLabel  = new JLabel( "productcode" );
+    private JLabel       productLabel      = new JLabel( "product" );
+    private JLabel       productnameLabel  = new JLabel( "productname" );
+    private JLabel       priceLabel        = new JLabel( "price" );
+    private JLabel       availabilityLabel = new JLabel( "availability" );
+    protected JTextField productcodeField  = new JTextField();
+    protected JTextField productField      = new JTextField();
+    protected JTextField productnameField  = new JTextField();
+    protected JTextField priceField        = new JTextField();
+    protected JTextField availabilityField = new JTextField();
     
     public void init() {
         northPanel = new JPanel();
-        centerPanel = new JPanel( ( new GridLayout( 6, 1 ) ) );
+        centerPanel = new JPanel( ( new GridLayout( 5, 1 ) ) );
         southPanel = new JPanel( new FlowLayout( FlowLayout.RIGHT ) );
         
         centerPanel.add( productcodeLabel );
@@ -65,15 +62,11 @@ public class InsertDialog extends JDialog implements ActionListener {
         centerPanel.add( priceField );
         centerPanel.add( availabilityLabel );
         centerPanel.add( availabilityField );
-        centerPanel.add( deleteproductLabel );
-        centerPanel.add( deleteproductField );
         
         insertButton.addActionListener( this );
         closeButton.addActionListener( this );
-        deleteButton.addActionListener( this );
         southPanel.add( insertButton );
         southPanel.add( updateButton );
-        southPanel.add( deleteButton );
         southPanel.add( closeButton );
         northPanel.setBackground( Color.cyan );
         this.add( "North", northPanel );
@@ -116,25 +109,25 @@ public class InsertDialog extends JDialog implements ActionListener {
             
         }
         
-        if ( object == deleteButton ) {
-            System.out.println( "dialog deletebutton" );
-            
-            // if ( String.valueOf( product.getProductcode() ) == null ) {
-            // JOptionPane.showMessageDialog( null, "삭제하실 상품코드가 선택되지 않았습니다." );
-            // }
-            log.info( product );
-            
-            result = view.deleteProduct( Integer.parseInt( deleteproductField.getText() ) );
-            
-            if ( result > 0 ) {
-                this.dispose();
-                JOptionPane.showMessageDialog( view, "선택하신 상품코드 정보가 삭제되었습니다." );
-            }
-            else {
-                JOptionPane.showMessageDialog( view, "선택하신 상품코드 정보가 삭제되지 않았습니다." );
-            }
-            
-        }
+        // if ( object == deleteButton ) {
+        // System.out.println( "dialog deletebutton" );
+        //
+        // // if ( String.valueOf( product.getProductcode() ) == null ) {
+        // // JOptionPane.showMessageDialog( null, "삭제하실 상품코드가 선택되지 않았습니다." );
+        // // }
+        // log.info( product );
+        //
+        // result = view.deleteProduct( Integer.parseInt( deleteproductField.getText() ) );
+        //
+        // if ( result > 0 ) {
+        // this.dispose();
+        // JOptionPane.showMessageDialog( view, "선택하신 상품코드 정보가 삭제되었습니다." );
+        // }
+        // else {
+        // JOptionPane.showMessageDialog( view, "선택하신 상품코드 정보가 삭제되지 않았습니다." );
+        // }
+        //
+        // }
         
         if ( object == updateButton ) {
             

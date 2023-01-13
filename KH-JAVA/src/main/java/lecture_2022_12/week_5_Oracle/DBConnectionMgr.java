@@ -1,5 +1,6 @@
 package lecture_2022_12.week_5_Oracle;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ public class DBConnectionMgr {
         
         try {
             Class.forName( _DRIVER );
-            con = DriverManager.getConnection( "jdbc:oracle:thin:@localhost:1521:orcl11", "scott", "tiger" );
+            con = DriverManager.getConnection( "jdbc:oracle:thin:@localhost:1521:orcl11", _USER, _PW );
         }
         
         catch ( SQLException e ) {
@@ -60,6 +61,31 @@ public class DBConnectionMgr {
             
             try {
                 pstmt.close();
+            }
+            catch ( SQLException e ) {}
+        }
+        
+        if ( con != null ) {
+            
+            try {
+                con.close();
+            }
+            catch ( SQLException e ) {}
+        }
+    } // end of freeConnection
+    
+    /**
+     * 오라클 서버와 연계에 필요한 객체 사용 후에 반드시 자원 반납할 것
+     * 
+     * @param con
+     * @param cstmt
+     */
+    public void freeConnection( Connection con, CallableStatement cstmt ) {
+        
+        if ( cstmt != null ) {
+            
+            try {
+                cstmt.close();
             }
             catch ( SQLException e ) {}
         }
@@ -129,11 +155,6 @@ public class DBConnectionMgr {
         }
     } // end of freeConnection
     
-    public static void main( String[] args ) {
-        DBConnectionMgr db  = new DBConnectionMgr();
-        Connection      con = db.getConnection();
-        System.out.println( "com =====> " + con );
-    }
 }
 
 /*
