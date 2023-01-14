@@ -103,7 +103,7 @@ public class KiwiApp extends JFrame implements ActionListener {
                 conn.remove( kiwiPanel3.scrollPane );
                 conn.remove( kiwiPanel3 );
             }
-            kiwiPanel2 = new KiwiPanel2();
+            kiwiPanel2 = new KiwiPanel2( this );
             this.add( "Center", kiwiPanel2 );
             conn.revalidate();
         }
@@ -122,7 +122,7 @@ public class KiwiApp extends JFrame implements ActionListener {
                 conn.remove( kiwiPanel2.jtf );
                 conn.remove( kiwiPanel2 );
             }
-            kiwiPanel3 = new KiwiPanel3();
+            kiwiPanel3 = new KiwiPanel3( this );
             this.add( "Center", kiwiPanel3 );
             conn.revalidate();
         }

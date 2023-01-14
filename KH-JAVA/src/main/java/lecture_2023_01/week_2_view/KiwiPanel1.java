@@ -15,6 +15,9 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
     JButton jbtn1 = new JButton( "배경화면" );
     JButton jbtn2 = new JButton( "폰트" );
     JButton jbtn3 = new JButton( "폰트 크기" );
+    
+    KiwiApp kiwiApp;
+    
     // Font font를 static으로 선언한 이유는 1번 패널에서 결정된 설정이 패널2에도, 패널3에도 반영되어야 하니까
     public static Font    font;
     public static boolean isSize = false;
@@ -30,12 +33,17 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
         initDisplay();
     }
     
+    // public KiwiPanel1( KiwiApp kiwiApp ) {
+    // this(); // 18번 default constructor call
+    // this.kiwiApp = kiwiApp;
+    // }
+    
     public void initDisplay() {
         this.setLayout( null );
         // setBounds(가로위치, 세로위치, 길이, 폭)
-        jbtn1.setBounds( 140, 80, 120, 30 );
-        jbtn2.setBounds( 140, 150, 120, 30 );
-        jbtn3.setBounds( 140, 220, 120, 30 );
+        jbtn1.setBounds( 140, 80, 140, 30 );
+        jbtn2.setBounds( 140, 150, 140, 30 );
+        jbtn3.setBounds( 140, 220, 140, 30 );
         
         this.add( jbtn1 );
         this.add( jbtn2 );
@@ -52,7 +60,7 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
         if ( object == jbtn3 ) {
             
             if ( !isSize ) {
-                font = new Font( "굴림체", Font.BOLD, 16 );
+                font = new Font( "굴림체", Font.BOLD, 20 );
                 jbtn1.setFont( font );
                 jbtn2.setFont( font );
                 jbtn3.setFont( font );
@@ -60,7 +68,7 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
                 System.out.println( isSize );
             }
             else {
-                font = new Font( "굴림체", Font.PLAIN, 12 );
+                font = new Font( "굴림체", Font.ITALIC, 13 );
                 jbtn1.setFont( font );
                 jbtn2.setFont( font );
                 jbtn3.setFont( font );
