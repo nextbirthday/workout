@@ -43,5 +43,8 @@
         <Logger name="oracle" level="TRACE" additivity="false">
             <AppenderRef ref="consoleAppender" />
         </Logger>
+        <Logger name="mybatis.encryption" level="TRACE" additivity="false">
+            <AppenderRef ref="consoleAppender" />
+        </Logger>
     </Loggers>
 </Configuration>

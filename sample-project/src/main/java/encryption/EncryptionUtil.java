@@ -33,7 +33,7 @@ public class EncryptionUtil {
              * (16진수 한 자리는 2⁴(4 bits) 0000₂ ~ 1111₂ 범위 표현 가능, 0xFF = 1111 1111₂ = 255)
              * 
              * java에서 int는 4 Bytes, 항상 signed 이다.
-             * 예를 들어 -1을 0xFF bitwise AND 하면, int signed 에서는 4 Bytes(=32 bits)
+             * 예를 들어 -1을 0xFF bitwise AND 하면, signed int 에서는 4 Bytes(=32 bits)
              * 11111111 11111111 11111111 11111111 이 된다.
              * 00000000 00000000 00000000 11111111 과 AND를 하면
              * 00000000 00000000 00000000 11111111 unsigned 255로 변환이 된다.
