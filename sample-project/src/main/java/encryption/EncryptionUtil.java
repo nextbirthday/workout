@@ -28,7 +28,6 @@ public class EncryptionUtil {
         StringBuffer strBuffer   = new StringBuffer();
         
         for ( byte b : digestBytes ) {
-            // AND 연산 후 256 (0x100)을 더해주는 이유는 1과 같은 값 표현 시
             /*
              * 0xFF bitwise AND 연산을 하는 이유
              * (16진수 한 자리는 2⁴(4 bits) 0000₂ ~ 1111₂ 범위 표현 가능, 0xFF = 1111 1111₂ = 255)
