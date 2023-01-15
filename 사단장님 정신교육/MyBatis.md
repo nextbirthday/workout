@@ -6,7 +6,7 @@
 
 ---
 
-1. gradle 프로젝트 프로젝트 `build.gradle` 파일에 [디펜던시](https://mvnrepository.com/artifact/org.mybatis/mybatis) 링크를 추가한다. 그리고 현재 사용하고 있는 DB에 맞는 커넥터 디펜던시도 같이 추가한다.
+1. gradle 프로젝트 `build.gradle` 파일에 [디펜던시](https://mvnrepository.com/artifact/org.mybatis/mybatis)를 추가한다. 그리고 현재 사용하고 있는 DB에 맞는 커넥터 디펜던시도 같이 추가한다.
 
 ```groovy
 /* 샘플 */
@@ -44,7 +44,7 @@ implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
     </environment>
   </environments>
   <mappers>
-    <!-- 매퍼 파일 경로 -->
+    <!-- 매퍼 파일 경로, 여러 매퍼를 등록할 수 있다. -->
     <mapper resource="org/mybatis/example/BlogMapper.xml"/>
   </mappers>
 </configuration>
