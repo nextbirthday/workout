@@ -55,10 +55,12 @@ implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- 매퍼 파일의 네임스페이스명은 유니크해야 하며, log4j와 연동할 경우 logger명과 같아야 한다. -->
+<!-- log4j와 연동할 경우 logger명과 같아야 한다. -->
 <mapper namespace="mybatis.test">
+    <!-- 동일한 네임스페이스를 가지는 매퍼끼리는 id값들이 서로 중복될 수 없다. -->
+    
     <!-- resultMap은 Java의 VO, DTO같은 오브젝트의 필드와 DB 테이블 컬럼을 매핑하는 설정이다. -->
-    <!-- type : 클래스 경로, id : resultMap을 식별할 수 있는 유니크한 명칭 -->
+    <!-- type : 클래스 경로, id : resultMap을 식별할 수 있는 네임스페이스 안에서 유니크한 명칭 -->
     <resultMap type="encryption.Encryption" id="encryption">
         <!-- property : 필드명, column : 테이블 컬럼명 -->
         <result property="salt" column="SALT" />
@@ -66,7 +68,7 @@ implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.31'
     </resultMap>
 
     <!-- INSERT문 -->
-    <!-- id : Java 코드에서 해당 쿼리를 사용할 때 id로 호출하며 유니크해야 한다. -->
+    <!-- id : Java 코드에서 해당 쿼리를 사용할 때 id로 호출하며 네임스페이스 안에서 유니크해야 한다. -->
     <!-- parameterType : 파라미터로 들어갈 오브젝트 클래스 경로, DTO의 경우 알아서 필드명이 일치하는 필드값을 매핑한다. -->
     <insert id="insertPassword" parameterType="encryption.Encryption" >
         INSERT INTO schema.table
