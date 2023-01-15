@@ -4,9 +4,16 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import mybatis.MyBatisSqlSessionFactory;
+
 public class EncryptionUtil {
     
-    public String toCiphertext( String plaintext, byte[] salt ) throws NoSuchAlgorithmException {
+    private static SqlSessionFactory sqlSessionFactory;
+    
+    private Encryption toCiphertext( String plaintext, byte[] salt ) throws NoSuchAlgorithmException {
         // digest : 임의 크기의 메시지를 특정 고정 크기의 블럭으로 만드는 것
         // SHA-256 : 임의 길이의 메시지를 256 bits(=32 Bytes) 크기의 메시지로 변환하는 hash 알고리즘
         MessageDigest messageDigest = MessageDigest.getInstance( "SHA-256" );
@@ -42,7 +49,12 @@ public class EncryptionUtil {
              */
             strBuffer.append( Integer.toString( ( b & 0xFF ) + 256, 16 ).substring( 1 ) );
         }
-        return strBuffer.toString();
+        StringBuffer saltBuffer = new StringBuffer();
+        
+        for ( byte b : salt ) {
+            saltBuffer.append( Integer.toString( ( b & 0xFF ) + 256, 16 ).substring( 1 ) );
+        }
+        return new Encryption( saltBuffer.toString(), strBuffer.toString() );
     }
     
     private byte[] generateSalt() {
@@ -52,7 +64,7 @@ public class EncryptionUtil {
         System.out.print( "16진수 표기 솔트 : " );
         
         for ( byte b : salt ) {
-            System.out.print( String.format( "%02x", b ) );
+            System.out.print( Integer.toString( ( b & 0xFF ) + 256, 16 ).substring( 1 ) );
         }
         System.out.print( ", 길이 : " + salt.length + " Bytes\n" );
         return salt;
@@ -60,6 +72,8 @@ public class EncryptionUtil {
     
     public static void main( String[] args ) {
         EncryptionUtil util = new EncryptionUtil();
+        sqlSessionFactory = MyBatisSqlSessionFactory.getInstance();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
         
         int index = 0;
         
@@ -69,14 +83,20 @@ public class EncryptionUtil {
                 
                 try {
                     System.out.println( "입력한 비밀번호 : " + args[0] );
-                    String ciphertext = util.toCiphertext( args[0], util.generateSalt() );
-                    System.out.println( "암호화된 비밀번호 : " + ciphertext + ", 길이 : " + ( ciphertext.length() / 2 ) + " Bytes" );
+                    Encryption encryption = util.toCiphertext( args[0], util.generateSalt() );
+                    sqlSession.insert( "insertPassword", encryption );
+                    
+                    System.out.println( "암호화된 비밀번호 : " + encryption.getPassword() + ", 길이 : "
+                                    + ( encryption.getPassword().length() / 2 ) + " Bytes" );
                 }
                 catch ( NoSuchAlgorithmException e ) {
                     e.printStackTrace();
                 }
                 System.out.println();
-            } while ( ++index < 5 );
+            } while ( ++index < 10 );
+            // 트랜잭션 반영 여부
+            // sqlSession.commit();
+            sqlSession.close();
         }
     }
 }
