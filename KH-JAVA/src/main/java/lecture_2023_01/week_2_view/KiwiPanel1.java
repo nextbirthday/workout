@@ -59,7 +59,10 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
         
         if ( object == jbtn3 ) {
             
+            System.out.println( " object == jbtn3 " + isSize );
+            
             if ( !isSize ) {
+                System.out.println( " if ( !isSize ) " + isSize );
                 font = new Font( "굴림체", Font.BOLD, 20 );
                 jbtn1.setFont( font );
                 jbtn2.setFont( font );
@@ -68,6 +71,7 @@ public class KiwiPanel1 extends JPanel implements ActionListener {
                 System.out.println( isSize );
             }
             else {
+                System.out.println( " else " + isSize );
                 font = new Font( "굴림체", Font.ITALIC, 13 );
                 jbtn1.setFont( font );
                 jbtn2.setFont( font );
