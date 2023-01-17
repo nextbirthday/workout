@@ -6,8 +6,9 @@ import java.net.Socket;
 import java.util.StringTokenizer;
 
 import lombok.extern.log4j.Log4j2;
+
 @Log4j2
-public class TalkServerThread extends Thread { //토크서버스레드가 클라이언트랑 연결된 하나의 회선 
+public class TalkServerThread extends Thread { // 토크서버스레드가 클라이언트랑 연결된 하나의 회선
     
     TalkServer         ts     = null;
     Socket             client = null;
@@ -26,7 +27,7 @@ public class TalkServerThread extends Thread { //토크서버스레드가 클라
         
         try {
             oos = new ObjectOutputStream( client.getOutputStream() ); // ObjectOutputStream - 말하기
-            ois = new ObjectInputStream( client.getInputStream() ); // ObjectInputStream - 듣기 
+            ois = new ObjectInputStream( client.getInputStream() ); // ObjectInputStream - 듣기
             String message = ( String ) ois.readObject(); // 오브젝트 단위로 읽고 쓰는
             ts.jta_log.append( message + "\n" );
             StringTokenizer st = new StringTokenizer( message, "#" );

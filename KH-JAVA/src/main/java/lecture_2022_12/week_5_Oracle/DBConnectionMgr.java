@@ -15,7 +15,7 @@ public class DBConnectionMgr {
     public static String       _PW     = "tiger";
     
     // interface name - Connection
-    public Connection getConnection() {
+    public static synchronized Connection getConnection() {
         Connection con = null;
         
         try {
@@ -36,7 +36,7 @@ public class DBConnectionMgr {
     // 사용한 자원을 반납하는 코드는 명시적으로 하는 것을 원칙으로 하고 있다.
     // 반납하는 순서는 생성된 역순으로 진행한다. - 자바튜닝팀 지적사항
     // 사용한 자원 반납하기 -INSERT, UPDATE, DELETE
-    public void freeConnection( Connection con, Statement stmt ) {
+    public static void freeConnection( Connection con, Statement stmt ) {
         
         if ( stmt != null ) {
             
@@ -80,7 +80,7 @@ public class DBConnectionMgr {
      * @param con
      * @param cstmt
      */
-    public void freeConnection( Connection con, CallableStatement cstmt ) {
+    public static void freeConnection( Connection con, CallableStatement cstmt ) {
         
         if ( cstmt != null ) {
             
@@ -101,7 +101,7 @@ public class DBConnectionMgr {
     
     // 사용한 자원 반납하기 - SELECT - 커서 조작이 필요하다.
     
-    public void freeConnection( Connection con, PreparedStatement pstmt, ResultSet rs ) {
+    public static void freeConnection( Connection con, PreparedStatement pstmt, ResultSet rs ) {
         
         if ( rs != null ) {
             
@@ -128,7 +128,7 @@ public class DBConnectionMgr {
         }
     } // end of freeConnection
     
-    public void freeConnection( Connection con, Statement stmt, ResultSet rs ) {
+    public static void freeConnection( Connection con, Statement stmt, ResultSet rs ) {
         
         if ( rs != null ) {
             

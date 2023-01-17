@@ -57,7 +57,7 @@ public class TalkServer extends JFrame implements Runnable, ActionListener {
             while ( !isStop ) {
                 socket = server.accept(); // 클라이언트에서 시그널이 리턴될 때까지 대기 - TalkClient class의 56번 코드가 실행되어야 연결정보가 return
                 jta_log.append( "client info:" + socket + "\n" );
-                jta_log.append( "client info:" + socket.getInetAddress() + "\n" );
+                jta_log.append( "Server Ready.........\n" );
                 TalkServerThread tst = new TalkServerThread( this );
                 tst.start();
             }

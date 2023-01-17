@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +29,13 @@ public class BookManager extends JFrame implements ActionListener {
     JPanel northPanel = new JPanel();
     
     String gubun = "bookMgr"; // 도서 CRUD면 bookMgr을 게시판 CRUD이면 boardMgr을
+    
+    // private List<Map<String, Object>> getBookList() {
+    // BookController bookController = new BookController();
+    // List<Map<String, Object>> tempList = new ArrayList<>();
+    // bookController.getBookList( gubun, gubun );
+    // return tempList;
+    // }
     
     public BookManager() {
         // initDisplay(); -> 속지(JPanel, JScrollPane)로 사용되는 페이지일 때
@@ -81,28 +91,35 @@ public class BookManager extends JFrame implements ActionListener {
             gubun = "boardMgr";
             
             if ( "boardMgr".equals( gubun ) ) {
-                System.out.println( "게시판 선택" + boardController );
                 boardController = ( BoardController ) FrontController.getController( gubun );
+                System.out.println( "게시판 선택, " + boardController + ", gubun = " + gubun );
+                // log.info( "게시판 선택, " + boardController + ", gubun = " + gubun );
+                // 게시판 컨트롤러가 결정되면 다시 디폴트 값으로 초기화
+                gubun = "bookMgr";
             }
         }
         else if ( "bookMgr".equals( gubun ) ) {
             
             bookController = ( BookController ) FrontController.getController( gubun );
-            System.out.println( "도서관리 선택" + bookController );
+            System.out.println( "도서관리 선택, " + bookController + ", gubun = " + gubun );
+            // log.info( "게시판 선택, " + bookController + ", gubun = " + gubun );
             
             // if문은 무조건 조건을 따진다.
             // else if 문은 앞 조건 을 수렴하면 뒤에 있는 코드는 실행기회를 갖지 않는다.
             if ( object == jbtn_sel ) {
-                System.out.println( "조회" );
+                List<Map<String, Object>> tempList = new ArrayList<>();
+                
+                tempList = bookController.getBookList( gubun, "한국소설" );
+                System.out.println( tempList );
             }
             else if ( object == jbtn_ins ) {
-                System.out.println( "입력" );
+                bookController.bookInsert( null );
             }
             else if ( object == jbtn_upd ) {
-                System.out.println( "수정" );
+                bookController.bookUpdate( null );
             }
             else if ( object == jbtn_del ) {
-                System.out.println( "삭제" );
+                bookController.bookDelete( 10 );
             }
         }
     }

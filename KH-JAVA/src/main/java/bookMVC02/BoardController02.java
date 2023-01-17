@@ -1,6 +1,6 @@
-package bookMVC;
+package bookMVC02;
 
 // public class BoardController extends FrontController {}
 // public class BoardController implements Controller {}
-public class BoardController {
+public class BoardController02 {
 }

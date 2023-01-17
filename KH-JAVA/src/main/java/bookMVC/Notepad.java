@@ -1,6 +1,12 @@
 package bookMVC;
 
 public class Notepad {
+    // Gradle 기반 Java 프로젝트에 외부 라이브러리 추가하가ㅣ
+    
+    // 1. https://mvnrepository.com/ 에서 필요한 라이브러리를 검색한다.
+    // 2. 검색결과에서 해당 라이브러리를 선택한다.
+    // 3. 필요한 버전을 클릭하고 gradle(short)탭을 선택한 후에 필요한 정보를 복사한다.
+    
     // JAVA -> JFrame -> 브라우저에서 동작안함 - native app
     // 웹 프로그래밍 (html, css, js - 정적페이지 처리)
     // 동적페이지 처리 - JAVA -> HTTP 프로토콜을 지원하는 API가 없다.
@@ -29,10 +35,17 @@ public class Notepad {
     // Controller 컨트롤 계층
     
     // View 뷰 계층
-    // BookManager.java에 main method가 있다. 
-    // 조회, 수정, 삭제, 입력 -> BookController 
+    // BookManager.java에 main method가 있다.
+    // 조회, 수정, 삭제, 입력 -> BookController
     // 버튼이 클릭되었을 때 BookController를 주입 받을건지 아니면 BoardController를 주입 받을지 결정
     // 사용자가 의사결정을 한다.
     // 사용자가 선택한 정보를 넘기는 방법은 뭐지? -파라미터
     // String gubum = "bookMgr" or "boardMgr"
+    
+    /*
+     * SQL 응용 - JAVA와 오라클 연동(연계)하기
+     * JDBC API - MyBatis - Hibernate
+     * 
+     */
+    
 }
