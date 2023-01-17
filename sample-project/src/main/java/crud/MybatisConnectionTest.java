@@ -24,13 +24,13 @@ public class MybatisConnectionTest {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build( inputStream );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            logger.error( "데이터베이스 연결 실패", e );
         }
         
         SqlSession session = sqlSessionFactory.openSession();
         
         // int insertResult = session.insert( "addMember", new Member( "test5", "q1w2e3r4", "010-5555-5555" ) );
-        // logger.info( "INSERT RESULT : " + insertResult );
+        // logger.info( "INSERT RESULT : {}", insertResult );
         //
         // if ( insertResult > 0 ) {
         // session.commit();
@@ -42,7 +42,7 @@ public class MybatisConnectionTest {
         // Member param = new Member();
         // param.setUser_id( 6 );
         // int updateResult = session.update( "deleteMember", param );
-        // logger.info( "UPDATE RESULT : " + updateResult );
+        // logger.info( "UPDATE RESULT : {}", updateResult );
         //
         // if ( updateResult > 0 ) {
         // session.commit();

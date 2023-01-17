@@ -24,11 +24,11 @@ public class ChildClass extends ParentClass {
     // }
     
     private void methodOverloading( String str ) {
-        logger.info( "파라미터 1개 methodOverloading 메서드" + "str : " + str );
+        logger.info( "파라미터 1개 methodOverloading 메서드 str : {}", str );
     }
     
     private void methodOverloading( String str, int i ) {
-        logger.info( "파라미터 2개 methodOverloading 메서드" + "str : " + str + ", i : " + i );
+        logger.info( "파라미터 2개 methodOverloading 메서드 str : {}, i : {}", str, i );
     }
     
     public static void main( String[] args ) {

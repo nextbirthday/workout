@@ -7,6 +7,9 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class MyBatisSqlSessionFactory {
     
     private static SqlSessionFactory sqlSessionFactory;
@@ -23,7 +26,7 @@ public class MyBatisSqlSessionFactory {
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build( inputStream );
             }
             catch ( IOException e ) {
-                e.printStackTrace();
+                log.error( "데이터베이스 연결 실패", e );
             }
         }
         return sqlSessionFactory;

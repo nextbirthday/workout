@@ -107,7 +107,8 @@ public class DeptView extends JFrame implements ActionListener {
                     
                     for ( Component component : components ) {
                         if ( component instanceof JTextField )
-                            ( ( JTextField ) component ).setText( String.valueOf( model.getValueAt( table.getSelectedRow(), index++ ) ) );
+                            ( ( JTextField ) component ).setText(
+                                            String.valueOf( model.getValueAt( table.getSelectedRow(), index++ ) ) );
                     }
                 }
                 else {
@@ -122,11 +123,11 @@ public class DeptView extends JFrame implements ActionListener {
                     result = controller.cudDept( new DeptDTO( deptno, null, null ), Command.DELETE );
                     
                     if ( result == 1 ) {
-                        log.info( result + " : DELETE 성공" );
+                        log.info( "{} : DELETE 성공", result );
                         getDept();
                     }
                     else
-                        log.error( result + " : DELETE 실패" );
+                        log.error( "{} : DELETE 실패", result );
                 }
                 else {
                     JOptionPane.showMessageDialog( this, "삭제할 레코드를 선택해주세요.", "ERROR", JOptionPane.ERROR_MESSAGE );
@@ -159,21 +160,21 @@ public class DeptView extends JFrame implements ActionListener {
                         result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
                         
                         if ( result == 1 ) {
-                            log.info( result + " : INSERT 성공" );
+                            log.info( "{} : INSERT 성공", result );
                             getDept();
                         }
                         else
-                            log.info( result + " : INSERT 실패" );
+                            log.info( "{} : INSERT 실패", result );
                     }
                     else {
                         result = controller.cudDept( new DeptDTO( deptno, dname, loc ), command );
                         
                         if ( result == 1 ) {
-                            log.info( result + " : UPDATE 성공" );
+                            log.info( "{} : UPDATE 성공", result );
                             getDept();
                         }
                         else
-                            log.info( result + " : UPDATE 실패" );
+                            log.info( "{} : UPDATE 실패", result );
                     }
                 }
                 catch ( NumberFormatException nfe ) {

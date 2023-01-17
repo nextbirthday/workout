@@ -31,13 +31,13 @@ public class DeptModel2 {
             dataBaseConnection.closeConnection( con );
         }
         catch ( ClassNotFoundException e ) {
-            e.printStackTrace();
+            log.error( "ClassNotFoundException", e );
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            log.error( "SQLException", e );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            log.error( "IOException", e );
         }
         return result;
     }
@@ -55,13 +55,13 @@ public class DeptModel2 {
             dataBaseConnection.closeConnection( con );
         }
         catch ( ClassNotFoundException e ) {
-            e.printStackTrace();
+            log.error( "ClassNotFoundException", e );
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            log.error( "SQLException", e );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            log.error( "IOException", e );
         }
         return result;
     }
@@ -79,13 +79,13 @@ public class DeptModel2 {
             dataBaseConnection.closeConnection( con );
         }
         catch ( ClassNotFoundException e ) {
-            e.printStackTrace();
+            log.error( "ClassNotFoundException", e );
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            log.error( "SQLException", e );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            log.error( "IOException", e );
         }
         return result;
     }
@@ -108,13 +108,13 @@ public class DeptModel2 {
             dataBaseConnection.closeConnection( con );
         }
         catch ( ClassNotFoundException e ) {
-            e.printStackTrace();
+            log.error( "ClassNotFoundException", e );
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            log.error( "SQLException", e );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            log.error( "IOException", e );
         }
         return data;
     }

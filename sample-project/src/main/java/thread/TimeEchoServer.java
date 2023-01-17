@@ -1,11 +1,13 @@
 package thread;
 
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.util.Vector;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class TimeEchoServer {
     
     protected static List<ServerThread> connectionList = new Vector<>();
@@ -18,7 +20,7 @@ public class TimeEchoServer {
             
             try {
                 int port = Integer.parseInt( args[0] );
-                System.out.println( "Time Echo Server Started" );
+                log.info( "Time Echo Server Started" );
                 serverSocket = new ServerSocket( port );
                 
                 while ( true ) {
@@ -28,15 +30,12 @@ public class TimeEchoServer {
                     connectionList.add( thread );
                 }
             }
-            catch ( NumberFormatException e ) {
-                System.out.println( e + "\nUsage: java TimeEchoServer <port number>" );
-            }
-            catch ( IOException e ) {
-                e.printStackTrace();
+            catch ( Exception e ) {
+                log.error( "Usage: java TimeEchoServer <port number>", e );
             }
         }
         else {
-            System.out.println( "Usage: java TimeEchoServer <port number>" );
+            log.info( "Usage: java TimeEchoServer <port number>" );
         }
     }
 }

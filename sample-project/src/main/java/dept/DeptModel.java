@@ -55,7 +55,7 @@ public class DeptModel {
                 return result;
             }
         }
-        log.error( dto.getDeptno() + " : 일치하는 부서번호가 없습니다." );
+        log.error( "{} : 일치하는 부서번호가 없습니다.", dto.getDeptno() );
         
         return result;
     }
