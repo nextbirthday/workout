@@ -26,7 +26,7 @@ public class MySQLConnection {
             }
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            logger.error( "SQLException", e );
         }
     }
     
@@ -39,7 +39,7 @@ public class MySQLConnection {
             }
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            logger.error( "SQLException", e );
         }
     }
     
@@ -52,7 +52,7 @@ public class MySQLConnection {
             }
         }
         catch ( SQLException e ) {
-            e.printStackTrace();
+            logger.error( "SQLException", e );
         }
     }
     
@@ -123,8 +123,8 @@ public class MySQLConnection {
                 customerList.add( customer );
             }
         }
-        catch ( ClassNotFoundException | SQLException e ) {
-            e.printStackTrace();
+        catch ( Exception e ) {
+            logger.error( "Exception", e );
         }
         finally {
             mysql.closeResultSet( rs );

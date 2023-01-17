@@ -1,10 +1,12 @@
 package thread;
 
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class TimeEchoClient implements Runnable {
     
     private Socket client;
@@ -25,13 +27,13 @@ public class TimeEchoClient implements Runnable {
             ObjectInputStream  input  = new ObjectInputStream( client.getInputStream() );
             
             while ( true ) {
-                System.out.println( input.readObject() );
+                log.info( input.readObject() );
                 Thread.sleep( 1000 );
                 output.writeObject( "Client info : " + client.getLocalSocketAddress() );
             }
         }
-        catch ( IOException | ClassNotFoundException | InterruptedException e ) {
-            e.printStackTrace();
+        catch ( Exception e ) {
+            log.error( "Exception", e );
         }
     }
     
@@ -47,11 +49,11 @@ public class TimeEchoClient implements Runnable {
                 new Thread( client ).start();
             }
             catch ( NumberFormatException e ) {
-                System.out.println( e + "\nUsage: java TimeEchoClient <host name> <port number>" );
+                log.error( "Usage: java TimeEchoClient <host name> <port number>", e );
             }
         }
         else {
-            System.out.println( "Usage: java TimeEchoClient <host name> <port number>" );
+            log.info( "Usage: java TimeEchoClient <host name> <port number>" );
         }
     }
 }

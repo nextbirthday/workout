@@ -7,8 +7,10 @@ import java.security.SecureRandom;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import lombok.extern.log4j.Log4j2;
 import mybatis.MyBatisSqlSessionFactory;
 
+@Log4j2
 public class EncryptionUtil {
     
     private static SqlSessionFactory sqlSessionFactory;
@@ -81,17 +83,15 @@ public class EncryptionUtil {
             do {
                 
                 try {
-                    System.out.println( "입력한 비밀번호 : " + args[0] );
+                    log.info( "입력한 비밀번호 : {}", args[0] );
                     Encryption encryption = util.toCiphertext( args[0], util.generateSalt() );
                     sqlSession.insert( "insertPassword", encryption );
-                    
-                    System.out.println( "암호화된 비밀번호 : " + encryption.getPassword() + ", 길이 : "
-                                    + ( encryption.getPassword().length() / 2 ) + " Bytes" );
+                    log.info( "암호화된 비밀번호 : {}, 길이 : {} Bytes\n", encryption.getPassword(),
+                                    encryption.getPassword().length() / 2 );
                 }
                 catch ( NoSuchAlgorithmException e ) {
-                    e.printStackTrace();
+                    log.error( "NoSuchAlgorithmException", e );
                 }
-                System.out.println();
             } while ( ++index < 10 );
             // 트랜잭션 반영 여부
             // sqlSession.commit();

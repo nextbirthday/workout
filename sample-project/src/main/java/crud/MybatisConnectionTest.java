@@ -24,7 +24,7 @@ public class MybatisConnectionTest {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build( inputStream );
         }
         catch ( IOException e ) {
-            e.printStackTrace();
+            logger.error( "데이터베이스 연결 실패", e );
         }
         
         SqlSession session = sqlSessionFactory.openSession();
