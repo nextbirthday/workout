@@ -16,9 +16,9 @@ public class Instance {
      * @param p ParameterClass 타입 변수
      */
     public void newAddress( ParameterClass p ) {
-        p = new ParameterClass(); 
+        p = new ParameterClass();
         p.value = 30;
-        logger.info( "newAddress() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.info( "newAddress() p의 주솟값 → {}, value = {}", p, p.value );
     }
     
     /**
@@ -29,20 +29,20 @@ public class Instance {
      */
     public void existingAddress( ParameterClass p ) {
         p.value = 30;
-        logger.debug( "existingAddress() abc의 주솟값 → " + p + ", value = " + p.value );
+        logger.debug( "existingAddress() abc의 주솟값 → {}, value = {}", p, p.value );
     }
     
     public static void main( String[] args ) {
-        Instance   it = new Instance(); 
-        ParameterClass p  = new ParameterClass(); 
-       
+        Instance       it = new Instance();
+        ParameterClass p  = new ParameterClass();
+        
         p.value = 10;
-        logger.info( "처음 생성된 인스턴스 p 주솟값 → " + p );  
+        logger.info( "처음 생성된 인스턴스 p 주솟값 → {}", p );
         
         it.newAddress( p );
-        logger.info( "main() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.info( "main() p의 주솟값 → {}, value = {}", p, p.value );
         
         it.existingAddress( p );
-        logger.debug( "main() p의 주솟값 → " + p + ", value = " + p.value );
+        logger.debug( "main() p의 주솟값  → {}, value = {}", p, p.value );
     }
 }
