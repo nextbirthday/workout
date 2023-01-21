@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+	<resultMap type="product.vo.ProductVO" id="product">
+		<id property="productcode" column="PRODUCTCODE" />
+		<result property="product" column="PRODUCT" />
+		<result property="productname" column="PRODUCTNAME" />
+		<result property="price" column="PRICE" />
+		<result property="availability" column="AVAILABILITY" />
+	</resultMap>
+	<insert id="insertProduct" parameterType="product.vo.ProductVO">
+		INSERT INTO
+		ONION.PRODUCT
+		VALUES( #{productcode}, #{product}, #{productname},
+		#{price}, #{availability})
+	</insert>
+	<select id="selectProductList" resultMap="product">
+		SELECT * FROM ONION.PRODUCT
+	</select>
+	<select id="selectProduct" parameterType="product.vo.ProductVO"
+		resultMap="product">
+		SELECT * FROM ONION.PRODUCT
+		WHERE PRODUCTCODE =
+		#{productcode}
+	</select>
+
+</mapper>

@@ -14,6 +14,7 @@ public class TalkServerThread extends Thread { // 토크서버스레드가 클�
     Socket             client = null;
     ObjectOutputStream oos    = null;
     ObjectInputStream  ois    = null;
+    
     // 현재 서버에 입장한 클라이언트 스레드의 닉네임 저장
     String chatName = null;
     
@@ -28,19 +29,27 @@ public class TalkServerThread extends Thread { // 토크서버스레드가 클�
         try {
             oos = new ObjectOutputStream( client.getOutputStream() ); // ObjectOutputStream - 말하기
             ois = new ObjectInputStream( client.getInputStream() ); // ObjectInputStream - 듣기
+            
             String message = ( String ) ois.readObject(); // 오브젝트 단위로 읽고 쓰는
-            ts.jta_log.append( message + "\n" );
+            System.out.println( message );
+            // ts.jta_log.append( message + "\n" );
+            
             StringTokenizer st = new StringTokenizer( message, "#" );
             st.nextToken(); // 100 skip처리
+            
             chatName = st.nextToken(); // 토마토저장
-            ts.jta_log.append( chatName + "님이 입장하였습니다.\n" );
+            
+            // ts.jta_log.append( chatName + "님이 입장하였습니다.\n" );
             
             for ( TalkServerThread tst : ts.globalList ) {
                 this.send( Protocol.TALK_IN + Protocol.separator + tst.chatName );
             }
+            
             // 현재 서버에 입장한 클라이언트 스레드 추가하기
             ts.globalList.add( this );
+            
             this.broadCasting( message );
+            
         }
         catch ( Exception e ) {
             

@@ -27,15 +27,19 @@ public class TalkClientThread extends Thread {
             try {
                 // 100#tomato 님 입장하였습니다.
                 String message = "";
+                
                 message = ( String ) tc.ois.readObject();
+                
                 System.out.println( "서버에서 전송된 message:" + message );
-                StringTokenizer st       = null;
-                int             protocol = 0; // 100 200 300 400 500
+                StringTokenizer st = null;
+                
+                int protocol = 0; // 100 200 300 400 500
                 
                 if ( message != null ) {
                     st = new StringTokenizer( message, "#" );
                     protocol = Integer.parseInt( st.nextToken() );
                 }
+                
                 System.out.println( "protocol:" + protocol );
                 
                 switch ( protocol ) {
@@ -45,6 +49,7 @@ public class TalkClientThread extends Thread {
                         // JTable은 양식일 뿐이고 데이터셋은 DefaultTableModel이니까 거기에 닉네임을 출력함
                         Vector<String> temp = new Vector<>();
                         temp.add( nickName );
+                        System.out.println( temp );
                         // 데이터셋 객체에 한 개 row 추가하기
                         tc.dtm.addRow( temp );
                         break;
