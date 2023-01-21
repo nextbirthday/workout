@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 
 import lombok.extern.log4j.Log4j2;
 
-@Log4j2
+@Log4j2( topic = "logger" )
 public class LithHarbor implements LineListener, ActionListener {
     
     private boolean      isPlaybackCompleted = true;
@@ -32,21 +32,31 @@ public class LithHarbor implements LineListener, ActionListener {
         frame = new JFrame( "리스항구" );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.setVisible( true );
+        
         playButton = new JButton( "재생" );
         playButton.setFont( new Font( "맑은 고딕", Font.BOLD, 50 ) );
         playButton.addActionListener( this );
         playButton.setActionCommand( "PLAY" );
+        
         stopButton = new JButton( "정지" );
         stopButton.setFont( new Font( "맑은 고딕", Font.BOLD, 30 ) );
         stopButton.addActionListener( this );
         stopButton.setActionCommand( "STOP" );
+        
         frame.add( BorderLayout.CENTER, playButton );
         frame.add( BorderLayout.SOUTH, stopButton );
         frame.setSize( 400, 300 );
     }
     
     private void play() {
+        // 소스 경로에 음원 파일을 위치시키고, main 실행 시 args에 경로를 넣어준다.
+        // 파일명에 띄어쓰기가 들어갔을 경우 ""으로 감싸준다. 경로를 읽지 못할 경우 null
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream( audioFilePath );
+        
+        if ( inputStream == null ) {
+            log.error( "inputStream is {}", inputStream );
+            return;
+        }
         
         try {
             AudioInputStream audioStream = AudioSystem.getAudioInputStream( inputStream );
@@ -94,7 +104,7 @@ public class LithHarbor implements LineListener, ActionListener {
             else
                 return;
         }
-        else if ( cmd.equals( "STOP" ) && audioClip.isRunning() ) {
+        else if ( cmd.equals( "STOP" ) && !isPlaybackCompleted ) {
             audioClip.stop();
         }
         else
@@ -102,8 +112,11 @@ public class LithHarbor implements LineListener, ActionListener {
     }
     
     public static void main( String[] args ) {
-        if ( args.length == 1 )
+        
+        if ( args.length == 1 ) {
+            log.debug( args[0] );
             new LithHarbor( args[0] );
+        }
         else
             System.exit( 1 );
     }
