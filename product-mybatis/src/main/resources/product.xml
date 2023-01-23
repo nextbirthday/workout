@@ -15,7 +15,8 @@
 		#{price}, #{availability})
 	</insert>
 	<select id="selectProductList" resultMap="product">
-		SELECT * FROM ONION.PRODUCT
+		SELECT * FROM
+		ONION.PRODUCT
 	</select>
 	<select id="selectProduct" parameterType="product.vo.ProductVO"
 		resultMap="product">
@@ -23,5 +24,11 @@
 		WHERE PRODUCTCODE =
 		#{productcode}
 	</select>
+	<update id="updateProduct">
+		UPDATE ONION.PRODUCT
+		SET AVAILABILITY =
+		#{availability}
+		WHERE PRODUCTCODE = #{productcode}
+	</update>
 
 </mapper>
