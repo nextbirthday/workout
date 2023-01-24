@@ -71,8 +71,4 @@ public class GitBranchTest {
 private static final Logger logger = LogManager.getLogger( "logger" );
 ```
 
-<<<<<<< HEAD
-* 클래스변수로 위처럼 선언하고 메서드 내에서 ```logger.info(), logger.debug()``` 등과 같이 사용
-=======
 - 클래스변수로 위처럼 선언하고 메서드 내에서 `logger.info(), logger.debug()` 등과 같이 사용
->>>>>>> 9c124e8c0c6abed4a11dcd39c2bf81c39375da57
