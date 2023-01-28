@@ -21,8 +21,11 @@ public class ProductCRUD {
         sqlSessionFactory = MyBatisSessionFactory.getInstance();
         sqlSession = sqlSessionFactory.openSession();
         int result = sqlSession.insert( "insertProduct", productVO );
+        
+        /* sqlSession.commit();이 존재하지 않으면 Oracle상에서 commit이 되지 않는다. */
         if ( result > 0 )
             sqlSession.commit();
+        
         return result;
     }
     
@@ -49,11 +52,14 @@ public class ProductCRUD {
         return product;
     }
     
-    public int updateProduct( Product productVO ) {
+    public int updateProduct( Product product ) {
         
         sqlSessionFactory = MyBatisSessionFactory.getInstance();
         sqlSession = sqlSessionFactory.openSession();
-        int result = sqlSession.update( "updateProduct", productVO );
+        int result = sqlSession.update( "updateProduct", product );
+        
+        if ( result > 0 )
+            sqlSession.commit();
         
         log.info( result );
         return result;
@@ -61,15 +67,17 @@ public class ProductCRUD {
     
     public static void main( String[] args ) {
         ProductCRUD c = new ProductCRUD();
-        // ProductVO productVO = new ProductVO( 20, "과자", "감자깡", 1200, 500 );
-        // int result = c.insertProduct( productVO );
-        Product productVO = new Product();
-        productVO.setProductcode( 10 );
-        productVO.setAvailability( 500 );
-        // c.selectProduct();
+        // Product product = new Product( 40, "과자", "포테토칩", 1800, 100 );
+        // int result = c.insertProduct( product );
+        // log.info( result );
+        Product product = new Product();
+        product.setProductcode( 10 );
+        product.setPrice( 1500 );
+        product.setAvailability( 500 );
         // c.selectOne( productVO );
-        
-        c.updateProduct( productVO );
+        log.info( product );
+        c.updateProduct( product );
+        c.selectProduct();
         
     }
     
