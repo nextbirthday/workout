@@ -4,7 +4,7 @@ public class Child extends Parent {
     
     private int childVar;
     
-    @Override // override 학우들에게 설명해보기.
+    @Override 
     protected void parentMethod() {
         System.out.println( "Override parentMethod" );
     }

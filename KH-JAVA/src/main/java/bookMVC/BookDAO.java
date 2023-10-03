@@ -27,7 +27,7 @@ public class BookDAO {
      * @author - HOJAE
      */
     public List<Map<String, Object>> getBookList( String cols, String keyword ) {
-        System.out.println( "BookDAO getBookList call" );
+        log.info( "BookDAO getBookList call" );
         
         List<Map<String, Object>> bookList = null;
         Map<String, Object>       bookMap  = null;
@@ -49,7 +49,7 @@ public class BookDAO {
      */
     public int bookInsert( BookVO bookVO ) {
         int result = 0;
-        System.out.println( "bookInsert call ===> " + bookVO );
+        log.info( "bookInsert call ===> " + bookVO );
         
         return result;
     }
@@ -67,7 +67,7 @@ public class BookDAO {
     public int bookUpdate( BookVO bookVO ) {
         int result = 0;
         
-        System.out.println( "bookUpdate call ===> " + bookVO );
+        log.info( "bookUpdate call ===> " + bookVO );
         return result;
     }
     
@@ -83,8 +83,8 @@ public class BookDAO {
      */
     public int bookDelete( int bk_no ) {
         int result = 0;
-        System.out.println( "bookDelete call ===> " + bk_no );
-        System.out.println( bk_no );
+        log.info( "bookDelete call ===> " + bk_no );
+        log.info( bk_no );
         return result;
     }
 }

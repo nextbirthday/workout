@@ -10,9 +10,9 @@
         <result property="joined_at" column="JOINED_AT" />
         <result property="deactivated_at" column="DEACTIVATED_AT" />
     </resultMap>
-    
+
     <resultMap type="zipcode.ZipCodeDTO" id="zipcode">
-        <id property="uid_no" column="UID_NO"/>
+        <id property="uid_no" column="UID_NO" />
         <result property="zipcode" column="ZIPCODE" />
         <result property="zdo" column="ZDO" />
         <result property="sigu" column="SIGU" />
@@ -23,45 +23,46 @@
         <result property="upd_date" column="UPD_DATE" />
         <result property="address" column="ADDRESS" />
     </resultMap>
-    
+
     <select id="getMemberList" resultMap="member">
         SELECT *
         FROM ONION.MEMBER_TEST
-         <!-- WHERE USER_id = #{user_id} -->
+        <!-- WHERE USER_id = #{user_id} -->
     </select>
-    
+
     <insert id="addMember" parameterType="crud.Member">
         INSERT INTO ONION.MEMBER_TEST( USER_ID, NICKNAME, PASSWORD, PHONE_NUMBER, JOINED_AT )
         VALUES( USER_ID_SEQ.NEXTVAL, #{nickname}, #{password}, #{phone_number}, SYSDATE )
     </insert>
-    
+
     <!-- DB에서 삭제하지 않고 ACTIVATE 상태를 N으로 변경 -->
     <update id="deleteMember" parameterType="crud.Member">
         UPDATE ONION.MEMBER_TEST
         SET ACTIVATE = 'N', DEACTIVATED_AT = SYSDATE
-        WHERE USER_ID = #{user_id}
+        WHERE USER_ID =
+        #{user_id}
     </update>
-    
+
     <select id="getZdo" resultMap="zipcode">
         SELECT DISTINCT ZDO
         FROM SCOTT.ZIPCODE_T
         ORDER BY 1
     </select>
-    
+
     <select id="getSigu" resultMap="zipcode">
         SELECT DISTINCT SIGU
         FROM SCOTT.ZIPCODE_T
         WHERE ZDO = #{zdo}
         ORDER BY 1
     </select>
-    
+
     <select id="getDong" resultMap="zipcode">
         SELECT DISTINCT DONG
         FROM SCOTT.ZIPCODE_T
         WHERE SIGU = #{sigu}
         ORDER BY 1
     </select>
-    
+
     <select id="getRi" resultMap="zipcode">
         SELECT DISTINCT RI
         FROM SCOTT.ZIPCODE_T

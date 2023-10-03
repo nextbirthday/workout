@@ -3,9 +3,11 @@ package bookMVC;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.log4j.Log4j2;
+
 // public class BookController extends FrontController{}
 // public class BookController implements Controller { }
-
+@Log4j2
 public class BookController {
     
     public BookController() {}
@@ -23,7 +25,7 @@ public class BookController {
      * @return BookDAO 클래스로부터 받아온 도서정보
      */
     public List<Map<String, Object>> getBookList( String cols, String keyword ) {
-        System.out.println( "도서목록 조회" );
+        log.info( "도서목록 조회" );
         
         List<Map<String, Object>> bookList = null;
         bookList = bookDAO.getBookList( cols, keyword );
@@ -37,7 +39,7 @@ public class BookController {
      * @return 도서정보 입력에 성공했으면 1, 실패시 0
      */
     public int bookInsert( BookVO bookVO ) {
-        System.out.println( "도서정보 입력" );
+        log.info( "도서정보 입력" );
         int result = 0;
         result = bookDAO.bookInsert( bookVO );
         
@@ -50,7 +52,7 @@ public class BookController {
      * @return 도서정보 수정에 성공했으면 1, 실패시 0
      */
     public int bookUpdate( BookVO bookVO ) {
-        System.out.println( "도서정보 수정" );
+        log.info( "도서정보 수정" );
         int result = 0;
         result = bookDAO.bookUpdate( bookVO );
         return result;
@@ -62,7 +64,7 @@ public class BookController {
      * @return 도서정보 삭제에 성공했으면 1, 실패시 0
      */
     public int bookDelete( int bk_no ) {
-        System.out.println( "도서정보 삭제" );
+        log.info( "도서정보 삭제" );
         int result = 0;
         result = bookDAO.bookDelete( bk_no );
         return result;

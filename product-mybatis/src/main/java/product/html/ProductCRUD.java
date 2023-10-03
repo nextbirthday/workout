@@ -78,7 +78,6 @@ public class ProductCRUD {
         log.info( product );
         c.updateProduct( product );
         c.selectProduct();
-        
     }
     
 }

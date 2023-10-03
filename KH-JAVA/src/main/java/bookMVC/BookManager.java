@@ -92,7 +92,7 @@ public class BookManager extends JFrame implements ActionListener {
             
             if ( "boardMgr".equals( gubun ) ) {
                 boardController = ( BoardController ) FrontController.getController( gubun );
-                System.out.println( "게시판 선택, " + boardController + ", gubun = " + gubun );
+                log.info( "게시판 선택, " + boardController + ", gubun = " + gubun );
                 // log.info( "게시판 선택, " + boardController + ", gubun = " + gubun );
                 // 게시판 컨트롤러가 결정되면 다시 디폴트 값으로 초기화
                 gubun = "bookMgr";
@@ -101,7 +101,7 @@ public class BookManager extends JFrame implements ActionListener {
         else if ( "bookMgr".equals( gubun ) ) {
             
             bookController = ( BookController ) FrontController.getController( gubun );
-            System.out.println( "도서관리 선택, " + bookController + ", gubun = " + gubun );
+            log.info( "도서관리 선택, " + bookController + ", gubun = " + gubun );
             // log.info( "게시판 선택, " + bookController + ", gubun = " + gubun );
             
             // if문은 무조건 조건을 따진다.
@@ -110,7 +110,7 @@ public class BookManager extends JFrame implements ActionListener {
                 List<Map<String, Object>> tempList = new ArrayList<>();
                 
                 tempList = bookController.getBookList( gubun, "한국소설" );
-                System.out.println( tempList );
+                log.info( tempList );
             }
             else if ( object == jbtn_ins ) {
                 bookController.bookInsert( null );

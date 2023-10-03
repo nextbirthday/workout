@@ -72,8 +72,10 @@ public class InsertDialog extends JDialog {
     
     public List<Product> setText() {
         List<Product> tempList = new ArrayList<>();
-        tempList.add( new Product( Integer.parseInt( productcodeField.getText() ), productField.getText(), productnameField.getText(),
-                        Integer.parseInt( priceField.getText() ), Integer.parseInt( availabilityField.getText() ) ) );
+        
+        tempList.add( new Product( Integer.parseInt( productcodeField.getText() ), productField.getText(),
+                        productnameField.getText(), Integer.parseInt( priceField.getText() ),
+                        Integer.parseInt( availabilityField.getText() ) ) );
         return tempList;
     }
     

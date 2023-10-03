@@ -1,7 +1,7 @@
 package bookMVC;
 
 public class Notepad {
-    // Gradle 기반 Java 프로젝트에 외부 라이브러리 추가하가ㅣ
+    // Gradle 기반 Java 프로젝트에 외부 라이브러리 추가하기
     
     // 1. https://mvnrepository.com/ 에서 필요한 라이브러리를 검색한다.
     // 2. 검색결과에서 해당 라이브러리를 선택한다.
